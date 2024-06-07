@@ -8,7 +8,7 @@ type Props = {};
 
 const App = (props: Props) => {
   return (
-    <div className="font-sans">
+    <>
     <Header/>
     <div className="m-[56px]">
       <Routes >
@@ -16,7 +16,7 @@ const App = (props: Props) => {
       </Routes>
       </div>
        <Footer/>
-    </div>
+    </>
    
   );
 };

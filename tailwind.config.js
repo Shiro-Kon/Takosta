@@ -5,7 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
+      fontFamily: {
+        cocomat: ['Cocomat Pro', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
+      },
       colors: {
         'light-gray-green': '#D0D1CA', 
         'almost-white': '#FDFDFD',

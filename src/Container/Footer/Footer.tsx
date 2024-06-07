@@ -4,12 +4,12 @@ type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <footer className="static inset-x-0 bottom-0 z-50 bg-light-gray-green">
+    <footer className="static inset-x-0 bottom-0 z-50 bg-light-gray-green ">
       <div className="flex flex-row">
         <div className="basis-1/3">
           <img src="./Images/Footer/Footer.png" alt="" />
         </div>
-        <div className="basis-1/2 flex flex-col flex-wrap justify-around  gap-6 text-almost-white font-semibold text-2xl py-14">
+        <div className="basis-1/2 flex flex-col flex-wrap justify-around  gap-6 text-almost-white font-normal text-2xl py-14">
           <img
             src="./Images/TAKOSTA_logo.PNG"
             alt=""

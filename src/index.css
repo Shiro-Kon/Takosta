@@ -2,10 +2,25 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@font-face {
+  font-family: 'Cocomat Pro';
+  src: url('../public/font/CocomatPro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../public/font/Montserrat-Light.ttf') format('truetype');
+  font-weight: 300; /* указываем вес шрифта как 300 для Montserrat Light */
+  font-style: normal;
+}
 body {
   margin: 0;
-  
+  font-family: 'Montserrat', sans-serif;
+}
+h1, h2, h3 {
+  font-family: 'Cocomat Pro', sans-serif; 
 }
 
 code {

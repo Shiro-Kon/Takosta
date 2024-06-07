@@ -17,17 +17,17 @@ const Header = (props: Props) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50 bg-light-gray-green">
+    <header className="absolute inset-x-0 top-0 z-50 bg-light-gray-green font-sans">
       <nav
         className="flex items-center justify-between py-2 px-6 lg:px-16"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
+            <span className="sr-only">TAKOSTA</span>
             <img
               className="h-[40px] w-[120px]"
-              src="./Images/TAKOSTA_logo.PNG"
+              src="./Images/TAKOSTA_header.svg"
               alt=""
             />
           </Link>
