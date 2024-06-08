@@ -23,10 +23,10 @@ const Header = (props: Props) => {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 ">
             <span className="sr-only">TAKOSTA</span>
             <img
-              className="h-[40px] w-[120px]"
+              className="h-[50px] w-[120px]"
               src="./Images/TAKOSTA_header.svg"
               alt=""
             />
