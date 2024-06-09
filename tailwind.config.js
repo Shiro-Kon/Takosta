@@ -12,6 +12,7 @@ module.exports = {
       colors: {
         'light-gray-green': '#D0D1CA', 
         'almost-white': '#FDFDFD',
+        'mahogany-brown': '#4B4432'
       },
     },
   },
