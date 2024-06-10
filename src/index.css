@@ -12,7 +12,7 @@
 @font-face {
   font-family: 'Montserrat';
   src: url('../public/font/Montserrat-Light.ttf') format('truetype');
-  font-weight: 300; /* указываем вес шрифта как 300 для Montserrat Light */
+  font-weight: 300; 
   font-style: normal;
 }
 body {
@@ -26,5 +26,6 @@ h1, h2, h3 {
 .m-\[56px\]{
   margin: 0;
 }
+
 
 
