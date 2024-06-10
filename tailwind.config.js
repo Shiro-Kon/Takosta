@@ -8,6 +8,7 @@ module.exports = {
       fontFamily: {
         cocomat: ['Cocomat Pro', 'sans-serif'],
         sans: ['Montserrat', 'sans-serif'],
+        pushkin: ['PushkinScriptHigh']
       },
       colors: {
         'light-gray-green': '#D0D1CA', 
