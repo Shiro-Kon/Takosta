@@ -15,6 +15,15 @@
   font-weight: 300; 
   font-style: normal;
 }
+@font-face {
+  font-family: 'PushkinScriptHigh';
+  src: url('../public/font/PushkinScriptHigh.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Forum';
+  src: url('../public/font/Forum_2.otf') format('opentype');
+}
+
 body {
   margin: 0 auto;
   padding: 0 auto;

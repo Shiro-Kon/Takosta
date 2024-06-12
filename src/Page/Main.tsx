@@ -1,7 +1,7 @@
 
 import HeroBlock from '../Component/HeroBlock'
 import Carousel from '../Component/Carousel'
-import BrandIntroduction from '../Component/BrandIntroduction'
+import BrandIntroduction from '../Component/BrandIntroduction/BrandIntroduction'
 
 
 type Props = {}
