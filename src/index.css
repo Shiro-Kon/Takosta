@@ -2,6 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+
+
 @font-face {
   font-family: 'Cocomat Pro';
   src: url('../public/font/CocomatPro-Regular.ttf') format('truetype');
@@ -37,4 +39,7 @@ h1, h2, h3 {
 }
 
 
-
+html{
+  margin: 0 auto;
+  padding: 0 auto;
+}

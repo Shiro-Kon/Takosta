@@ -4,6 +4,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    screens: {
+      sm: "360px",
+      md: "700px",
+      lg: "1010px",
+      xl: "1440px",
+      xxl: "1690px",
+    },
     extend: {
       fontFamily: {
         cocomat: ['Cocomat Pro', 'sans-serif'],
