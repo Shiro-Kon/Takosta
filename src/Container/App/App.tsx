@@ -1,8 +1,9 @@
 import React from "react";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+
 import { Route, Routes } from "react-router-dom";
 import Main from "../../Page/Main";
+import Footer from "../Footer/Footer";
 
 type Props = {};
 
@@ -15,7 +16,7 @@ const App = (props: Props) => {
         <Route path="/" element={<Main />} />
       </Routes>
       </div>
-       <Footer/>
+      <Footer />
     </>
    
   );

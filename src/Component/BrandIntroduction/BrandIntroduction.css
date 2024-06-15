@@ -1,7 +1,7 @@
 .oval path {
   fill: none;
   stroke: #968625;
-  stroke-width: 2;
+  stroke-width: 3;
   stroke-dasharray: 999;
   stroke-dashoffset: 999;
   animation: draw 5s cubic-bezier(0.15, 1, 0.45, 0.45) infinite;

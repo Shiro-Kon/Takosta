@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 const HeroBlock = () => {
   return (
-    <div className="relative h-full h-[100vh]">
+    <div className="relative  h-[100vh]">
       <div>
         <img src="./Images/Heroblock/Heroblok.png" alt="1" className="absolute inset-0 -z-50 w-full h-[100vh] object-cover" />
       </div>
       <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
         <div className="text-center">
-          <img src="./Images/TAKOSTA_logo.png" alt="Takosta professional cosmetics" className="mt-20 scale-75 md:scale-110" />
+          <img src="./Images/TAKOSTA_logo.png" alt="Takosta professional cosmetics" className="mt-20 scale-75 lg:scale-110" />
           <div className="mt-8 md:mt-40 flex items-center justify-center">
             <Link
               to="/"
