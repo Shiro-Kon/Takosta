@@ -22,7 +22,13 @@ const App = () => {
     contact: false,
   });
 
-  
+
+  useEffect(() => {
+    setPageStatus((prevStatus) => ({
+      ...prevStatus,
+      main: true, 
+    }));
+  }, []);
 
   return (
     <>
@@ -31,11 +37,11 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            element={pageStatus.main ? <Main /> : <NotFoundPage  />}
+            element={pageStatus.main ? <Main /> : <NotFoundPage />}
           />
           <Route
             path="/product"
-            element={pageStatus.product ? <ProductPage /> : <NotFoundPage  />}
+            element={pageStatus.product ? <ProductPage /> : <NotFoundPage />}
           />
           <Route
             path="/delivery-payment"
@@ -43,21 +49,21 @@ const App = () => {
               pageStatus.deliveryPayment ? (
                 <DeliveryPaymentPage />
               ) : (
-                <NotFoundPage  />
+                <NotFoundPage />
               )
             }
           />
           <Route
             path="/services"
-            element={pageStatus.services ? <ServicesPage /> : <NotFoundPage  />}
+            element={pageStatus.services ? <ServicesPage /> : <NotFoundPage />}
           />
           <Route
             path="/contact"
-            element={pageStatus.contact ? <ContactPage /> : <NotFoundPage  />}
+            element={pageStatus.contact ? <ContactPage /> : <NotFoundPage />}
           />
         </Routes>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
