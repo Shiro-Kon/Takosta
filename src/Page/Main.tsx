@@ -1,6 +1,6 @@
 
 import HeroBlock from '../Component/HeroBlock'
-import Carousel from '../Component/Carousel'
+import Carousel from '../Component/Carousel/Carousel'
 import BrandIntroduction from '../Component/BrandIntroduction/BrandIntroduction'
 
 

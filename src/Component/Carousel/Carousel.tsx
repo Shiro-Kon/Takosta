@@ -2,10 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import './Carousel.css';
 import CarouselProducts, {
   CarouselProductsData,
-} from "../Utils/CarouselProductsArry";
+} from "../../Utils/CarouselProductsArry";
 import { Link } from "react-router-dom";
 
 const NextArrow = (props: any) => {

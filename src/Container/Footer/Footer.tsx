@@ -5,7 +5,7 @@ type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <footer className="bg-light-gray-green flex flex-col items-center w-full border-t-2 border-white/20">
+    <footer className="bg-light-gray-green flex flex-col  w-full border-t-2 border-white/20">
       <div className="bg-black/5">
       <div className="flex flex-col md:flex-row w-full justify-around items-start  overflow-hidden">
         <div className="lg:flex-1  text-white">
