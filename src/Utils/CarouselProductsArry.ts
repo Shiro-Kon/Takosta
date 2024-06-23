@@ -12,7 +12,7 @@ export interface CarouselProductsData {
   const CarouselProducts: CarouselProductsData[] = [
     {
       id: '1',
-      image: './Images/CarouselProduct/IMG-1.webp',
+      image: './Images/CarouselProduct/IMG-1.png',
       title: 'Shampoo Repair 1',
       description: 'Активний ріст, збільшення густини та зволоження. 1',
       price: '100 ',
@@ -20,7 +20,7 @@ export interface CarouselProductsData {
     },
     {
       id: '2',
-      image: './Images/CarouselProduct/IMG-2.webp',
+      image: './Images/CarouselProduct/IMG-2.png',
       title: 'Shampoo Repair 2',
       description: 'Активний ріст, збільшення густини та зволоження. 2 ',
       price: '200 ',
@@ -28,7 +28,7 @@ export interface CarouselProductsData {
     },
     {
       id: '3',
-      image: './Images/CarouselProduct/IMG-3.webp',
+      image: './Images/CarouselProduct/IMG-3.png',
       title: 'Shampoo Repair 3',
       description: 'Активний ріст, збільшення густини та зволоження. 3',
       price: '300 ',
@@ -36,7 +36,7 @@ export interface CarouselProductsData {
     },
     {
       id: '4',
-      image: './Images/CarouselProduct/IMG-4.webp',
+      image: './Images/CarouselProduct/IMG-4.png',
       title: 'Shampoo Repair 4',
       description: 'Активний ріст, збільшення густини та зволоження. 4',
       price: '400 ',
@@ -44,7 +44,7 @@ export interface CarouselProductsData {
     },
     {
       id: '5',
-      image: './Images/CarouselProduct/IMG-5.webp',
+      image: './Images/CarouselProduct/IMG-5.png',
       title: 'Shampoo Repair 5',
       description: 'Активний ріст, збільшення густини та зволоження. 5',
       price: '500 ',
@@ -52,7 +52,7 @@ export interface CarouselProductsData {
     },
     {
       id: '6',
-      image: './Images/CarouselProduct/IMG-6.webp',
+      image: './Images/CarouselProduct/IMG-6.png',
       title: 'Shampoo Repair 6',
       description: 'Активний ріст, збільшення густини та зволоження. 6',
       price: '600 ',
@@ -60,7 +60,7 @@ export interface CarouselProductsData {
     },
     {
       id: '7',
-      image: './Images/CarouselProduct/IMG-7.webp',
+      image: './Images/CarouselProduct/IMG-7.png',
       title: 'Shampoo Repair 7',
       description: 'Активний ріст, збільшення густини та зволоження. 7',
       price: '700 ',
@@ -68,7 +68,7 @@ export interface CarouselProductsData {
     },
     {
       id: '8',
-      image: './Images/CarouselProduct/IMG-8.webp',
+      image: './Images/CarouselProduct/IMG-8.png',
       title: 'Shampoo Repair 8',
       description: 'Активний ріст, збільшення густини та зволоження. 8',
       price: '800 ',
@@ -76,7 +76,7 @@ export interface CarouselProductsData {
     },
     {
       id: '9',
-      image: './Images/CarouselProduct/IMG-9.webp',
+      image: './Images/CarouselProduct/IMG-9.png',
       title: 'Shampoo Repair 9',
       description: 'Активний ріст, збільшення густини та зволоження. 9',
       price: '900 ',
@@ -84,7 +84,7 @@ export interface CarouselProductsData {
     },
     {
       id: '10',
-      image: './Images/CarouselProduct/IMG-10.webp',
+      image: './Images/CarouselProduct/IMG-10.png',
       title: 'Shampoo Repair 10',
       description: 'Активний ріст, збільшення густини та зволоження. 10',
       price: '1000 ',
@@ -92,7 +92,7 @@ export interface CarouselProductsData {
     },
     {
       id: '11',
-      image: './Images/CarouselProduct/IMG-11.webp',
+      image: './Images/CarouselProduct/IMG-11.png',
       title: 'Shampoo Repair 11',
       description: 'Активний ріст, збільшення густини та зволоження. 11',
       price: '1100 ',

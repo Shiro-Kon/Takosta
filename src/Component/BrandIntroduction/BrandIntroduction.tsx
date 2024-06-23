@@ -1,9 +1,9 @@
-import "./BrandIntroduction.css";
-
+import React from "react";
+import "./BrandIntroduction.css"; 
 const BrandIntroduction = () => {
   return (
     <div className="mx-auto py-16 pt-24 bg-light-gray-green">
-      <h2 className="text-2xl sm:text-3xl  md:text-6xl font-forum text-center mb-4 xl:mb-8 text-white px-4">
+      <h2 className="text-2xl sm:text-3xl md:text-6xl font-forum text-center mb-4 xl:mb-8 text-white px-4">
         <span className="font-pushkin text-6xl md:text-8xl lg:text-[140px] text-soft-sand mr-4">
           Привіт,
         </span>

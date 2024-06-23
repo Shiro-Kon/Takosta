@@ -12,7 +12,7 @@ const NextArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute hidden lg:flex lg:items-center lg:justify-center py-2 lg:w-[50px] lg:-right-[70px] lg:top-0  lg:h-[400px] xl:h-[450px]  xxl:h-[550px] z-40 rounded-sm border-mahogany-brown bg-mahogany-brown/25 text-mahogany-brown shadow-sm duration-300 ease-out hover:bg-mahogany-brown/60 hover:text-white active:scale-90 active:bg-mahogany-brown/100 cursor-pointer"
+      className="absolute hidden lg:flex lg:items-center lg:justify-center py-2 lg:w-[50px] lg:-right-[70px] lg:top-0  lg:h-[400px] xl:h-[450px]  xxl:h-[550px] z-40 rounded-sm border-mahogany-brown bg-black bg-opacity-15 backdrop-blur-md text-white shadow-sm  ease-in-out hover:bg-black/40 hover:text-white active:scale-90 active:bg-black/20 cursor-pointer duration-300"
       onClick={onClick}
     >
       <p className="lg:text-3xl lg:rotate-90">Далі</p>
@@ -24,7 +24,7 @@ const PrevArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute hidden lg:flex lg:items-center lg:justify-center py-2 lg:w-[50px] lg:-left-[70px] lg:top-0  lg:h-[400px] xl:h-[450px] xxl:h-[550px] z-40 rounded-sm border-mahogany-brown bg-mahogany-brown/25 text-mahogany-brown shadow-sm duration-300 ease-out hover:bg-mahogany-brown/60 hover:text-white active:scale-90 active:bg-mahogany-brown/100 cursor-pointer"
+      className="absolute hidden lg:flex lg:items-center lg:justify-center py-2 lg:w-[50px] lg:-left-[70px] lg:top-0  lg:h-[400px] xl:h-[450px] xxl:h-[550px] z-40 rounded-sm border-white bg-black bg-opacity-15 backdrop-blur-md text-white shadow-sm  ease-out hover:bg-black/40 hover:text-white active:scale-90  active:bg-black/20 cursor-pointer duration-300"
       onClick={onClick}
     >
       <p className="lg:text-3xl lg:-rotate-90">Попередня</p>
@@ -78,10 +78,10 @@ const Carousel = () => {
         <img
           src={CarouselProducts.image}
           alt={CarouselProducts.title}
-          className="object-fill w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] xxl:h-[550px] rounded-sm"
+          className="object-cover w-full h-[350px] lg:h-[400px] xl:h-[450px] xxl:h-[550px] rounded-sm"
         />
-        <div className="absolute mx-4 lg:mx-2 inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-500">
-          <div className="absolute bg-white/75 bottom-0 min-h-1/2 rounded-sm p-4 text-mahogany-brown font-sans font-light flex flex-col justify-end items-start">
+        <div className="absolute mx-4 lg:mx-2 inset-0 flex items-center justify-center opacity-0 hover:opacity-100   ">
+          <div className="absolute bg-black bg-opacity-25 backdrop-blur-md bottom-0 min-h-1/2 rounded-sm p-4 text-white font-sans font-light flex flex-col justify-end items-start">
             <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-normal mb-2">
               {CarouselProducts.title}
             </h3>
@@ -93,7 +93,7 @@ const Carousel = () => {
             </p>
             <Link
               to={CarouselProducts.link}
-              className="rounded-sm border-mahogany-brown bg-mahogany-brown/25 p-2 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-5 lg:py-4 xl:px-6 xl:py-5 text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl font-light text-mahogany-brown shadow-sm duration-300 ease-out hover:bg-mahogany-бrown/60 hover:text-white active:scale-90 active:bg-mahogany-brown/100"
+              className="rounded-sm border-white bg-black/25 p-2 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-5 lg:py-4 xl:px-6 xl:py-5 text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl font-light text-white shadow-sm duration-300 ease-out hover:bg-mahogany-бrown/60 hover:text-white active:scale-90 active:bg-mahogany-brown/100"
             >
               Детальніше
             </Link>

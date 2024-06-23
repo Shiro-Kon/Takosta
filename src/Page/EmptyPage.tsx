@@ -5,7 +5,7 @@ type Props = {}
 
 const NotFoundPage  = (props: Props) => {
   return (
-    <main className="grid h-screen place-items-center bg-white px-6 content-center lg:px-8">
+    <main className="grid h-screen place-items-center bg-light-gray-green px-6 content-center lg:px-8">
       <div className="text-center">
         
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl animate-fade-in-up">
