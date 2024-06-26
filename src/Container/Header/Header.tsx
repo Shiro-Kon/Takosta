@@ -26,7 +26,7 @@ const Header = () => {
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">TAKOSTA</span>
-            <img className="h-12 w-auto" src="./Images/TAKOSTA_header.svg" alt="TAKOSTA Logo" />
+            <img className="h-12 w-auto" src="./Images/Header/TAKOSTA_header.svg" alt="TAKOSTA Logo" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -79,7 +79,7 @@ const Header = () => {
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link to="/basket" className="text-sm font-semibold leading-6 text-gray-900">
-            <img src="./Images/Basket.png" alt="Кошик" className="h-8 invert" />
+            <img src="./Images/Header/Basket.png" alt="Кошик" className="h-8 invert" />
           </Link>
         </div>
       </nav>

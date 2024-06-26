@@ -4,8 +4,8 @@ import { footerSections } from "../../Utils/FooterData";
 
 const Footer = () => {
   return (
-    <footer className="bg-light-gray-green flex flex-col w-full border-t-2 border-black/20  ">
-      <div className="bg-black/10 ">
+    <footer className="bg-black/10  flex flex-col w-full border-t-4 border-white/70  z-10">
+      
         <div className="flex flex-col md:flex-row w-full justify-around items-start overflow-hidden ">
           <div className="lg:flex-1 text-white">
             <img
@@ -50,7 +50,7 @@ const Footer = () => {
             </div>
           ))}
         </div>
-      </div>
+      
     </footer>
   );
 };

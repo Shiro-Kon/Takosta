@@ -8,13 +8,13 @@ const HeroBlock = () => {
           src="./Images/Heroblock/Heroblok.png" 
           alt="Background" 
           loading="lazy"
-          className="absolute inset-0 -z-50 w-full h-full object-cover" 
+          className="absolute inset-0  w-full h-full object-cover" 
         />
       </div>
       <div className="flex items-center justify-center h-full mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 ">
         <div className="text-center">
           <img 
-            src="./Images/TAKOSTA_logo.png" 
+            src="./Images/Heroblock/TAKOSTA_logo.PNG" 
             alt="Takosta professional cosmetics" 
             className="scale-75 sm:scale-90  md:scale-100 lg:scale-110 xl:scale-125 mobile-landscape:scale-50 "
           />

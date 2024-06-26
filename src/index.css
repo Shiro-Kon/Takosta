@@ -43,3 +43,12 @@ html{
   margin: 0 auto;
   padding: 0 auto;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
