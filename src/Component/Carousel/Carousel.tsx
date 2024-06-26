@@ -78,6 +78,7 @@ const Carousel = () => {
         <img
           src={CarouselProducts.image}
           alt={CarouselProducts.title}
+          loading="lazy"
           className="object-cover w-full h-[350px] lg:h-[400px] xl:h-[450px] xxl:h-[550px] rounded-sm"
         />
         <div className="absolute mx-4 lg:mx-2 inset-0 flex items-center justify-center opacity-0 hover:opacity-100   ">

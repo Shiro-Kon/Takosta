@@ -7,6 +7,7 @@ const HeroBlock = () => {
         <img 
           src="./Images/Heroblock/Heroblok.png" 
           alt="Background" 
+          loading="lazy"
           className="absolute inset-0 -z-50 w-full h-full object-cover" 
         />
       </div>

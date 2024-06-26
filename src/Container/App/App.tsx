@@ -22,11 +22,10 @@ const App = () => {
     contact: false,
   });
 
-
   useEffect(() => {
     setPageStatus((prevStatus) => ({
       ...prevStatus,
-      main: true, 
+      main: true,
     }));
   }, []);
 

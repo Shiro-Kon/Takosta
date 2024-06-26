@@ -39,23 +39,44 @@ const Header = () => {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
+        
         <div className="hidden lg:flex md:gap-x-4 xl:gap-x-8 xxl:gap-x-14">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              to={item.to}
-              onClick={() => handleLinkClick(item.to)}
-              className={`md:text-xl xl:text-3xl font-light text-white relative overflow-hidden transition-colors duration-300 hover:text-white/60 ${
-                item.to === activeLink ? "text-black/40" : "text-white"
-              }`}
-            >
-              {item.name}
-              {item.to === activeLink && (
-                <span className="absolute bottom-0 left-0 right-0 h-1 bg-black/40 transform translate-y-1/2 transition-transform duration-300" />
-              )}
-            </Link>
-          ))}
-        </div>
+  {navigation.map((item) => (
+    <Link
+      key={item.name}
+      to={item.to}
+      onClick={() => handleLinkClick(item.to)}
+      className={`relative md:text-xl xl:text-3xl font-light text-white relative overflow-hidden transition-colors duration-300 hover:text-white/60 pb-1 ${
+        item.to === activeLink ? "text-white" : "text-white/80"
+      }`}
+    >
+      {item.name}
+      
+      {item.to === activeLink && (
+        <span
+          className="absolute  bottom-0 left-0 right-0  h-0.5 xl:h-1  bg-white/40 transform translate-y-1 transition-transform duration-300 rounded-full"
+          style={{
+            transformOrigin: "left center",
+            transform: "scaleX(1)",
+          }}
+        />
+      )}
+      
+      <span
+        className="absolute bottom-0 left-0 right-0 h-0.5 xl:h-1 bg-white/40 transform translate-y-1/2 transition-transform duration-300 rounded-full"
+        style={{
+          
+          transformOrigin: "left center",
+          transform: item.to === activeLink ? "scaleX(1)" : "scaleX(0)", 
+        }}
+      />
+     
+     
+    </Link>
+  ))}
+</div>
+
+
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link to="/basket" className="text-sm font-semibold leading-6 text-gray-900">
             <img src="./Images/Basket.png" alt="Кошик" className="h-8 invert" />

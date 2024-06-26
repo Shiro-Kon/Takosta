@@ -11,6 +11,7 @@ const Footer = () => {
             <img
               src="./Images/Footer/Footer.png"
               alt="Footer"
+              loading="lazy"
               className="md:h-[400px] lg:h-[500px] xl:h-[600px] xxl:h-[700px] md:w-[200px] lg:w-[300px] xl:w-[400px] xxl:w-[600px] object-cover hidden lg:block"
             />
           </div>
