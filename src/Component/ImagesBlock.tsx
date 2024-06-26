@@ -8,11 +8,11 @@ const ImagesBlock: React.FC = () => {
         {ImagesBlockArry.map((item: ImagesBlockData) => (
           <div 
             key={item.id} 
-            className={'relative overflow-hidden' }
+            className="relative overflow-hidden"
           >
             <img 
               src={item.image} 
-              alt={`Product image ${item.id}`}
+              alt={`Product ${item.id}`}
               className="w-full h-full object-cover"
             />
           </div>
