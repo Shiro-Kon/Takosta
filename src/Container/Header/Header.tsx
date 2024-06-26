@@ -113,7 +113,7 @@ const Header = () => {
             </div>
             <div className="mt-4">
               <Link to="/basket" className="text-sm font-semibold leading-6 text-gray-900">
-                <img src="./Images/Basket.png" alt="Кошик" className="h-8 " />
+                <img src="./Images/Header/Basket.png" alt="Кошик" className="h-8 " />
               </Link>
             </div>
           </div>
