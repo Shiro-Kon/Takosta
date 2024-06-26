@@ -13,35 +13,36 @@ const reviews: Review[] = [
   {
     id: '1',
     name: 'Анна',
-    service: 'Окрашивание волос',
-    shortReview: 'Прекрасный результат! Цвет именно такой, как я хотела.',
-    fullReview: 'Я очень довольна результатом. Мастер внимательно выслушал мои пожелания и подобрал идеальный оттенок. Волосы выглядят здоровыми и блестящими. Обязательно вернусь снова!',
+    service: 'Покраска волосся',
+    shortReview: 'Чудовий результат! Колір саме такий, як я хотіла.',
+    fullReview: 'Я дуже задоволена результатом. Майстер уважно вислухав мої побажання та підібрав ідеальний відтінок. Волосся виглядає здоровим і блискучим. Обов`язково повернуся знову!',
     images: ['./Images/Reviews/work1.png', './Images/Reviews/work1.png'],
   },
   {
     id: '2',
     name: 'Анна',
-    service: 'Окрашивание волос',
-    shortReview: 'Прекрасный результат! Цвет именно такой, как я хотела.',
-    fullReview: 'Я очень довольна результатом. Мастер внимательно выслушал мои пожелания и подобрал идеальный оттенок. Волосы выглядят здоровыми и блестящими. Обязательно вернусь снова!',
+    service: 'Покраска волосся',
+    shortReview: 'Чудовий результат! Колір саме такий, як я хотіла.',
+    fullReview: 'Я дуже задоволена результатом. Майстер уважно вислухав мої побажання та підібрав ідеальний відтінок. Волосся виглядає здоровим і блискучим. Обов`язково повернуся знову!',
     images: ['./Images/Reviews/work1.png', './Images/Reviews/work1.png'],
   },
   {
     id: '3',
     name: 'Анна',
-    service: 'Окрашивание волос',
-    shortReview: 'Прекрасный результат! Цвет именно такой, как я хотела.',
-    fullReview: 'Я очень довольна результатом. Мастер внимательно выслушал мои пожелания и подобрал идеальный оттенок. Волосы выглядят здоровыми и блестящими. Обязательно вернусь снова!',
+    service: 'Покраска волосся',
+    shortReview: 'Чудовий результат! Колір саме такий, як я хотіла.',
+    fullReview: 'Я дуже задоволена результатом. Майстер уважно вислухав мої побажання та підібрав ідеальний відтінок. Волосся виглядає здоровим і блискучим. Обов`язково повернуся знову!',
     images: ['./Images/Reviews/work1.png', './Images/Reviews/work1.png'],
   },
   {
     id: '4',
     name: 'Анна',
-    service: 'Окрашивание волос',
-    shortReview: 'Прекрасный результат! Цвет именно такой, как я хотела.',
-    fullReview: 'Я очень довольна результатом. Мастер внимательно выслушал мои пожелания и подобрал идеальный оттенок. Волосы выглядят здоровыми и блестящими. Обязательно вернусь снова!',
+    service: 'Покраска волосся',
+    shortReview: 'Чудовий результат! Колір саме такий, як я хотіла.',
+    fullReview: 'Я дуже задоволена результатом. Майстер уважно вислухав мої побажання та підібрав ідеальний відтінок. Волосся виглядає здоровим і блискучим. Обов`язково повернуся знову!',
     images: ['./Images/Reviews/work1.png', './Images/Reviews/work1.png'],
   },
+  
  
 ];
 
@@ -125,7 +126,7 @@ const ReviewsSection: React.FC = () => {
   );
 
   return (
-    <div className="relative py-20 ">
+    <div className="relative py-20">
       <img
         src="./Images/Reviews/Reviews.png"
         alt="Background"
@@ -134,7 +135,7 @@ const ReviewsSection: React.FC = () => {
       />
       <div className="absolute inset-0 bg-black bg-opacity-25 backdrop-blur-md z-10" />
       <div className="container mx-auto px-4 relative z-20">
-        <h2 className="text-4xl md:text-2xl lg:text-4xl xl:text-5xl xxl:text-6xl font-light text-center text-white mb-12">Отзывы наших клиентов</h2>
+        <h2 className="text-4xl md:text-2xl lg:text-4xl xl:text-5xl xxl:text-6xl font-light text-center text-white mb-12">Відгуки наших клієнтів</h2>
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 ${animateReviews ? 'animate-fade-in' : ''}`}>
           {displayedReviews.map((review) => (
             <ReviewCard key={review.id} {...review} onClick={() => setSelectedReview(review)} />
@@ -146,14 +147,14 @@ const ReviewsSection: React.FC = () => {
             disabled={currentPage === 0}
             className="rounded border-2 border-white/50 bg-black bg-opacity-15 backdrop-blur-md px-4 py-2 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl xll:4xl font-light text-white shadow-sm duration-200 ease-out hover:bg-black/30 hover:text-white active:scale-95 mobile-landscape:text-base disabled:bg-white/50"
           >
-            Предыдущие
+            Попередні
           </button>
           <button
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, pageCount - 1))}
             disabled={currentPage === pageCount - 1}
             className="rounded border-2 border-white/50 bg-black bg-opacity-15 backdrop-blur-md px-4 py-2 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl xll:4xl font-light text-white shadow-sm duration-200 ease-out hover:bg-black/30 hover:text-white active:scale-95 mobile-landscape:text-base disabled:bg-white/50"
           >
-            Следующие
+            Наступні
           </button>
         </div>
       </div>
