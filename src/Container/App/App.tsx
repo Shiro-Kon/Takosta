@@ -16,7 +16,7 @@ type PageStatus = {
 const App = () => {
   const [pageStatus, setPageStatus] = useState<PageStatus>({
     main: true,
-    product: false,
+    product: true,
     deliveryPayment: false,
     services: false,
     contact: false,
