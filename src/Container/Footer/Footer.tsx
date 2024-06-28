@@ -1,56 +1,52 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { footerSections } from "../../Utils/FooterData";
+import React from 'react';
+import { footerSections } from '../../Utils/FooterData';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
-    <footer className="bg-black/10  flex flex-col w-full border-t-4 border-white/70  z-10">
-      
-        <div className="flex flex-col md:flex-row w-full justify-around items-start overflow-hidden ">
-          <div className="lg:flex-1 text-white">
-            <img
-              src="./Images/Footer/Footer.png"
-              alt="Footer"
-              loading="lazy"
-              className="md:h-[400px] lg:h-[500px] xl:h-[600px] xxl:h-[700px] md:w-[200px] lg:w-[300px] xl:w-[400px] xxl:w-[600px] object-cover hidden lg:block"
-            />
-          </div>
+    <footer className="bg-black/25 py-8">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {footerSections.map((section, index) => (
-            <div key={index} className="flex-1 mt-4 mb-8 mx-8 md:mx-16 lg:mb-0 lg:mx-0 text-white  ">
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl xxl:text-6xl mb-4 xl:mb-6">{section.title}</h3>
-              {section.links ? (
-                section.links.map((link, linkIndex) => (
-                  <p key={linkIndex} className="text-base text-lg md:text-xl lg:text-2xl xl:text-3xl xxl:text-4xl my-2">
-                    <Link
-                      to={link.to}
-                      className="text-white no-underline hover:underline"
-                    >
-                      {link.name}
-                    </Link>
-                  </p>
-                ))
-              ) : (
-                section.details.map((detail, detailIndex) => (
-                  <p key={detailIndex} className="text-base text-lg md:text-xl lg:text-2xl xl:text-3xl xxl:text-4xl my-2">
-                    {detail.startsWith("Telegram") ? (
-                      <a
-                        href={detail.split(": ")[1]}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white no-underline hover:underline"
-                      >
-                        {detail}
+            <div key={index} className="text-white">
+              <div className="font-semibold mb-2">{section.title}</div>
+              {section.details ? (
+                section.details.map((item, idx) => (
+                  <div key={idx} className="mb-1">
+                    {item.type === 'tel' ? (
+                      <a href={`tel:${item.contact}`} className=" sm:text-sm md:text-lg">
+                        {item.contact}
+                      </a>
+                    ) : item.type === 'email' ? (
+                      <a href={`mailto:${item.contact}`} className=" sm:text-sm md:text-lg">
+                        {item.contact}
+                      </a>
+                    ) : item.type === 'link' ? (
+                      <a href={item.contact} className=" sm:text-sm md:text-lg">
+                        {item.contact}
                       </a>
                     ) : (
-                      detail
+                      <span className=" sm:text-sm md:text-lg">{item.contact}</span>
                     )}
-                  </p>
+                  </div>
+                ))
+              ) : (
+                section.links.map((link, idx) => (
+                  <div key={idx} className="mb-1">
+                    <a href={link.url} className=" sm:text-sm md:text-lg">
+                      {link.name}
+                    </a>
+                  </div>
                 ))
               )}
             </div>
           ))}
         </div>
-      
+        <div className="mt-8 text-center">
+          <div className="text-white  sm:text-sm md:text-lg">
+            TAKOSTA professional cosmetics
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };

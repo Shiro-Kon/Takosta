@@ -1,21 +1,55 @@
 export const footerSections = [
   {
-    title: "Навігація",
-    links: [
-      { name: "Головна", to: "/" },
-      { name: "Продукція", to: "/product" },
-      { name: "Доставка та оплата", to: "/delivery-payment" },
-      { name: "Послуги", to: "/services" },
-      { name: "Контакти", to: "/contact" },
+    title: "Телефон",
+    details: [
+      { 
+        title: "Телефон",
+        contact: "+380(93)954 61 97",
+        type: "tel",
+      },
     ],
   },
   {
-    title: "Контакти ",
+    title: "Емейл",
     details: [
-      "+380(93)954 61 97",
-      "takosta_ttt@gmail/com",
-      "Telegram: https://t.me/Tatiana_koll",
-      "Адреса: 2 ЖК “Софія”, Софіївська Борщагівка, вул.Боголюбова 36",
+      {
+        title: "Емейл",
+        contact: "takosta_ttt@gmail.com",
+        type: "email",
+      },
+    ],
+  },
+  {
+    title: "Telegram",
+    details: [
+      {
+        title: "Telegram",
+        contact: "https://t.me/Tatiana_koll",
+        type: "link",
+      },
+    ],
+  },
+  {
+    title: "Адреса",
+    details: [
+      {
+        title: "Адреса",
+        contact: "2 ЖК “Софія”, Софіївська Борщагівка, вул.Боголюбова 36",
+        type: "text",
+      },
+    ],
+  },
+  {
+    title: "Інформація",
+    links: [
+      {
+        name: "Політика конфіденційності",
+        url: "https://mamash.ua/privacy-policy",
+      },
+      {
+        name: "Контакти",
+        url: "https://mamash.ua/contact",
+      },
     ],
   },
 ];

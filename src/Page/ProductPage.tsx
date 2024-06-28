@@ -22,18 +22,18 @@ const CategorySection: React.FC<{ category: string; products: Product[] }> = ({
   products,
 }) => {
   return (
-    <AnimatedElement direction="right" className="my-14">
+    <AnimatedElement direction="right"  className="my-14">
       <h2 className="text-5xl md:text-7xl lg:text-8xl xl:text-8xl font-light mb-6 text-white md:mb-14">
         {category}
       </h2>
       {products.map((product, index) => (
-        <ProductItem key={product.id} product={product} />
+        <ProductItem key={product.id} product={product} delay={index * 0.2}/>
       ))}
     </AnimatedElement>
   );
 };
 
-const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
+const ProductItem: React.FC<{ product: Product; delay: number }> = ({ product, delay }) => {
   return (
     <AnimatedElement direction="right" className="flex flex-col md:flex-row mb-12 text-wrap text-left">
       <img

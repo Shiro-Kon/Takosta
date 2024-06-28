@@ -1,4 +1,5 @@
 import React from 'react';
+import AnimatedElement from './AnimatedElement/AnimatedElement';
 
 interface ServiceProps {
   title: string;
@@ -26,20 +27,24 @@ const ServicesSection: React.FC = () => {
   return (
     <div className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-4xl lg:text-5xl xl:text-6xl  leading-relaxed font-sans text-white text-center mb-12">ПОСЛУГИ ЯКІ МИ НАДАЄМО</h2>
+        <AnimatedElement direction="left" delay={0.4} className="text-4xl md:text-4xl lg:text-5xl xl:text-6xl  leading-relaxed font-sans text-white text-center mb-12">ПОСЛУГИ ЯКІ МИ НАДАЄМО</AnimatedElement>
         <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-16 md:gap-8">
+          <AnimatedElement direction="left" delay={0.6}>
           <ServiceCard
             title="НАША СТУДІЯ КРАСИ"
             image="./Images/Servise/Servise1.png"
             buttonText="ЗАПИСАТИСЯ НА КОНСУЛЬТАЦІЮ"
             onClick={() => console.log('Book consultation')}
           />
+          </AnimatedElement>
+          <AnimatedElement direction="left" delay={0.4}>
           <ServiceCard
             title="НАШ ОНЛАЙН МАГАЗИН"
             image="./Images/Servise/Servise2.png"
             buttonText="ЗРОБИТИ ЗАМОВЛЕННЯ"
             onClick={() => console.log('Make order')}
           />
+          </AnimatedElement>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../../Page/Main";
 import Footer from "../Footer/Footer";
@@ -22,12 +22,19 @@ const App = () => {
     contact: false,
   });
 
+  const location = useLocation();
+
   useEffect(() => {
     setPageStatus((prevStatus) => ({
       ...prevStatus,
       main: true,
     }));
   }, []);
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <>

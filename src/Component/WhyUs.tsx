@@ -1,4 +1,5 @@
 import React from "react";
+import AnimatedElement from "./AnimatedElement/AnimatedElement";
 
 interface FeatureProps {
   icon: React.ReactNode;
@@ -19,12 +20,12 @@ const WhyUs: React.FC = () => {
     <div className="py-16">
       <div className="container mx-auto px-4">
       
-        <h2 className=" text-center mb-12">
+        <AnimatedElement direction="up" delay={0.2} className=" text-center mb-12">
         <span className="font-pushkin text-6xl md:text-7xl lg:text-8xl xl:text-[140px] text-white  mr-4">
       Чому саме <span className="text-soft-sand">ми?</span>
         </span>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        </AnimatedElement>
+        <AnimatedElement direction="up" delay={0.6} className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <Feature
             icon={<svg className="w-[110px] h-[110px]" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>}
             title="Якість"
@@ -41,7 +42,7 @@ const WhyUs: React.FC = () => {
             title="Зоофрендлі"
             description="Не тестується на тваринах"
           />
-        </div>
+        </AnimatedElement>
       </div>
     </div>
   );

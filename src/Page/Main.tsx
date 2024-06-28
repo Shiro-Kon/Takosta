@@ -1,11 +1,12 @@
 
-import HeroBlock from '../Component/HeroBlock'
 import Carousel from '../Component/Carousel/Carousel'
 import BrandIntroduction from '../Component/BrandIntroduction/BrandIntroduction'
 import WhyUs from '../Component/WhyUs'
 import ImagesBlock from '../Component/ImagesBlock'
 import ServicesSection from '../Component/ServicesSection'
-import ReviewsSection from '../Component/ReviewsSection'
+import ReviewsSection from '../Component/ReviewsSection/ReviewsSection'
+import HeroBlock from '../Component/HeroBlock'
+
 
 
 type Props = {}
