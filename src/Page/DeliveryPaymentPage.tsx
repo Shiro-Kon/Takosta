@@ -2,30 +2,19 @@ import React, { useState } from "react";
 import AnimatedElement from "../Component/AnimatedElement/AnimatedElement";
 
 const DeliveryPaymentPage: React.FC = () => {
-  const [openDelivery, setOpenDelivery] = useState(false);
-  const [openPayment, setOpenPayment] = useState(false);
-  const [openTerms, setOpenTerms] = useState(false);
-  const [openReturns, setOpenReturns] = useState(false);
-  const [openWorldwide, setOpenWorldwide] = useState(false);
+  const [sections, setSections] = useState({
+    delivery: false,
+    payment: false,
+    terms: false,
+    returns: false,
+    worldwide: false,
+  });
 
-  const toggleDelivery = () => {
-    setOpenDelivery(!openDelivery);
-  };
-
-  const togglePayment = () => {
-    setOpenPayment(!openPayment);
-  };
-
-  const toggleTerms = () => {
-    setOpenTerms(!openTerms);
-  };
-
-  const toggleReturns = () => {
-    setOpenReturns(!openReturns);
-  };
-
-  const toggleWorldwide = () => {
-    setOpenWorldwide(!openWorldwide);
+  const toggleSection = (section: keyof typeof sections) => {
+    setSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
   };
 
   return (
@@ -53,191 +42,176 @@ const DeliveryPaymentPage: React.FC = () => {
             </AnimatedElement>
           </div>
 
-          <AnimatedElement direction="right" delay={1.2} className="mb-14 md:mx-16">
-            <details className="mb-6">
-              <summary
-                className="cursor-pointer font-medium text-white flex justify-between items-center text-2xl md:text-3xl xl:text-4xl xxl:text-5xl select-none"
-                onClick={toggleDelivery}
-              >
-                Способи доставки
-                <span
-                  className={`transform transition-transform duration-300 ${openDelivery ? "rotate-180" : ""}`}
-                >
-                  ▼
-                </span>
-              </summary>
-              <div
-                className={`mt-6 pl-4 border-l-2 border-gray-300 overflow-hidden transition-all duration-300 ${openDelivery ? "max-h-[1000px]" : "max-h-0"}`}
-              >
-                <div className="grid gap-10">
-                  <div className="bg-white shadow-lg rounded-lg p-6 text-gray-700">
-                    <img
-                      src="./Images/Nova/Nova.svg"
-                      alt="Nova Poshta"
-                      className="w-14 h-14 object-scale-down mb-4"
-                    />
-                    <div className="font-bold text-lg mb-2">
-                      Нова Пошта на склад
-                    </div>
-                    <p className="text-lg mb-4">
-                      Безкоштовна доставка від будь-якої суми. Відправка
-                      протягом 1-10 робочих днів, при накладеному платежі,
-                      повернення коштів оплачує клієнт. В період акцій термін
-                      доставки та очікування може бути продовженим.
-                    </p>
-                  </div>
-                  <div className="bg-white shadow-lg rounded-lg p-6 text-gray-700">
-                    <img
-                      src="./Images/Nova/Nova.svg"
-                      alt="Nova Poshta"
-                      className="w-14 h-14 object-scale-down mb-4"
-                    />
-                    <div className="font-bold text-lg mb-2">
-                      Нова Пошта кур’єром
-                    </div>
-                    <p className="text-lg mb-4">
-                      Безкоштовна доставка від будь-якої суми. Відправка
-                      протягом 1-10 робочих днів, при накладеному платежі,
-                      повернення коштів оплачує клієнт. В період акцій термін
-                      доставки та очікування може бути продовженим.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </details>
+          <div className="mb-14 md:mx-16">
+          <AnimatedElement direction="up" delay={1.4}>
+            <Section
+              title="Способи доставки"
+              isOpen={sections.delivery}
+              toggleSection={() => toggleSection('delivery')}
+            >
+              <DeliveryOptions />
+            </Section>
 
-            <details className="mb-6">
-              <summary
-                className="cursor-pointer font-medium text-white flex justify-between items-center text-2xl md:text-3xl xl:text-4xl xxl:text-5xl select-none"
-                onClick={togglePayment}
-              >
-                Способи оплати
-                <span
-                  className={`transform transition-transform duration-300 ${openPayment ? "rotate-180" : ""}`}
-                >
-                  ▼
-                </span>
-              </summary>
-              <div
-                className={`mt-6 pl-4 border-l-2 border-gray-300 overflow-hidden transition-all duration-300 ${openPayment ? "max-h-[1000px]" : "max-h-0"}`}
-              >
-                <div className="grid gap-10">
-                  <div className="bg-white shadow-lg rounded-lg p-6 text-gray-700">
-                    <div className="flex flex-row gap-6">
-                      <img
-                        src="./Images/Nova/A.svg"
-                        alt="Nova Poshta"
-                        className="w-14 h-14 object-scale-down mb-4"
-                      />
-                      <img
-                        src="./Images/Nova/G.svg"
-                        alt="Nova Poshta"
-                        className="w-14 h-14 object-scale-down mb-4"
-                      />
-                    </div>
-                    <div className="font-bold text-lg mb-2">Оплата онлайн</div>
-                    <p className="text-lg mb-4">
-                      Оплатіть онлайн своє замовлення безпосередньо на сайті
-                    </p>
-                  </div>
-                  <div className="bg-white shadow-lg rounded-lg p-6 text-gray-700">
-                    <img
-                      src="./Images/Nova/Nova.svg"
-                      alt="Nova Poshta"
-                      className="w-14 h-14 object-scale-down mb-4"
-                    />
-                    <div className="font-bold text-lg mb-2">При отриманні</div>
-                    <p className="text-lg mb-4">
-                      Оформіть замовлення і оплатіть його при отриманні.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </details>
+            <Section
+              title="Способи оплати"
+              isOpen={sections.payment}
+              toggleSection={() => toggleSection('payment')}
+            >
+              <PaymentOptions />
+            </Section>
 
-            <details className="mb-6">
-              <summary
-                className="cursor-pointer font-medium text-white flex justify-between items-center text-2xl md:text-3xl xl:text-4xl xxl:text-5xl select-none"
-                onClick={toggleTerms}
-              >
-                Терміни та оплата доставки
-                <span
-                  className={`transform transition-transform duration-300 ${openTerms ? "rotate-180" : ""}`}
-                >
-                  ▼
-                </span>
-              </summary>
-              <div
-                className={`mt-2 pl-4 border-l-2 border-gray-300 overflow-hidden transition-all duration-300 ${openTerms ? "max-h-[1000px]" : "max-h-0"}`}
-              >
-                <p>
-                  Відправка відбувається компанією Нова пошта протягом 1-10
-                  робочих днів.
-                </p>
-                <p>Комісія за накладений платіж оплачується отримувачем.</p>
-              </div>
-            </details>
+            <Section
+              title="Терміни та оплата доставки"
+              isOpen={sections.terms}
+              toggleSection={() => toggleSection('terms')}
+            >
+              <Terms />
+            </Section>
 
-            <details className="mb-6">
-              <summary
-                className="cursor-pointer font-medium text-white flex justify-between items-center text-2xl md:text-3xl xl:text-4xl xxl:text-5xl select-none"
-                onClick={toggleReturns}
-              >
-                Обмін та повернення
-                <span
-                  className={`transform transition-transform duration-300 ${openReturns ? "rotate-180" : ""}`}
-                >
-                  ▼
-                </span>
-              </summary>
-              <div
-                className={`mt-6 pl-4 border-l-2 border-gray-300 overflow-hidden transition-all duration-300 ${openReturns ? "max-h-[1000px]" : "max-h-0"}`}
-              >
-                <p>
-                  Згідно постанови Кабінета Міністрів України від 19 березня
-                  1994 р. № 172- парфюмерно-косметичні вироби обміну та
-                  поверненню не підлягають.
-                </p>
-                <p>
-                  Якщо упакування товару не пошкоджено (не відкрито), ви можете
-                  повернути товар протягом 14 днів після покупки.
-                </p>
-                <p>
-                  Якщо упакування пошкоджено, або товар використовувався - ви не
-                  можете його повернути.
-                </p>
-              </div>
-            </details>
+            <Section
+              title="Обмін та повернення"
+              isOpen={sections.returns}
+              toggleSection={() => toggleSection('returns')}
+            >
+              <Returns />
+            </Section>
 
-            <details className="mb-6">
-              <summary
-                className="cursor-pointer font-medium text-white flex justify-between items-center text-2xl md:text-3xl xl:text-4xl xxl:text-5xl select-none"
-                onClick={toggleWorldwide}
-              >
-                Доставка по світу
-                <span
-                  className={`transform transition-transform duration-300 ${openWorldwide ? "rotate-180" : ""}`}
-                >
-                  ▼
-                </span>
-              </summary>
-              <div
-                className={`mt-6 pl-4 border-l-2 border-gray-300 overflow-hidden transition-all duration-300 ${openWorldwide ? "max-h-[1000px]" : "max-h-0"}`}
-              >
-                <p>
-                  Відправка вашого замовлення за кордон відбувається після
-                  повної оплати клієнтом компанією Укрпошта (або за необхідності
-                  іншою компанією міжнародної доставки) в будь-яку країну та
-                  місто світу.
-                </p>
-                <p>Доставка оплачується клієнтом.</p>
-              </div>
-            </details>
-          </AnimatedElement>
+            <Section
+              title="Доставка по світу"
+              isOpen={sections.worldwide}
+              toggleSection={() => toggleSection('worldwide')}
+            >
+              <WorldwideDelivery />
+            </Section>
+            </AnimatedElement>
+          </div>
         </div>
       </div>
     </main>
   );
 };
+
+type SectionProps = {
+  title: string;
+  isOpen: boolean;
+  toggleSection: () => void;
+  children: React.ReactNode;
+};
+
+const Section: React.FC<SectionProps> = ({
+  title,
+  isOpen,
+  toggleSection,
+  children,
+}) => (
+  
+  <div className="mb-6">
+    <div
+      className="cursor-pointer font-medium text-white flex justify-between items-center text-2xl md:text-3xl xl:text-4xl xxl:text-5xl select-none"
+      onClick={toggleSection}
+    >
+      {title}
+      <span className={`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
+        ▼
+      </span>
+    </div>
+    <div
+      className={`mt-6 pl-4 border-l-2 border-gray-300 overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[1000px]" : "max-h-0"}`}
+    >
+      {children}
+    </div>
+  </div>
+);
+
+const DeliveryOptions: React.FC = () => (
+  <div className="grid gap-10">
+    <DeliveryOption
+      logo="./Images/Nova/Nova.svg"
+      title="Нова Пошта на склад"
+      description="Безкоштовна доставка від будь-якої суми. Відправка протягом 1-10 робочих днів, при накладеному платежі, повернення коштів оплачує клієнт. В період акцій термін доставки та очікування може бути продовженим."
+    />
+    <DeliveryOption
+      logo="./Images/Nova/Nova.svg"
+      title="Нова Пошта кур’єром"
+      description="Безкоштовна доставка від будь-якої суми. Відправка протягом 1-10 робочих днів, при накладеному платежі, повернення коштів оплачує клієнт. В період акцій термін доставки та очікування може бути продовженим."
+    />
+  </div>
+);
+
+const DeliveryOption: React.FC<{ logo: string; title: string; description: string }> = ({
+  logo,
+  title,
+  description,
+}) => (
+  <div className="bg-white shadow-lg rounded-lg p-6 text-gray-700">
+    <img src={logo} alt="Delivery Option" className="w-14 h-14 object-scale-down mb-4" />
+    <div className="font-bold text-lg mb-2">{title}</div>
+    <p className="text-lg mb-4">{description}</p>
+  </div>
+);
+
+const PaymentOptions: React.FC = () => (
+  <div className="grid gap-10">
+    <PaymentOption
+      logos={["./Images/Nova/A.svg", "./Images/Nova/G.svg"]}
+      title="Оплата онлайн"
+      description="Оплатіть онлайн своє замовлення безпосередньо на сайті"
+    />
+    <PaymentOption
+      logo="./Images/Nova/Nova.svg"
+      title="При отриманні"
+      description="Оформіть замовлення і оплатіть його при отриманні."
+    />
+  </div>
+);
+
+const PaymentOption: React.FC<{ logos?: string[]; logo?: string; title: string; description: string }> = ({
+  logos,
+  logo,
+  title,
+  description,
+}) => (
+  <div className="bg-white shadow-lg rounded-lg p-6 text-gray-700">
+    {logos ? (
+      <div className="flex flex-row gap-6">
+        {logos.map((logo, index) => (
+          <img key={index} src={logo} alt="Payment Option" className="w-14 h-14 object-scale-down mb-4" />
+        ))}
+      </div>
+    ) : (
+      <img src={logo} alt="Payment Option" className="w-14 h-14 object-scale-down mb-4" />
+    )}
+    <div className="font-bold text-lg mb-2">{title}</div>
+    <p className="text-lg mb-4">{description}</p>
+  </div>
+);
+
+const Terms: React.FC = () => (
+  <div>
+    <p>Відправка відбувається компанією Нова пошта протягом 1-10 робочих днів.</p>
+    <p>Комісія за накладений платіж оплачується отримувачем.</p>
+  </div>
+);
+
+const Returns: React.FC = () => (
+  <div>
+    <p>
+      Згідно постанови Кабінета Міністрів України від 19 березня 1994 р. № 172- парфюмерно-косметичні вироби обміну та
+      поверненню не підлягають.
+    </p>
+    <p>Якщо упакування товару не пошкоджено (не відкрито), ви можете повернути товар протягом 14 днів після покупки.</p>
+    <p>Якщо упакування пошкоджено, або товар використовувався - ви не можете його повернути.</p>
+  </div>
+);
+
+const WorldwideDelivery: React.FC = () => (
+  <div>
+    <p>
+      Відправка вашого замовлення за кордон відбувається після повної оплати клієнтом компанією Укрпошта (або за необхідності
+      іншою компанією міжнародної доставки) в будь-яку країну та місто світу.
+    </p>
+    <p>Доставка оплачується клієнтом.</p>
+  </div>
+);
 
 export default DeliveryPaymentPage;
