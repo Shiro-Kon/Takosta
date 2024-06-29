@@ -53,7 +53,7 @@ html{
   animation: fadeIn 0.5s ease-out;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 375px) {
   summary::after {
     display: none; 
   }
