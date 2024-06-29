@@ -17,7 +17,7 @@ const App = () => {
   const [pageStatus, setPageStatus] = useState<PageStatus>({
     main: true,
     product: true,
-    deliveryPayment: false,
+    deliveryPayment: true,
     services: false,
     contact: false,
   });

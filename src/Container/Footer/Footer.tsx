@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
               ) : (
                 section.links.map((link, idx) => (
                   <div key={idx} className="mb-1">
-                    <a href={link.url} className=" sm:text-sm md:text-lg">
+                    <a href={link.url} className="text-white/80 sm:text-sm md:text-lg">
                       {link.name}
                     </a>
                   </div>
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <div className="text-white  sm:text-sm md:text-lg">
+          <div className="text-white  sm:text-sm md:text-lg ">
             TAKOSTA professional cosmetics
           </div>
         </div>

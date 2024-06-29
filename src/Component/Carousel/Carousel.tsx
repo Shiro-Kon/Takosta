@@ -26,11 +26,11 @@ const Carousel = () => {
       className="bg-light-gray-green w-full h-auto py-6 lg:p-16 xxl:p-24 relative"
     >
       <div className="mx-auto  relative">
-        <div className="hidden lg:flex justify-start  absolute top-0 left-4 z-10">
+        <div className="hidden lg:flex justify-start  absolute top-0 right-16 z-10">
           
          
-          <div className="swiper-button-prev !text-white after:!text-[25px] !absolute !left-0"></div>
-          <div className="swiper-button-next !text-white after:!text-[25px] !absolute !left-12"></div>
+          <div className="swiper-button-prev !text-white after:!text-[20px] !absolute !left-0"></div>
+          <div className="swiper-button-next !text-white after:!text-[20px] !absolute !left-8"></div>
         </div>
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -76,9 +76,8 @@ const Carousel = () => {
                   />
                   {activeSlide !== index && (
                     <div className="absolute inset-0 flex items-center justify-center   opacity-0 hover:opacity-100 hover:drop-shadow-2xl transition-opacity delay-150 duration-500">
-                      <div className='bg-black/45  p-6 rounded-xl'>
+                      
                       <img src="./Images/clik.png" alt="clik" className='invert'/>
-                      </div>
                     </div>
                   )}
                   {activeSlide === index && (

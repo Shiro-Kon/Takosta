@@ -35,7 +35,8 @@ const CategorySection: React.FC<{ category: string; products: Product[] }> = ({
 
 const ProductItem: React.FC<{ product: Product; delay: number }> = ({ product, delay }) => {
   return (
-    <AnimatedElement direction="right" className="flex flex-col md:flex-row mb-12 text-wrap text-left">
+    <AnimatedElement direction="right" delay={0.5} className="flex flex-col md:flex-row mb-12 text-wrap text-left">
+      
       <img
         src={product.image}
         alt={product.name}

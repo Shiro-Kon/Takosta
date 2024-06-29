@@ -44,11 +44,11 @@ export const footerSections = [
     links: [
       {
         name: "Політика конфіденційності",
-        url: "https://mamash.ua/privacy-policy",
+        url: "/",
       },
       {
         name: "Контакти",
-        url: "https://mamash.ua/contact",
+        url: "/",
       },
     ],
   },
