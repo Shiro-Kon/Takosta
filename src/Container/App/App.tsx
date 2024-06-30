@@ -19,7 +19,7 @@ const App = () => {
     product: true,
     deliveryPayment: true,
     services: false,
-    contact: false,
+    contact: true,
   });
 
   const location = useLocation();

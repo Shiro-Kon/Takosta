@@ -1,6 +1,6 @@
 import React from "react";
 import "./BrandIntroduction.css";
-import AnimatedElement from "../AnimatedElement/AnimatedElement";
+import AnimatedElement from "../../AnimatedElement/AnimatedElement";
 const BrandIntroduction = () => {
   return (
     <div className="mx-auto py-16 pt-24 bg-light-gray-green">

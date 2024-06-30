@@ -1,5 +1,5 @@
 import React from "react";
-import AnimatedElement from "./AnimatedElement/AnimatedElement";
+import AnimatedElement from "../AnimatedElement/AnimatedElement";
 
 interface FeatureProps {
   icon: React.ReactNode;

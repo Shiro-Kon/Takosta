@@ -20,26 +20,6 @@ export const footerSections = [
     ],
   },
   {
-    title: "Telegram",
-    details: [
-      {
-        title: "Telegram",
-        contact: "https://t.me/Tatiana_koll",
-        type: "link",
-      },
-    ],
-  },
-  {
-    title: "Адреса",
-    details: [
-      {
-        title: "Адреса",
-        contact: "2 ЖК “Софія”, Софіївська Борщагівка, вул.Боголюбова 36",
-        type: "text",
-      },
-    ],
-  },
-  {
     title: "Інформація",
     links: [
       {

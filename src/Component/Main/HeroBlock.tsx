@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import AnimatedElement from "./AnimatedElement/AnimatedElement";
+import AnimatedElement from "../AnimatedElement/AnimatedElement";
 
 const HeroBlock = () => {
   return (

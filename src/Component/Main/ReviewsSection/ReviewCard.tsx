@@ -1,5 +1,5 @@
 import React from 'react';
-import { Review } from '../../Utils/reviewsData';
+import { Review } from '../../../Utils/reviewsData';
 
 
 const ReviewCard: React.FC<Review & { onClick: () => void }> = ({ name, service, shortReview, onClick }) => {

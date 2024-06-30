@@ -1,11 +1,11 @@
 
-import Carousel from '../Component/Carousel/Carousel'
-import BrandIntroduction from '../Component/BrandIntroduction/BrandIntroduction'
-import WhyUs from '../Component/WhyUs'
-import ImagesBlock from '../Component/ImagesBlock'
-import ServicesSection from '../Component/ServicesSection'
-import ReviewsSection from '../Component/ReviewsSection/ReviewsSection'
-import HeroBlock from '../Component/HeroBlock'
+import Carousel from '../Component/Main/Carousel/Carousel'
+import BrandIntroduction from '../Component/Main/BrandIntroduction/BrandIntroduction'
+import WhyUs from '../Component/Main/WhyUs'
+import ImagesBlock from '../Component/Main/ImagesBlock'
+import ServicesSection from '../Component/Main/ServicesSection'
+import ReviewsSection from '../Component/Main/ReviewsSection/ReviewsSection'
+import HeroBlock from '../Component/Main/HeroBlock'
 
 
 

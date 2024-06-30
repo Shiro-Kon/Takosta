@@ -25,7 +25,7 @@ const DeliveryPaymentPage: React.FC = () => {
             <AnimatedElement
               direction="up"
               delay={0.4}
-              className="text-3xl md:text-5xl lg:text-7xl xl:text-6xl xxl:text-8xl font-serif font-bold mb-4 md:mb-6 lg:mb-14"
+              className="text-3xl md:text-5xl lg:text-7xl xl:text-6xl xxl:text-8xl  font-bold font-forum mb-4 md:mb-6 lg:mb-14"
             >
               Доставка та оплата
             </AnimatedElement>
@@ -43,7 +43,7 @@ const DeliveryPaymentPage: React.FC = () => {
           </div>
 
           <div className="mb-14 md:mx-16">
-          <AnimatedElement direction="up" delay={1.4}>
+          <AnimatedElement direction="up"  delay={1.4}>
             <Section
               title="Способи доставки"
               isOpen={sections.delivery}

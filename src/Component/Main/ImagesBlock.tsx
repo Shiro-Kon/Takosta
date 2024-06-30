@@ -1,6 +1,6 @@
 import React from 'react';
-import ImagesBlockArry, { ImagesBlockData } from '../Utils/ImagesBlockArry';
-import AnimatedElement from './AnimatedElement/AnimatedElement';
+import ImagesBlockArry, { ImagesBlockData } from '../../Utils/ImagesBlockArry';
+import AnimatedElement from '../AnimatedElement/AnimatedElement';
 
 const ImagesBlock: React.FC = () => {
   return (

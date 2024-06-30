@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Review } from '../../Utils/reviewsData';
+import { Review } from '../../../Utils/reviewsData';
 
 
 const FullReviewModal: React.FC<Review & { onClose: () => void }> = ({ name, service, fullReview, images, onClose }) => {

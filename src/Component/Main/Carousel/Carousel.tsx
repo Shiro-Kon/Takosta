@@ -4,9 +4,9 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import CarouselProducts, { CarouselProductsData } from '../../Utils/CarouselProductsArry';
+import CarouselProducts, { CarouselProductsData } from '../../../Utils/CarouselProductsArry';
 import { Link } from 'react-router-dom';
-import AnimatedElement from '../AnimatedElement/AnimatedElement';
+import AnimatedElement from '../../AnimatedElement/AnimatedElement';
 
 const Carousel = () => {
   const [activeSlide, setActiveSlide] = useState<number | null>(null);

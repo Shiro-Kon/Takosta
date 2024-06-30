@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import reviews, { Review } from '../../Utils/reviewsData';
+import reviews, { Review } from '../../../Utils/reviewsData';
 import ReviewCard from './ReviewCard';
 import FullReviewModal from './FullReviewModal';
-import AnimatedElement from '../AnimatedElement/AnimatedElement';
+import AnimatedElement from '../../AnimatedElement/AnimatedElement';
 
 
 const ReviewsSection: React.FC = () => {
