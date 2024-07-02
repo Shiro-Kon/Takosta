@@ -12,7 +12,7 @@ const FullReviewModal: React.FC<Review & { onClose: () => void }> = ({ name, ser
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-45 backdrop-blur-md z-50 flex items-center justify-center p-4">
-      <div className="bg-black/40 rounded-lg max-w-5xl w-full max-h-[100vh] overflow-y-auto p-8 text-white">
+      <div className="bg-black/40 rounded-lg max-w-[80vh] w-full max-h-[80vh] overflow-y-auto p-8 text-white">
         <h2 className="text-xl md:text-xl lg:text-2xl xl:text-3xl xxl:text-4xl font-semibold mb-4">{name}</h2>
         <p className="text-md lg:text-lg xl:text-xl mb-4">{service}</p>
         <p className="text-lg lg:text-xl xl:text-2xl mb-6">{fullReview}</p>

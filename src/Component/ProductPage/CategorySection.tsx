@@ -9,8 +9,8 @@ const CategorySection: React.FC<{ category: string; products: Product[] }> = ({
   products,
 }) => {
   return (
-    <AnimatedElement direction="right" className="my-14">
-      <h2 className="text-5xl md:text-7xl lg:text-8xl xl:text-8xl font-light font-forum mb-6 text-white md:mb-14">
+    <AnimatedElement direction="right" className="my-8">
+      <h2 className="text-5xl md:text-7xl lg:text-8xl xl:text-8xl font-light font-pushkin mb-6 text-soft-sand md:mb-8 ml-6 ">
         {category}
       </h2>
       {products.map((product, index) => (

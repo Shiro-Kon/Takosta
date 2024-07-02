@@ -24,7 +24,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <main className="pt-[50px] lg:pt-[200px] flex justify-center min-h-screen bg-grayish-beige text-white">
+    <main className="pt-[50px] lg:pt-[200px] xl:pt-[60px] flex justify-center min-h-screen bg-grayish-beige text-white">
       <div className="container mx-auto px-6 py-24">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-8">
           <div className="mb-8 md:mb-0 md:mx-16">
@@ -57,9 +57,9 @@ const ContactForm: React.FC = () => {
                 <ContactInfo
                   icon="telegram"
                   text="https://t.me/Tatiana_koll"
+                  isLink={true}
                 />
               </div>
-              
             </AnimatedElement>
           </div>
 
@@ -69,13 +69,13 @@ const ContactForm: React.FC = () => {
                 <div className="grid grid-cols-2 gap-6">
                   <Input
                     name="firstName"
-                    placeholder="First name"
+                    placeholder="Ім'я"
                     value={formData.firstName}
                     onChange={handleChange}
                   />
                   <Input
                     name="lastName"
-                    placeholder="Last name"
+                    placeholder="Прізвище"
                     value={formData.lastName}
                     onChange={handleChange}
                   />
@@ -83,20 +83,20 @@ const ContactForm: React.FC = () => {
                 <Input
                   name="email"
                   type="email"
-                  placeholder="Email"
+                  placeholder="Емейл"
                   value={formData.email}
                   onChange={handleChange}
                 />
                 <Input
                   name="phoneNumber"
                   type="tel"
-                  placeholder="Phone number"
+                  placeholder="Телефон"
                   value={formData.phoneNumber}
                   onChange={handleChange}
                 />
                 <textarea
                   name="message"
-                  placeholder="Message"
+                  placeholder="Повідомлення"
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
@@ -104,9 +104,9 @@ const ContactForm: React.FC = () => {
                 />
                 <button
                   type="submit"
-                  className="bg-white text-grayish-beige font-bold py-3 px-6 rounded-md shadow-sm duration-200 ease-out hover:bg-black/30 hover:text-white active:scale-95"
+                  className="bg-black/30 text-white py-3 px-6 rounded-md shadow-sm duration-200 ease-out hover:bg-white hover:text-black/70 active:scale-95"
                 >
-                  Send message
+                  Надіслати 
                 </button>
               </form>
             </AnimatedElement>
@@ -117,7 +117,7 @@ const ContactForm: React.FC = () => {
   );
 };
 
-const ContactInfo: React.FC<{ icon: string; text: string }> = ({ icon, text }) => (
+const ContactInfo: React.FC<{ icon: string; text: string; isLink?: boolean }> = ({ icon, text, isLink }) => (
   <div className="flex items-center space-x-3">
     <svg className="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       {icon === "location" && (
@@ -133,7 +133,13 @@ const ContactInfo: React.FC<{ icon: string; text: string }> = ({ icon, text }) =
         <path d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"/>
       )}
     </svg>
-    <span className="text-lg">{text}</span>
+    {isLink ? (
+      <a href={text} className="text-lg text-white hover:underline">
+        {text}
+      </a>
+    ) : (
+      <span className="text-lg">{text}</span>
+    )}
   </div>
 );
 

@@ -18,19 +18,19 @@ const DeliveryPaymentPage: React.FC = () => {
   };
 
   return (
-    <main className="pt-[50px] lg:pt-[200px] flex justify-center min-h-screen bg-grayish-beige text-white">
+    <main className="pt-[50px] lg:pt-[200px] xl:pt-[60px] flex justify-center min-h-screen bg-light-gray-green text-white">
       <div className="container mx-auto px-6 py-24">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-8">
           <div className="mb-8 md:mb-0 md:mx-16">
             <AnimatedElement
               direction="up"
               delay={0.4}
-              className="text-3xl md:text-5xl lg:text-7xl xl:text-6xl xxl:text-8xl  font-bold font-forum mb-4 md:mb-6 lg:mb-14"
+              className="text-3xl md:text-5xl lg:text-7xl xl:text-7xl xxl:text-8xl text-soft-sand  font-bold font-pushkin mb-4 md:mb-6 lg:mb-4"
             >
               Доставка та оплата
             </AnimatedElement>
             <AnimatedElement direction="up" delay={0.7}>
-              <p className="text-xl md:text-2xl lg:text-2xl xl:text-xl xxl:text-2xl mb-4 md:mb-6 lg:mb-12">
+              <p className="text-xl md:text-2xl lg:text-2xl xl:text-xl xxl:text-2xl mb-4 md:mb-6 lg:mb-4">
                 У нас є 2 способи доставки та 3 способи оплати, ви можете
                 скористатись найбільш зручним для вас.
               </p>
@@ -107,7 +107,7 @@ const Section: React.FC<SectionProps> = ({
   
   <div className="mb-6">
     <div
-      className="cursor-pointer font-medium text-white flex justify-between items-center text-2xl md:text-3xl xl:text-4xl xxl:text-5xl select-none"
+      className="cursor-pointer font-medium text-white flex justify-between items-center text-2xl md:text-3xl xl:text-2xl xxl:text-5xl select-none"
       onClick={toggleSection}
     >
       {title}

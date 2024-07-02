@@ -7,7 +7,7 @@ module.exports = {
       md: "768px",
       lg: "1024px",
       xl: "1280px",
-      xxl: "1536px",
+      xxl: "1980px",
       'mobile-landscape': { 'raw': '(min-width: 375px) and (max-width: 667px) and (orientation: landscape)' },
     },
     extend: {
@@ -18,7 +18,7 @@ module.exports = {
         forum: ["Forum"],
       },
       colors: {
-        "light-gray-green": "#D0D1CA",
+        "light-gray-green": "#D4D9D3",
         "almost-white": "#F9F9F9",
         "soft-sand": "#968625",
         "pale-beige": "#E7D9D4",         

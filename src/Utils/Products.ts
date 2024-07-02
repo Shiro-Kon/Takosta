@@ -26,7 +26,7 @@ export interface Product {
     },
     {
       id: 3,
-      name: "CONDITIONER",
+      name: "Condicioner",
       subname:"For all hair types",
       category: "Зволоження",
       description: "Кондиціонер для всіх типів волосся",

@@ -22,11 +22,11 @@ const Header = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-black bg-opacity-15 backdrop-blur-md font-sans">
-      <nav className="flex items-center justify-between py-4 px-6 md:px-8 lg:px-6" aria-label="Global">
+      <nav className="flex items-center justify-between py-2 px-6 md:px-8 lg:px-6" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">TAKOSTA</span>
-            <img className="h-12 w-auto" src="./Images/Header/TAKOSTA_header.svg" alt="TAKOSTA Logo" />
+            <img className="h-10 w-auto" src="./Images/Header/TAKOSTA_header.svg" alt="TAKOSTA Logo" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -46,7 +46,7 @@ const Header = () => {
       key={item.name}
       to={item.to}
       onClick={() => handleLinkClick(item.to)}
-      className={`relative md:text-xl xl:text-3xl font-light text-white relative overflow-hidden transition-colors duration-300 hover:text-white/60 pb-1 ${
+      className={`relative md:text-xl lg:text-2xl  xl:text- xl font-light text-white relative overflow-hidden transition-colors duration-300 hover:text-white/60 pb-1 ${
         item.to === activeLink ? "text-white" : "text-white/80"
       }`}
     >

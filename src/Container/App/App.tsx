@@ -18,7 +18,7 @@ const App = () => {
     main: true,
     product: true,
     deliveryPayment: true,
-    services: false,
+    services: true,
     contact: true,
   });
 

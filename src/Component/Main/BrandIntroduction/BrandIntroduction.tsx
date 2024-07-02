@@ -1,22 +1,23 @@
 import React from "react";
 import "./BrandIntroduction.css";
 import AnimatedElement from "../../AnimatedElement/AnimatedElement";
+
 const BrandIntroduction = () => {
   return (
-    <div className="mx-auto py-16 pt-24 bg-light-gray-green">
-      <h2 className="text-2xl sm:text-3xl md:text-6xl font-forum text-center mb-4 xl:mb-8 text-white px-4">
+    <div className="mx-auto  w-[90%] py-16 pt-24 bg-light-gray-green">
+      <h2 className="text-2xl sm:text-3xl md:text-6xl lg:text-5xl font-forum text-center mb-4 xl:mb-8 text-white px-4">
         <AnimatedElement direction="up" delay={0.2}>
-          <span className="font-pushkin text-6xl md:text-8xl lg:text-[140px] text-soft-sand mr-4">
-            Привіт,
+          <span className="font-pushkin text-6xl md:text-7xl lg:text-8xl xl:text-8xl xxl:text-[140px] text-soft-sand mr-4">
+            Привіт, це бренд
           </span>
-          <span className="text-wrap">це бренд</span>
+         
         </AnimatedElement>
         <AnimatedElement
           direction="up"
           delay={0.4}
           className="relative flex justify-center items-center py-6 md:py-12"
         >
-          <svg className="oval absolute w-[400px] h-[200px] scale-[0.65] md:scale-[1.2] lg:scale-[1.9] lg:w-[400px] lg:h-[200px]">
+          <svg className="oval absolute w-[400px] h-[200px] scale-[0.65] md:scale-[1.2] lg:scale-[1.9] xl:scale-[1.6] xxl:scale-[1.9]  lg:w-[400px] lg:h-[200px]">
             <path
               d="M 160,70 C 300,30 360,130 150,150 C 30,160 110,55 200,50"
               fill="none"
@@ -24,7 +25,7 @@ const BrandIntroduction = () => {
               strokeWidth="3"
             />
           </svg>
-          <div className="z-20 text-6xl md:text-8xl lg:text-[140px]">
+          <div className="z-20 text-6xl md:text-7xl lg:text-8xl xl:text-8xl xxl:text-[140px]">
             TAKOSTA
           </div>
         </AnimatedElement>
@@ -32,7 +33,7 @@ const BrandIntroduction = () => {
       <AnimatedElement
         direction="up"
         delay={0.6}
-        className="mx-auto lg:py-10 px-4 md:px-4 lg:px-6 xl:px-12 text-lg   md:text-xl lg:text-3xl xl:text-4xl leading-relaxed text-center text-white font-sans"
+        className="mx-auto lg:py-10 xl:py-2 px-4  lg:px-6 xl:px-12 text-lg   md:text-xl lg:text-3xl xl:text-2xl xxl:tex-4xl leading-relaxed text-center text-white font-sans"
       >
         <p>Вітає вас у світі краси та догляду!</p>
         <p>

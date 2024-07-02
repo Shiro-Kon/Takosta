@@ -29,8 +29,8 @@ const Carousel = () => {
         <div className="hidden lg:flex justify-start  absolute top-0 right-16 z-10">
           
          
-          <div className="swiper-button-prev !text-white after:!text-[20px] !absolute !left-0"></div>
-          <div className="swiper-button-next !text-white after:!text-[20px] !absolute !left-8"></div>
+          <div className="swiper-button-prev !text-white after:!text-[20px] !absolute !left-0  duration-300 ease-linear  hover:scale-110 active:scale-[0.8]"></div>
+          <div className="swiper-button-next !text-white after:!text-[20px] !absolute !left-8  duration-300 ease-linear  hover:scale-110 active:scale-[0.8]"></div>
         </div>
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -63,16 +63,16 @@ const Carousel = () => {
         >
           {CarouselProducts.map((product: CarouselProductsData, index) => (
             <SwiperSlide key={product.id}>
-              <div className="relative px-4 lg:px-2 mt-10">
+              <div className="relative px-4 lg:px-2 mt-10 ">
                 <div 
-                  className="relative cursor-pointer " 
+                  className="relative cursor-pointer duration-500 ease-in-out   hover:-translate-y-6" 
                   onClick={() => handleSlideClick(index)}
                 >
                   <img
                     src={product.image}
                     alt={product.title}
                     loading="lazy"
-                    className="object-cover w-full h-[350px] lg:h-[400px] xl:h-[450px] xxl:h-[550px] rounded-sm"
+                    className="object-cover w-full h-[350px] lg:h-[400px] xl:h-[450px] xxl:h-[550px] rounded-sm "
                   />
                   {activeSlide !== index && (
                     <div className="absolute inset-0 flex items-center justify-center   opacity-0 hover:opacity-100 hover:drop-shadow-2xl transition-opacity delay-150 duration-500">
@@ -81,7 +81,7 @@ const Carousel = () => {
                     </div>
                   )}
                   {activeSlide === index && (
-                    <div className="absolute inset-0 flex items-end justify-start bg-black/25 backdrop-blur-md rounded-sm p-4 text-white font-sans font-light">
+                    <div className="absolute inset-0 flex items-end justify-start bg-black/35 backdrop-blur-md rounded-sm p-4 text-white font-sans font-light ">
                       <div className="w-full">
                         <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-normal mb-2">
                           {product.title}
@@ -94,7 +94,7 @@ const Carousel = () => {
                         </p>
                         <Link
                           to={product.link}
-                          className="inline-block rounded-sm border-white bg-black/25 p-2 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-5 lg:py-4 xl:px-6 xl:py-5 text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl font-light text-white shadow-sm duration-300 ease-out hover:bg-mahogany-brown/60 hover:text-white active:scale-90 active:bg-mahogany-brown/100"
+                          className="inline-block rounded-sm border-white bg-black/25 p-2 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-4 lg:py-2  xxl:px-6 xxl:py-5 text-sm sm:text-md md:text-lg lg:text-xl xl:text-xl font-light text-white shadow-sm duration-300 ease-out hover:bg-mahogany-brown/60 hover:text-white active:scale-90 active:bg-mahogany-brown/100"
                         >
                           Детальніше
                         </Link>

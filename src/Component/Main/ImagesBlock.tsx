@@ -4,18 +4,20 @@ import AnimatedElement from '../AnimatedElement/AnimatedElement';
 
 const ImagesBlock: React.FC = () => {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto w-[90%] py-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {ImagesBlockArry.map((item: ImagesBlockData) => (
           <AnimatedElement direction="left" delay={0.2} 
             key={item.id} 
             className="relative overflow-hidden"
           >
+            <div className=' duration-300 ease-linear  hover:scale-110'>
             <img 
               src={item.image} 
               alt={`Product ${item.id}`}
-              className="w-full h-full object-cover"
+              className="object-cover w-full h-[350px] lg:h-[400px] xl:h-[450px] xxl:h-[550px] rounded-sm "
             />
+            </div>
           </AnimatedElement>
         ))}
       </div>

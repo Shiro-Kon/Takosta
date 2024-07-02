@@ -8,20 +8,20 @@ interface FeatureProps {
 }
 
 const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => (
-  <div className="flex flex-col items-center text-white text-center text-4xl md:text-2xl lg:text-4xl xl:text-5xl xxl:text-6xl leading-relaxed font-sans">
+  <div className="flex flex-col items-center text-white text-center text-4xl md:text-2xl lg:text-4xl xl:text-4xl xxl:text-6xl leading-relaxed font-sans">
     <div className="mb-0 lg:mb-4">{icon}</div>
     <h3 className="mb-4">{title}</h3>
-    <p className="text-xl md:text-lg lg:text-xl xl:text-2xl xxl:text-3xl">{description}</p>
+    <p className="text-xl md:text-lg lg:text-xl xl:text-lg xxl:text-3xl">{description}</p>
   </div>
 );
 
 const WhyUs: React.FC = () => {
   return (
-    <div className="py-16">
+    <div className="mx-auto  w-[90%] py-16 pt-24">
       <div className="container mx-auto px-4">
       
         <AnimatedElement direction="up" delay={0.2} className=" text-center mb-12">
-        <span className="font-pushkin text-6xl md:text-7xl lg:text-8xl xl:text-[140px] text-white  mr-4">
+        <span className="font-pushkin text-6xl md:text-7xl lg:text-8xl xl:text-8xl xxl:text-[140px] text-white  mr-4">
       Чому саме <span className="text-soft-sand">ми?</span>
         </span>
         </AnimatedElement>
