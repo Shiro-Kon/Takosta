@@ -24,24 +24,24 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <main className="pt-[50px] lg:pt-[200px] xl:pt-[60px] flex justify-center min-h-screen bg-grayish-beige text-white">
+    <main className="pt-[50px] lg:pt-[200px] xl:pt-[60px] flex justify-center min-h-screen text-white">
       <div className="container mx-auto px-6 py-24">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-8">
           <div className="mb-8 md:mb-0 md:mx-16">
             <AnimatedElement
               direction="up"
               delay={0.4}
-              className="text-3xl md:text-5xl lg:text-7xl xl:text-6xl xxl:text-8xl font-bold font-forum mb-4 md:mb-6 lg:mb-14"
+              className="text-5xl md:text-5xl lg:text-7xl xl:text-7xl xxl:text-8xl text-soft-sand font-pushkin mb-2 md:mb-6 lg:mb-6 xxl:mb-10 "
             >
               Контакти та консультація
             </AnimatedElement>
             <AnimatedElement direction="up" delay={0.7}>
-              <p className="text-xl md:text-2xl lg:text-2xl xl:text-xl xxl:text-2xl mb-4 md:mb-6 lg:mb-12">
+              <p className="text-xl md:text-2xl lg:text-2xl xl:text-xl xxl:text-2xl mb-4 md:mb-6 lg:mb-12 font-semibold text-soft-sand/50">
               Замовте консультацію і  косметолог підбере для вас  продукцію для догляду
               </p>
             </AnimatedElement>
             <AnimatedElement direction="up" delay={1}>
-              <div className="space-y-4">
+              <div className="space-y-4 text-xl md:text-2xl lg:text-2xl xl:text-xl xxl:text-2xl mb-4 md:mb-6 lg:mb-12 font-semibold text-soft-sand/50">
                 <ContactInfo
                   icon="location"
                   text="2 ЖК “Софія”, Софіївська Борщагівка, вул.Боголюбова 36"
@@ -72,6 +72,7 @@ const ContactForm: React.FC = () => {
                     placeholder="Ім'я"
                     value={formData.firstName}
                     onChange={handleChange}
+                    
                   />
                   <Input
                     name="lastName"
@@ -93,6 +94,7 @@ const ContactForm: React.FC = () => {
                   placeholder="Телефон"
                   value={formData.phoneNumber}
                   onChange={handleChange}
+                  className="bg-soft-sand/50 rounded-md p-3 w-full text-white placeholder-white/50"
                 />
                 <textarea
                   name="message"
@@ -100,11 +102,11 @@ const ContactForm: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="bg-white/10 rounded-md p-3 w-full text-white placeholder-white/50"
+                  className="bg-soft-sand/50 rounded-md p-3 w-full text-white placeholder-white/50"
                 />
                 <button
                   type="submit"
-                  className="bg-black/30 text-white py-3 px-6 rounded-md shadow-sm duration-200 ease-out hover:bg-white hover:text-black/70 active:scale-95"
+                  className="bg-soft-sand/90 font-semibold text-white py-3 px-6 rounded-md shadow-sm duration-200 ease-out hover:bg-soft-sand/30 hover:text-white active:scale-95"
                 >
                   Надіслати 
                 </button>
@@ -146,7 +148,7 @@ const ContactInfo: React.FC<{ icon: string; text: string; isLink?: boolean }> = 
 const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => (
   <input
     {...props}
-    className="bg-white/10 rounded-md p-3 w-full text-white placeholder-white/50"
+    className="bg-soft-sand/50 rounded-md p-3 w-full text-white placeholder-white/50"
   />
 );
 

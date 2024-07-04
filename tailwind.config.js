@@ -7,7 +7,8 @@ module.exports = {
       md: "768px",
       lg: "1024px",
       xl: "1280px",
-      xxl: "1980px",
+      xxl: "1800px",
+
       'mobile-landscape': { 'raw': '(min-width: 375px) and (max-width: 667px) and (orientation: landscape)' },
     },
     extend: {
@@ -19,8 +20,8 @@ module.exports = {
       },
       colors: {
         "light-gray-green": "#D4D9D3",
-        "almost-white": "#F9F9F9",
-        "soft-sand": "#968625",
+        "white-50": "#e2e2e2",
+        "soft-sand": "#626936",
         "pale-beige": "#E7D9D4",         
         "grayish-beige": "#ABACA4",         
         "light-gray": "#BFBDB1",         

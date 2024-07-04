@@ -9,10 +9,12 @@ const CategorySection: React.FC<{ category: string; products: Product[] }> = ({
   products,
 }) => {
   return (
-    <AnimatedElement direction="right" className="my-8">
-      <h2 className="text-5xl md:text-7xl lg:text-8xl xl:text-8xl font-light font-pushkin mb-6 text-soft-sand md:mb-8 ml-6 ">
+    <AnimatedElement direction="right" className="my-8 ">
+      <div className='flex justify-center'>
+      <h2 className="text-5xl md:text-7xl lg:text-8xl  xxl:text-9xl font-light font-pushkin  text-soft-sand my-12 md:my-16 ">
         {category}
       </h2>
+      </div>
       {products.map((product, index) => (
         <ProductItem key={product.id} product={product} delay={index * 0.2} />
       ))}

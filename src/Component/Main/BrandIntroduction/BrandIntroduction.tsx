@@ -7,8 +7,8 @@ const BrandIntroduction = () => {
     <div className="mx-auto  w-[90%] py-16 pt-24 bg-light-gray-green">
       <h2 className="text-2xl sm:text-3xl md:text-6xl lg:text-5xl font-forum text-center mb-4 xl:mb-8 text-white px-4">
         <AnimatedElement direction="up" delay={0.2}>
-          <span className="font-pushkin text-6xl md:text-7xl lg:text-8xl xl:text-8xl xxl:text-[140px] text-soft-sand mr-4">
-            Привіт, це бренд
+          <span className="font-pushkin text-7xl md:text-7xl lg:text-8xl xl:text-8xl xxl:text-[140px] text-soft-sand mr-4">
+            Привіт, <span className="text-soft-sand/50 text-6xl md:text-7xl lg:text-8xl xl:text-8xl xxl:text-[140px]">це бренд</span>
           </span>
          
         </AnimatedElement>
@@ -21,7 +21,7 @@ const BrandIntroduction = () => {
             <path
               d="M 160,70 C 300,30 360,130 150,150 C 30,160 110,55 200,50"
               fill="none"
-              stroke="#968625"
+              stroke="#626936"
               strokeWidth="3"
             />
           </svg>
@@ -33,7 +33,7 @@ const BrandIntroduction = () => {
       <AnimatedElement
         direction="up"
         delay={0.6}
-        className="mx-auto lg:py-10 xl:py-2 px-4  lg:px-6 xl:px-12 text-lg   md:text-xl lg:text-3xl xl:text-2xl xxl:tex-4xl leading-relaxed text-center text-white font-sans"
+        className="mx-auto lg:py-10 xl:py-2 px-4  lg:px-6 xl:px-12 text-lg   md:text-xl lg:text-3xl xl:text-2xl xxl:text-3xl leading-relaxed text-center text-white font-sans"
       >
         <p>Вітає вас у світі краси та догляду!</p>
         <p>

@@ -23,7 +23,7 @@ const Carousel = () => {
     <AnimatedElement
       direction="up"
       delay={0.6}
-      className="bg-light-gray-green w-full h-auto py-6 lg:p-16 xxl:p-24 relative"
+      className=" w-full h-auto py-6 lg:p-16 xxl:p-24 relative"
     >
       <div className="mx-auto  relative">
         <div className="hidden lg:flex justify-start  absolute top-0 right-16 z-10">
@@ -65,7 +65,7 @@ const Carousel = () => {
             <SwiperSlide key={product.id}>
               <div className="relative px-4 lg:px-2 mt-10 ">
                 <div 
-                  className="relative cursor-pointer duration-500 ease-in-out   hover:-translate-y-6" 
+                  className="relative cursor-pointer duration-500 ease-in-out   lg:hover:-translate-y-6" 
                   onClick={() => handleSlideClick(index)}
                 >
                   <img

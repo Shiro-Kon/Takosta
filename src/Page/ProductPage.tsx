@@ -4,8 +4,8 @@ import { Product, products } from "../Utils/Products";
 
 const ProductPage: React.FC = () => {
   return (
-    <div className="min-h-screen p-8 pt-24">
-      <div className="max-w-6xl mx-auto overflow-hidden">
+
+      <div className="container mx-auto w-4/5 overflow-hidden py-6 xxl:py-12">
         {Object.entries(groupProductsByCategory()).map(([category, items]) => (
           <CategorySection
             key={category}
@@ -14,7 +14,7 @@ const ProductPage: React.FC = () => {
           />
         ))}
       </div>
-    </div>
+
   );
 };
 
