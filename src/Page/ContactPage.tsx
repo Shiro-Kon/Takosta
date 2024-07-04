@@ -41,7 +41,7 @@ const ContactForm: React.FC = () => {
               </p>
             </AnimatedElement>
             <AnimatedElement direction="up" delay={1}>
-              <div className="space-y-4 text-xl md:text-2xl lg:text-2xl xl:text-xl xxl:text-2xl mb-4 md:mb-6 lg:mb-12 font-semibold text-soft-sand/50">
+              <div className="space-y-4 text-soft-sand/50">
                 <ContactInfo
                   icon="location"
                   text="2 ЖК “Софія”, Софіївська Борщагівка, вул.Боголюбова 36"
