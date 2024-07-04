@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 
 const navigation = [
@@ -14,11 +14,16 @@ const navigation = [
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState<string | null>(null);
+  const location = useLocation();
 
   const handleLinkClick = (to: string) => {
     setActiveLink(to);
     setMobileMenuOpen(false);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-black bg-opacity-15 backdrop-blur-md font-sans">
@@ -30,7 +35,7 @@ const Header = () => {
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">TAKOSTA</span>
             <img
-              className="h-6 md:h-10 w-auto"
+              className="h-8 md:h-10 w-auto"
               src="./Images/Header/TAKOSTA_header.svg"
               alt="TAKOSTA Logo"
             />
