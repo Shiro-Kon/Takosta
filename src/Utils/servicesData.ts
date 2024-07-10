@@ -1,97 +1,60 @@
-// BeautyServices.ts
 
-export interface BeautyService {
-  id: number;
-  name: string;
-  subname?: string;
-  category: string;
-  priceRange: string;
-  description?: string;
-}
-
-export const beautyServices: BeautyService[] = [
-  {
-      id: 1,
-      name: "Укладання пряме",
-      category: "Укладання",
-      priceRange: "450-700 грн",
-  },
-  {
-      id: 2,
-      name: "Накрутка волосся",
-      category: "Укладання",
-      priceRange: "600-900 грн",
-  },
-  {
-      id: 3,
-      name: "Вечірня укладка",
-      category: "Укладання",
-      priceRange: "900-1500 грн",
-  },
-  {
-      id: 4,
-      name: "Афрокудрі",
-      category: "Укладання",
-      priceRange: "800-1300 грн",
-  },
-  {
-      id: 5,
-      name: "Плетіння",
-      category: "Укладання",
-      priceRange: "450-900 грн",
-  },
-  {
-      id: 6,
-      name: "Жіноча стрижка",
-      category: "Стрижки",
-      priceRange: "900-1300 грн",
-      description: "*додатково за дуже густе волосся 350 грн",
-  },
-  {
-      id: 7,
-      name: "Стрижка кінчиків",
-      category: "Стрижки",
-      priceRange: "600-850 грн",
-      description: "*(без миття волосся)",
-  },
-  {
-      id: 8,
-      name: "Стрижка чілки",
-      category: "Стрижки",
-      priceRange: "400 грн",
-      description: "*(без миття волосся)",
-  },
-  {
-      id: 9,
-      name: "Стрижка чоловіча",
-      category: "Стрижки",
-      priceRange: "600-1000 грн",
-      description: "*(ціна залежить від складності стрижки)",
-  },
-  {
-      id: 10,
-      name: "Фарбування коренів",
-      category: "Забарвлення волосся",
-      priceRange: "900-1400 грн",
-  },
-  {
-      id: 11,
-      name: "Фарбування в один тон / Тонування",
-      category: "Забарвлення волосся",
-      priceRange: "1300-2400 грн",
-  },
-  {
-      id: 12,
-      name: "Мелирование / Колорирование",
-      category: "Забарвлення волосся",
-      priceRange: "3000-4700 грн",
-  },
-  {
-      id: 13,
-      name: "AirTouch / Вихід із чорного",
-      category: "Забарвлення волосся",
-      priceRange: "5200-7800 грн",
-      description: "*фарбник оплачується окремо. Кількість фарбника залежить від густоти, довжини волосся та складності фарбування (1 г – 11 грн)",
-  },
+export interface Service {
+    id: number;
+    title: string;
+    description: string;
+    priceRange: string;
+    image: string;
+  }
   
-]
+  export const services: Service[] = [
+    {
+      id: 1,
+      title: "Фарбування в техніці",
+      description: "Для відновлення і зміцнення волосся",
+      priceRange: "від 2000 ₴ до 3000 ₴",
+      image: "./Images/ServicesImg/services-1.png"
+    },
+    {
+      id: 2,
+      title: "Біколористія",
+      description: "Для створення унікального образу",
+      priceRange: "від 1800 ₴ до 3000 ₴",
+      image: "./Images/ServicesImg/services-2.png"
+    },
+    {
+      id: 3,
+      title: "Airtouch",
+      description: "Для делікатного освітлення волосся",
+      priceRange: "від 3000 ₴ до 7000 ₴",
+      image: "./Images/ServicesImg/services-3.png"
+    },
+    {
+      id: 4,
+      title: "Стрижка",
+      description: "Залежить від процедури: По формі, Корекція довжини, Чубчик",
+      priceRange: "від 500 ₴-до 700 ₴",
+      image: "./Images/ServicesImg/services-4.png"
+    },
+    {
+      id: 5,
+      title: "Фарбування в один тон",
+      description: "ціна варіюється в залежності від довжини",
+      priceRange: "від 1500 ₴-до 2000 ₴",
+      image: "./Images/ServicesImg/services-5.png"
+    },
+    {
+      id: 6,
+      title: "Процедура “Гарячі ножиці”",
+      description: "Термо-стрижка за допомогою гарячих ножиць, лікувальна процедура, яка орієнтована на оздоровлення волосся. Результат досягається шляхом позбавлення від січених кінців всій по довжині.",
+      priceRange: "1000 ₴",
+      image: "./Images/ServicesImg/services-6.png"
+    },
+    {
+      id: 7,
+      title: "Вихід із темних відтінків",
+      description: "ціна варіюється в залежності від довжини",
+      priceRange: "від 4000 ₴-до 7000 ₴",
+      image: "./Images/ServicesImg/services-5.png"
+    },
+  ];

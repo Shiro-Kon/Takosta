@@ -8,10 +8,10 @@ interface FeatureProps {
 }
 
 const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => (
-  <div className="flex flex-col items-center text-white text-center leading-relaxed font-sans">
+  <div className="flex flex-col items-center text-olive-drab text-center break-words text-balance leading-relaxed font-sans">
     <div className="mb-0 lg:mb-4">{icon}</div>
     <h3 className="mb-4 xxl:mb-6 text-4xl md:text-3xl lg:text-4xl xl:text-5xl xxl:text-6xl ">{title}</h3>
-    <p className="text-md md:text-md lg:text-xl xl:text-xl xxl:text-3xl">{description}</p>
+    <p className="text-sm md:text-md lg:text-xl xl:text-xl xxl:text-3xl">{description}</p>
   </div>
 );
 
@@ -21,8 +21,8 @@ const WhyUs: React.FC = () => {
       <div className="container mx-auto px-4">
       
         <AnimatedElement direction="up" delay={0.2} className=" text-center mb-12">
-        <span className="font-pushkin text-6xl md:text-7xl lg:text-8xl xl:text-9xl xxl:text-[140px] text-soft-sand/50 ">
-      Чому саме <span className="text-soft-sand">ми?</span>
+        <span className="font-pushkin text-6xl md:text-7xl lg:text-8xl xl:text-9xl xxl:text-[140px] text-sage-green ">
+      Чому саме <span className="text-olive-green">ми?</span>
         </span>
         </AnimatedElement>
         <AnimatedElement direction="up" delay={0.6} className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6">

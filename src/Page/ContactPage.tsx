@@ -24,24 +24,24 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <main className="pt-[50px] lg:pt-[200px] xl:pt-[60px] flex justify-center min-h-screen text-white">
+    <main className="container mx-auto py-6 md:py-16 flex justify-center min-h-screen text-olive-drab break-words">
       <div className="container mx-auto px-6 py-24">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-8">
-          <div className="mb-8 md:mb-0 md:mx-16">
+          <div className="mb-8 md:mb-0 md:mx-16 cursor-default ">
             <AnimatedElement
               direction="up"
               delay={0.4}
-              className="text-5xl md:text-5xl lg:text-7xl xl:text-7xl xxl:text-8xl text-soft-sand font-pushkin mb-2 md:mb-6 lg:mb-6 xxl:mb-10 "
+              className="text-5xl md:text-5xl lg:text-7xl xl:text-7xl xxl:text-8xl text-olive-green font-pushkin mb-8  lg:mb-6 xxl:mb-10 "
             >
-              Контакти та консультація
+              Контакти <span className="text-sage-green">та консультація</span>
             </AnimatedElement>
             <AnimatedElement direction="up" delay={0.7}>
-              <p className="text-xl md:text-2xl lg:text-2xl xl:text-xl xxl:text-2xl mb-4 md:mb-6 lg:mb-12 font-semibold text-soft-sand/50">
+              <p className="text-xl md:text-2xl lg:text-2xl xl:text-xl xxl:text-2xl mb-8 lg:mb-12 font-semibold ">
               Замовте консультацію і  косметолог підбере для вас  продукцію для догляду
               </p>
             </AnimatedElement>
             <AnimatedElement direction="up" delay={1}>
-              <div className="space-y-4 text-soft-sand/50">
+              <div className="space-y-6 md:space-y-6 text-balance">
                 <ContactInfo
                   icon="location"
                   text="2 ЖК “Софія”, Софіївська Борщагівка, вул.Боголюбова 36"
@@ -64,7 +64,7 @@ const ContactForm: React.FC = () => {
           </div>
 
           <div className="mb-14 md:mx-16">
-            <AnimatedElement direction="up" delay={1.4}>
+            <AnimatedElement direction="up" delay={1.4} >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-2 gap-6">
                   <Input
@@ -94,7 +94,7 @@ const ContactForm: React.FC = () => {
                   placeholder="Телефон"
                   value={formData.phoneNumber}
                   onChange={handleChange}
-                  className="bg-soft-sand/50 rounded-md p-3 w-full text-white placeholder-white/50"
+                  className="bg-sage-green/50 rounded-md p-3 w-full text-white placeholder-white/70  "
                 />
                 <textarea
                   name="message"
@@ -102,11 +102,11 @@ const ContactForm: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="bg-soft-sand/50 rounded-md p-3 w-full text-white placeholder-white/50"
+                  className="bg-sage-green/50  focus:outline-none rounded-md p-3 w-full text-white placeholder-white/50  border-0 focus:ring-2 focus:ring-inset focus:ring-olive-green"
                 />
                 <button
                   type="submit"
-                  className="bg-soft-sand/90 font-semibold text-white py-3 px-6 rounded-md shadow-sm duration-200 ease-out hover:bg-soft-sand/30 hover:text-white active:scale-95"
+                  className="bg-sage-green/90 font-semibold text-white py-3 px-6 rounded-md shadow-sm duration-200 ease-out hover:bg-soft-sand/30 hover:text-white active:scale-95"
                 >
                   Надіслати 
                 </button>
@@ -121,26 +121,26 @@ const ContactForm: React.FC = () => {
 
 const ContactInfo: React.FC<{ icon: string; text: string; isLink?: boolean }> = ({ icon, text, isLink }) => (
   <div className="flex items-center space-x-3">
-    <svg className="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg className="w-7 h-7 text-olive-drab" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       {icon === "location" && (
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
       )}
       {icon === "phone" && (
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
       )}
       {icon === "email" && (
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
       )}
       {icon === "telegram" && (
-        <path d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"/>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"/>
       )}
     </svg>
     {isLink ? (
-      <a href={text} className="text-lg text-white hover:underline">
+      <a href={text} className="text-md md:text-lg xl:text-xl xxl:text-2xl text-olive-drab hover:underline font-semibold ">
         {text}
       </a>
     ) : (
-      <span className="text-lg">{text}</span>
+      <span className="text-md md:text-lg xl:text-xl xxl:text-2xl font-semibold ">{text}</span>
     )}
   </div>
 );
@@ -148,7 +148,7 @@ const ContactInfo: React.FC<{ icon: string; text: string; isLink?: boolean }> = 
 const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => (
   <input
     {...props}
-    className="bg-soft-sand/50 rounded-md p-3 w-full text-white placeholder-white/50"
+    className="bg-sage-green/50  focus:outline-none rounded-md p-3 w-full text-white placeholder-white/50  border-0 focus:ring-2 focus:ring-inset focus:ring-olive-green"
   />
 );
 

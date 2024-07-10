@@ -26,7 +26,7 @@ const Header = () => {
   }, [location]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-black bg-opacity-15 backdrop-blur-md font-sans">
+    <header className="fixed inset-x-0 top-0 z-50 bg-black bg-opacity-25 backdrop-blur-md font-sans">
       <nav
         className="flex items-center justify-between py-2 xxl:py-4 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14"
         aria-label="Global"
@@ -58,7 +58,7 @@ const Header = () => {
               key={item.name}
               to={item.to}
               onClick={() => handleLinkClick(item.to)}
-              className={`relative text-base sm:text-lg md:text-xl lg:text-xl xxl:text-2xl font-light text-white transition-colors duration-300 hover:text-white/60 pb-1 ${
+              className={`relative text-base sm:text-lg md:text-xl lg:text-xl xxl:text-2xl font-light text-white transition-colors duration-300  pb-1 ${
                 item.to === activeLink ? "text-white" : "text-white/80"
               }`}
             >

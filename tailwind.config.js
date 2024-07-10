@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens: {
-      sm: "375px",
+      sm: {'min': '375px', 'max': '767px'},
       md: "768px",
       lg: "1024px",
       xl: "1280px",
@@ -19,13 +19,10 @@ module.exports = {
         forum: ["Forum"],
       },
       colors: {
-        "light-gray-green": "#D4D9D3",
-        "white-50": "#e2e2e2",
-        "soft-sand": "#626936",
-        "pale-beige": "#E7D9D4",         
-        "grayish-beige": "#ABACA4",         
-        "light-gray": "#BFBDB1",         
-        "warm-gray": "#B7B5AE",         
+        "very-light-gray": "#FDFDFD", //bg
+        "sage-green": "#859070", //title
+        "olive-drab": "#626936", //text main
+        "olive-green": "#57622A" ,  
       },
     },
   },

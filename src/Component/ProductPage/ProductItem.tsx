@@ -10,17 +10,17 @@ const ProductItem: React.FC<{ product: Product; delay: number }> = ({ product, d
         src={product.image}
         alt={product.name}
         loading="lazy"
-        className="w-full md:w-[350px] lg:w-[400px] xl:w-[450px] xxl:w-[550px] h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] xxl:h-[550px] object-cover mb-4 md:mb-0 md:mr-6 rounded-md"
+        className="w-full md:w-[300px] lg:w-[400px] xl:w-[450px] xxl:w-[550px] h-[300px] md:h-[300px] lg:h-[400px] xl:h-[450px] xxl:h-[550px] object-cover mb-4 md:mb-0 md:mr-6 lg:mr-12 rounded-md"
       />
       <div className="flex-grow ">
-        <h3 className="text-4xl md:text-4xl lg:text-6xl xl:text-7xl xxl:text-8xl font-light text-soft-sand/80 md:text-white font-forum mb-2 lg:mb-6">
+        <h3 className="text-4xl md:text-4xl lg:text-6xl xl:text-7xl xxl:text-8xl font-light text-sage-green md:text-sage-green font-forum mb-2 lg:mb-6">
           {product.name} <br className='hidden md:block'/>
-          <span className="text-soft-sand/80">{product.subname}</span>
+          <span className="text-olive-green">{product.subname}</span>
         </h3>
-        <p className="text-xl md:text-2xl lg:text-4xl xl:text-3xl xxl:text-5xl font-sans text-white my-4 xl:my-6">
+        <p className="text-xl md:text-md lg:text-2xl xl:text-3xl xxl:text-5xl font-sans text-olive-drab my-4 xl:my-6">
           {product.description}
         </p>
-        <button className="rounded bg-soft-sand/50 backdrop-blur-sm px-4 py-3 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-xl xxl:text-4xl font-light text-white shadow-sm duration-200 ease-out hover:bg-soft-sand/60 hover:text-white active:scale-95 mobile-landscape:text-base">
+        <button className="rounded bg-olive-drab/50 backdrop-blur-sm px-4 py-3 text-lg md:text-sm lg:text-xl xl:text-xl xxl:text-3xl font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-drab/60 hover:text-white active:scale-95 mobile-landscape:text-base">
           Детальніше
         </button>
       </div>

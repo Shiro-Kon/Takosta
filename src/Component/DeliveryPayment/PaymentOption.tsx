@@ -9,7 +9,7 @@ type PaymentOptionProps = {
 };
 
 const PaymentOption: React.FC<PaymentOptionProps> = ({ logos, logo, title, description }) => (
-  <div className="bg-white/60 shadow-lg rounded-xl p-6 text-gray-700 my-4">
+  <div className="bg-sage-green/15 shadow-lg rounded-xl p-6 text-olive-drab my-4">
     {logos ? (
       <div className="flex flex-row gap-6">
         {logos.map((logo, index) => (

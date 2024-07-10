@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <div className='bg-light-gray-green'>
+    <div className='bg-very-light-gray'>
   <BrowserRouter>
         <App />
       </BrowserRouter>

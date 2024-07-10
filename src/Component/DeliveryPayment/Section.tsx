@@ -11,11 +11,11 @@ type SectionProps = {
 const Section: React.FC<SectionProps> = ({ title, isOpen, toggleSection, children }) => (
   <div className="-mb-2 md:mb-6">
     <div
-      className="cursor-pointer font-semibold text-soft-sand flex justify-between items-center text-2xl md:text-3xl xl:text-2xl xxl:text-5xl select-none"
+      className="cursor-pointer font-semibold  flex justify-between items-center text-2xl md:text-3xl xl:text-2xl xxl:text-5xl select-none"
       onClick={toggleSection}
     >
       {title}
-      <span className={`transform transition-transform duration-300 text-soft-sand/50 ${isOpen ? "rotate-180" : ""}`}>
+      <span className={`transform transition-transform duration-300 text-olive-drab/50 ${isOpen ? "rotate-180" : ""}`}>
         ▼
       </span>
     </div>

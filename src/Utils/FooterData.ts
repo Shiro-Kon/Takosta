@@ -28,7 +28,7 @@ export const footerSections = [
       },
       {
         name: "Контакти",
-        url: "/",
+        url: "/contact",
       },
     ],
   },

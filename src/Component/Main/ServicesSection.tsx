@@ -15,7 +15,7 @@ const ServiceCard: React.FC<ServiceProps> = ({
   onClick,
 }) => (
   <div className="flex flex-col items-center ">
-    <h3 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl xxl:text-7xl text-soft-sand mb-8 xxl:mb-12">
+    <h3 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl xxl:text-7xl text-olive-drab mb-8 xxl:mb-12">
       {title}
     </h3>
     <div className="relative mb-4 drop-shadow-2xl">
@@ -43,10 +43,10 @@ const ServicesSection: React.FC = () => {
           delay={0.4}
           className="text-[45px] md:text-7xl lg:text-8xl xl:text-9xl  xxl:text-9xl font-pushkin text-white text-center mb-12"
         >
-          <span className="text-soft-sand text-7xl md:text-8xl lg:text-9xl  xl:text-9xl xxl:text-[170px]">
+          <span className="text-olive-green text-7xl md:text-8xl lg:text-9xl  xl:text-9xl xxl:text-[170px]">
             Послуги{" "}
           </span>
-          <br /> <div className="text-soft-sand/50 mt-6  md:mt-4 xxl:mt-6">які ми надаємо</div>
+          <br /> <div className="text-sage-green mt-6  md:mt-4 xxl:mt-6">які ми надаємо</div>
         </AnimatedElement>
         <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-16 md:gap-8 xl:gap-0">
           <AnimatedElement direction="left" delay={0.6}>
