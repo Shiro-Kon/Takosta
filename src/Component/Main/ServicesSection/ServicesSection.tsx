@@ -1,38 +1,11 @@
 import React from "react";
-import AnimatedElement from "../AnimatedElement/AnimatedElement";
+import AnimatedElement from "../../AnimatedElement/AnimatedElement";
+import ServiceMainCard from "./ServiceMainCard";
+import { Link } from "react-router-dom";
 
-interface ServiceProps {
-  title: string;
-  image: string;
-  buttonText: string;
-  onClick: () => void;
-}
 
-const ServiceCard: React.FC<ServiceProps> = ({
-  title,
-  image,
-  buttonText,
-  onClick,
-}) => (
-  <div className="flex flex-col items-center ">
-    <h3 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl xxl:text-7xl text-olive-drab mb-8 xxl:mb-12">
-      {title}
-    </h3>
-    <div className="relative mb-4 drop-shadow-2xl">
-      <img
-        src={image}
-        alt={title}
-        className="w-[300px] lg:w-[400px] xl:w-[350px] xxl:w-[550px] h-[300px] lg:h-[400px] xl:h-[450px] xxl:h-[550px] rounded-sm  object-cover "
-      />
-      <button
-        onClick={onClick}
-        className="absolute -bottom-6 upperset -right-2 lg:-right-8 text-white font-semibold bg-black bg-opacity-35 backdrop-blur-md shadow-md  duration-200 ease-out hover:bg-black/30 hover:text-white active:scale-95 uppercase mobile-landscape:text-base w-3/4 lg:w-3/5 xl:w-4/6 xxl:w-3/5  h-16  xl:h-18  xxl:h-24 px-4 xxl:text-2xl"
-      >
-        {buttonText}
-      </button>
-    </div>
-  </div>
-);
+
+
 
 const ServicesSection: React.FC = () => {
   return (
@@ -50,20 +23,30 @@ const ServicesSection: React.FC = () => {
         </AnimatedElement>
         <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-16 md:gap-8 xl:gap-0">
           <AnimatedElement direction="left" delay={0.6}>
-            <ServiceCard
+          <Link
+                to="/contact"
+                
+              >
+            <ServiceMainCard
               title="Наша студія краси"
               image="./Images/Servise/Servise1.png"
               buttonText="Записатися на консультацію"
               onClick={() => console.log("Book consultation")}
             />
+            </Link>
           </AnimatedElement>
           <AnimatedElement direction="left" delay={0.4}>
-            <ServiceCard
+          <Link
+                to="/product"
+                
+              >
+            <ServiceMainCard
               title="Наш онлайн магазин"
               image="./Images/Servise/Servise2.png"
               buttonText="Зробити замовлення"
               onClick={() => console.log("Make order")}
             />
+            </Link>
           </AnimatedElement>
         </div>
       </div>

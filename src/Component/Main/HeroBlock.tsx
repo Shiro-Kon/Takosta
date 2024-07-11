@@ -24,7 +24,7 @@ const HeroBlock = () => {
           <AnimatedElement direction="up" delay={0.6}>
             <div className="mt-6 lg:mt-16 flex justify-center mobile-landscape:-mt-6">
               <Link
-                to="/"
+                to="/product"
                 className="rounded border-2 border-white/50 bg-black bg-opacity-15 backdrop-blur-md px-4 py-2 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl xll:4xl font-light text-white shadow-sm duration-200 ease-out hover:bg-black/30 hover:text-white active:scale-95 mobile-landscape:text-base"
               >
                 Перейти до каталогу

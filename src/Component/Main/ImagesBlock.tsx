@@ -1,6 +1,7 @@
 import React from 'react';
 import ImagesBlockArry, { ImagesBlockData } from '../../Utils/ImagesBlockArry';
 import AnimatedElement from '../AnimatedElement/AnimatedElement';
+import { motion } from 'framer-motion';
 
 const ImagesBlock: React.FC = () => {
   return (
@@ -11,13 +12,20 @@ const ImagesBlock: React.FC = () => {
             key={item.id} 
             className="relative overflow-hidden"
           >
-            <div className=' duration-300 ease-linear  hover:scale-110'>
+            <motion.div
+          className="rounded-[50px] lg:rounded-[60px] xl:rounded-[70px] xxl:rounded-[80px]  overflow-hidden cursor-pointer relative duration-300 p-4" 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+         
+        >
             <img 
               src={item.image} 
               alt={`Product ${item.id}`}
-              className="object-cover w-full h-[350px] lg:h-[400px] xl:h-[450px] xxl:h-[550px] rounded-sm "
+              className="relative  w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover rounded-[50px]"
             />
-            </div>
+            </motion.div>
+            
+            
           </AnimatedElement>
         ))}
       </div>

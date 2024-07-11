@@ -5,7 +5,7 @@ import { Product, products } from "../Utils/Products";
 const ProductPage: React.FC = () => {
   return (
 
-      <div className="container mx-auto w-4/5 py-16 overflow-hidden ">
+      <div className="container mx-auto md:w-[90%] py-16 overflow-hidden ">
         {Object.entries(groupProductsByCategory()).map(([category, items]) => (
           <CategorySection
             key={category}

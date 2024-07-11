@@ -42,20 +42,20 @@ const ReviewsSection: React.FC = () => {
     <AnimatedElement
       direction="visibility"
       delay={0.2}
-      className="relative py-20"
+      className="relative py-24 "
     >
       <img
         src="./Images/Reviews/Reviews.png"
         alt="Background"
-        loading="lazy"
+       
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-xl z-10" />
+      <div className="absolute inset-0 bg-black/15   backdrop-blur-xl z-10" />
       <div className="container mx-auto px-4 relative z-20">
         <AnimatedElement
           direction="up"
           delay={0.4}
-          className="text-3xl md:text-4xl lg:text-4xl xl:text-5xl xxl:text-5xl font-semibold text-center text-white mb-16"
+          className="text-3xl md:text-4xl lg:text-4xl xl:text-7xl xxl:text-8xl  text-center text-white mb-16 font-pushkin"
         >
           Відгуки наших клієнтів
         </AnimatedElement>

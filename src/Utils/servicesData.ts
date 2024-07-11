@@ -5,35 +5,40 @@ export interface Service {
     description: string;
     priceRange: string;
     image: string;
+    additionalInfo?: string[];
   }
   
   export const services: Service[] = [
     {
       id: 1,
       title: "Фарбування в техніці",
-      description: "Для відновлення і зміцнення волосся",
+      description: "ціна варіюється в залежності від довжини",
       priceRange: "від 2000 ₴ до 3000 ₴",
       image: "./Images/ServicesImg/services-1.png"
     },
     {
       id: 2,
       title: "Біколористія",
-      description: "Для створення унікального образу",
+      description: "ціна варіюється в залежності від довжини",
       priceRange: "від 1800 ₴ до 3000 ₴",
       image: "./Images/ServicesImg/services-2.png"
     },
     {
       id: 3,
       title: "Airtouch",
-      description: "Для делікатного освітлення волосся",
+      description: "ціна варіюється в залежності від довжини",
       priceRange: "від 3000 ₴ до 7000 ₴",
       image: "./Images/ServicesImg/services-3.png"
     },
     {
       id: 4,
       title: "Стрижка",
-      description: "Залежить від процедури: По формі, Корекція довжини, Чубчик",
-      priceRange: "від 500 ₴-до 700 ₴",
+      description: "По формі від 500 ₴-до 700 ₴",
+      priceRange: "",
+      additionalInfo: [
+        "Корекція довжини 400 ₴",
+        "Чубчик 100 ₴",
+      ],
       image: "./Images/ServicesImg/services-4.png"
     },
     {
