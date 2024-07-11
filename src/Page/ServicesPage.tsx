@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react';
+
 import { motion } from 'framer-motion';
-import { Service, services } from '../Utils/servicesData';
+import { services } from '../Utils/servicesData';
 import ServiceCard from '../Component/ServicesPage/ServicCard';
 import ConsultationInfo from '../Component/ServicesPage/ConsultationInfo';
 
