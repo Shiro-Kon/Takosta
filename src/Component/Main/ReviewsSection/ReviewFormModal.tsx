@@ -13,8 +13,10 @@ const ReviewFormModal: React.FC<ReviewFormModalProps> = ({ onClose, onAddReview 
   const [imageFiles, setImageFiles] = useState<File[]>([]);
 
   useEffect(() => {
+    // Заблокировать прокрутку страницы при открытии модального окна
     document.body.style.overflow = 'hidden';
     return () => {
+      // Восстановить прокрутку при закрытии модального окна
       document.body.style.overflow = 'auto';
     };
   }, []);
@@ -44,8 +46,8 @@ const ReviewFormModal: React.FC<ReviewFormModalProps> = ({ onClose, onAddReview 
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-lg z-50 overflow-y-auto">
-      <div className="container mx-auto px-6 py-8 bg-black bg-opacity-45 backdrop-blur-md rounded-xl shadow-md  transition-all duration-300 hover:shadow-lg cursor-pointer text-white w-full max-w-[90%]  md:max-w-[600px]">
-        <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-4 text-center">Додати відгук</h2>
+      <div className="container mx-auto px-6 py-8 bg-black bg-opacity-45 backdrop-blur-md rounded-xl shadow-md w-full maw-w-[500px] md:max-w-[600px]">
+        <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-4 text-center text-white">Додати відгук</h2>
         <form onSubmit={handleSubmit} className="text-white">
           <div className="mb-4">
             <label className="block text-lg mb-2" htmlFor="name">Ім'я</label>
@@ -79,9 +81,9 @@ const ReviewFormModal: React.FC<ReviewFormModalProps> = ({ onClose, onAddReview 
               className="w-full h-20 md:h-40 px-4 py-2 bg-white/70 text-black/80 text-md lg:text-xl font-semibold rounded border border-gray-300 focus:outline-none focus:border-gray-500"
             />
           </div>
-          <div className=" mt-2 ">
+          <div className="mt-2">
             <label className="block text-md md:text-lg mb-2">Завантажити зображення</label>
-            <div className="flex items-center ">
+            <div className="flex items-center">
               <input
                 type="file"
                 accept="image/*"

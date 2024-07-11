@@ -55,7 +55,7 @@ const Carousel = () => {
       >
         {CarouselProducts.map((product: CarouselProductsData, index) => (
           <SwiperSlide key={product.id}>
-            <div className="relative p-8 md:p-4 lg:p-8">
+            <div className="relative p-8 md:p-4 lg:p-8 ">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -66,14 +66,14 @@ const Carousel = () => {
                   src={product.image}
                   alt={product.title}
                   loading="lazy"
-                  className="relative w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover rounded-[50px]"
+                  className="relative w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover rounded-[50px] shadow-black/20"
                 />
 
                 <motion.div
                   initial={{ maxHeight: '20%', opacity: 0 }}
                   animate={{ maxHeight: activeSlide === index ? '60%' : '20%', opacity: activeSlide === index ? 1 : 0 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute bottom-0 left-0 right-0 text-white bg-black bg-opacity-35 backdrop-blur-lg p-6 text-center rounded-[50px] "
+                  className="absolute bottom-0 left-0 right-0 text-white bg-black bg-opacity-35 backdrop-blur-lg p-6 text-center rounded-[50px] overflow-hidden "
                 >
                   <div className="w-full">
                     <h3 className="text-xl md:text-xl lg:text-3xl xl:text-2xl xxl:text-4xl font-light text-white font-sans my-2 xll:my-4">
