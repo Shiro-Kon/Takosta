@@ -5,10 +5,9 @@ import AnimatedElement from '../AnimatedElement/AnimatedElement';
 
 interface ServiceCardProps {
   service: Service;
-  onClick: (service: Service) => void;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ service, onClick }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   const [isHovered, setIsHovered] = useState(false);
   const controls = useAnimation();
 
