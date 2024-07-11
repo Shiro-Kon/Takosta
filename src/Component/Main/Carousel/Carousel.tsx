@@ -24,7 +24,7 @@ const Carousel = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="md:w-[90%] mx-auto relative py-24"
+      className="container mx-auto px-4 md:w-[90%]  relative py-24"
     >
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}

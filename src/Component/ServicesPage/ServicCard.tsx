@@ -37,8 +37,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
             className="relative w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover rounded-t-[50px]"
           />
           <motion.div
-            initial={{ height: '20%' }}
-            animate={{ height: isHovered ? '60%' : '20%' }}
+            initial={{ height: '22%' }}
+            animate={{ height: isHovered ? '60%' : '22%' }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             className="absolute bottom-0 left-0 right-0 text-white bg-black bg-opacity-35 backdrop-blur-sm p-6 text-center rounded-t-[50px] lg:rounded-t-[60px] xl:rounded-t-[70px] xxl:rounded-t-[80px]"
           >

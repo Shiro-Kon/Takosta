@@ -37,7 +37,7 @@ const ContactForm: React.FC = () => {
             </AnimatedElement>
             <AnimatedElement direction="up" delay={0.7}>
               <p className="text-xl md:text-2xl lg:text-2xl xl:text-xl xxl:text-2xl mb-8 lg:mb-12 font-semibold ">
-              Замовте консультацію і  косметолог підбере для вас  продукцію для догляду
+              Замовте консультацію у спеціаліста
               </p>
             </AnimatedElement>
             <AnimatedElement direction="up" delay={1}>

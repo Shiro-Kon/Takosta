@@ -1,45 +1,33 @@
 export interface Review {
-    id: string;
-    name: string;
-    service: string;
-    shortReview: string;
-    fullReview: string;
-    images: string[];
+  id: number;
+  name: string;
+  service: string;
+  fullReview: string;
+  images?: string[];
   }
   
   const reviews: Review[] = [
     {
-      id: '1',
+      id: 1,
+      name: 'Олена',
+      service: 'Фарбування волосся',
+      fullReview: 'Дуже задоволена результатом. Майстер - справжній професіонал',
+      images: ["./Images/Reviews/work1.png"],
+      },
+      {
+      id: 2,
       name: 'Анна',
-      service: 'Покраска волосся',
-      shortReview: 'Чудовий результат! Колір саме такий, як я хотіла.',
-      fullReview: 'Я дуже задоволена результатом. Майстер уважно вислухав мої побажання та підібрав ідеальний відтінок. Волосся виглядає здоровим і блискучим. Обов`язково повернуся знову!',
-      images: ['./Images/Reviews/work1.png', './Images/Reviews/work1.png'],
-    },
-    {
-      id: '2',
+      service: 'Стрижка',
+      fullReview: 'Відмінна стрижка, рекомендую всім!',
+     
+      },
+      {
+      id: 3,
       name: 'Анна',
-      service: 'Покраска волосся',
-      shortReview: 'Чудовий результат! Колір саме такий, як я хотіла.',
-      fullReview: 'Я дуже задоволена результатом. ',
-      images: ['./Images/Reviews/work1.png', './Images/Reviews/work1.png'],
-    },
-    {
-      id: '3',
-      name: 'Анна',
-      service: 'Покраска волосся',
-      shortReview: 'Чудовий результат! Колір саме такий, як я хотіла.',
-      fullReview: 'Я дуже задоволена результатом. Майстер уважно вислухав мої побажання та підібрав ідеальний відтінок. Волосся виглядає здоровим і блискучим. Обов`язково повернуся знову!',
-      images: ['./Images/Reviews/work1.png', './Images/Reviews/work1.png'],
-    },
-    {
-      id: '4',
-      name: 'Анна',
-      service: 'Покраска волосся',
-      shortReview: 'Чудовий результат! Колір саме такий, як я хотіла.',
-      fullReview: 'Я дуже задоволена результатом. Майстер уважно вислухав мої побажання та підібрав ідеальний відтінок. Волосся виглядає здоровим і блискучим. Обов`язково повернуся знову!',
-      images: ['./Images/Reviews/work1.png', './Images/Reviews/work1.png'],
-    },
+      service: 'Стрижка',
+      fullReview: 'Відмінна стрижка, рекомендую всім!',
+     
+      },
   ];
   
   export default reviews;
