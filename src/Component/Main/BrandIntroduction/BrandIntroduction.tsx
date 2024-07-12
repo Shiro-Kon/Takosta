@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./BrandIntroduction.css";
 import AnimatedElement from "../../AnimatedElement/AnimatedElement";
 
