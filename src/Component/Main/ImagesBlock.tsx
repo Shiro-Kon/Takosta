@@ -5,17 +5,17 @@ import { motion } from 'framer-motion';
 
 const ImagesBlock: React.FC = () => {
   return (
-    <div className="container mx-auto w-[90%] py-8">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+    <div className="container mx-auto w-[90%] ">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 ">
         {ImagesBlockArry.map((item: ImagesBlockData) => (
           <AnimatedElement direction="left" delay={0.2} 
             key={item.id} 
-            className="relative overflow-hidden"
+            className="relative "
           >
             <motion.div
-          className="rounded-[40px]   overflow-hidden cursor-pointer relative duration-300 p-2" 
+          className="rounded-[40px]   overflow-hidden cursor-pointer relative duration-300  p-6 md:p-0 md:m-4" 
           whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          
          
         >
             <img 

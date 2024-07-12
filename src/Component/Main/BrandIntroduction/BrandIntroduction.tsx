@@ -4,7 +4,7 @@ import AnimatedElement from "../../AnimatedElement/AnimatedElement";
 
 const BrandIntroduction = () => {
   return (
-    <div className="mx-auto  w-[90%] py-8 pt-24 bg-light-gray-green">
+    <div className="mx-auto  w-[90%] py-8  ">
       <h2 className="text-2xl sm:text-3xl md:text-6xl lg:text-5xl font-forum text-center mb-4 xl:mb-8  px-4">
         <AnimatedElement direction="up" delay={0.2}>
           <span className="font-pushkin text-7xl md:text-7xl lg:text-8xl xl:text-8xl xxl:text-[140px] text-olive-green mr-4">

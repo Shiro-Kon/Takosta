@@ -4,7 +4,6 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Product, products } from '../../../Utils/Products';
@@ -53,7 +52,7 @@ const Carousel: React.FC = () => {
         }}
       >
         {products.map((product: Product, index) => (
-          <SwiperSlide key={product.id} className='p-4'>
+          <SwiperSlide key={product.id} className='p-4 py-6'>
             <div className="container relative">
               <motion.div
                 className="relative cursor-pointer transition duration-300"
@@ -64,7 +63,7 @@ const Carousel: React.FC = () => {
                 <img
                   src={product.image}
                   alt={`${product.name} ${product.subname}`}
-                  className="relative w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] transition object-cover overflow-hidden rounded-[40px]"
+                  className="relative w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] transition object-cover overflow-hidden rounded-[40px] drop-shadow-lg"
                   loading="lazy"
                   style={{ willChange: 'transform' }}
                 />
