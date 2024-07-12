@@ -66,22 +66,26 @@ const ReviewsSection: React.FC = () => {
         >
           Відгуки наших клієнтів
         </AnimatedElement>
-        <AnimatedElement
-          direction="visibility"
-          delay={0.6}
+        <div
           className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 container mx-auto w-[80%] ${animateReviews ? "animate-fade-in" : ""}`}
         >
           {displayedReviews.map((review) => (
+            <AnimatedElement
+            direction="up"
+            delay={0.7}
+            className="flex justify-center space-x-4 mb-4"
+          >
             <ReviewCard
               key={review.id}
               {...review}
               onClick={() => setSelectedReview(review)}
             />
+            </AnimatedElement>
           ))}
-        </AnimatedElement>
+        </div>
         <AnimatedElement
           direction="up"
-          delay={0.4}
+          delay={0.7}
           className="flex justify-center space-x-4 mb-4"
         >
           <button
@@ -104,7 +108,7 @@ const ReviewsSection: React.FC = () => {
         <div className="flex justify-center mt-8">
           <AnimatedElement
             direction="up"
-            delay={0.4}
+            delay={0.7}
             className="flex justify-center space-x-4 mb-4"
           >
             <button

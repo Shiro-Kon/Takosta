@@ -4,7 +4,7 @@ import AnimatedElement from "../../AnimatedElement/AnimatedElement";
 
 const BrandIntroduction = () => {
   return (
-    <div className="mx-auto  w-[90%] py-16 pt-24 bg-light-gray-green">
+    <div className="mx-auto  w-[90%] py-8 pt-24 bg-light-gray-green">
       <h2 className="text-2xl sm:text-3xl md:text-6xl lg:text-5xl font-forum text-center mb-4 xl:mb-8  px-4">
         <AnimatedElement direction="up" delay={0.2}>
           <span className="font-pushkin text-7xl md:text-7xl lg:text-8xl xl:text-8xl xxl:text-[140px] text-olive-green mr-4">
@@ -33,7 +33,7 @@ const BrandIntroduction = () => {
       <AnimatedElement
         direction="up"
         delay={0.6}
-        className="mx-auto lg:py-10 xl:py-2 px-4  lg:px-6 xl:px-12 text-sm   md:text-xl lg:text-3xl xl:text-2xl xxl:text-3xl leading-relaxed text-center text-olive-drab font-sans  break-words "
+        className="mx-auto lg:py-10 xl:py-2 px-4  lg:px-6 xl:px-12 text-md   md:text-xl lg:text-3xl xl:text-2xl xxl:text-3xl leading-relaxed text-center text-olive-drab font-sans  break-words "
       >
         <p>Вітає вас у світі краси та догляду!</p>
         <p>

@@ -24,7 +24,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   return (
     <AnimatedElement direction="up" delay={0.6}>
       <motion.div
-
+        className='container mx-auto'
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onMouseEnter={handleMouseEnter}
@@ -34,13 +34,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           <img
             src={service.image}
             alt={service.title}
-            className="relative w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover overflow-hidden rounded-[50px]"
+            className="relative w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover overflow-hidden rounded-[40px]"
           />
           <motion.div
             initial={{ height: '22%' }}
             animate={{ height: isHovered ? '60%' : '22%' }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="absolute bottom-0 left-0 right-0 text-white bg-black bg-opacity-35 backdrop-blur-sm p-6 text-center overflow-hidden rounded-t-[50px] "
+            className="absolute bottom-0 left-0 right-0 text-white bg-black bg-opacity-35 backdrop-blur-sm p-6 text-center overflow-hidden rounded-t-[40px] "
           >
             <h2 className="text-xl md:text-xl lg:text-3xl xl:text-2xl xxl:text-4xl font-light text-white font-sans my-2 xll:my-4">
               {service.title}

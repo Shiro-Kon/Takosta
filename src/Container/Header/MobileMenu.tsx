@@ -31,22 +31,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   }, [mobileMenuOpen]);
 
   return (
-    <Dialog
-      as="div"
-      className="lg:hidden"
-      open={mobileMenuOpen || isAnimating}
-      onClose={() => setMobileMenuOpen(false)}
-    >
+    <Dialog as="div" className="lg:hidden" open={mobileMenuOpen || isAnimating} onClose={() => setMobileMenuOpen(false)}>
       <div className="fixed inset-0 z-50">
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black bg-opacity-50"
-            />
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="fixed inset-0 bg-black bg-opacity-50" />
           )}
         </AnimatePresence>
         <AnimatePresence>
@@ -60,43 +49,31 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               className="fixed inset-y-0 right-0 z-50 w-1/2 md:w-1/3 bg-white bg-opacity-90 backdrop-blur-md"
             >
               <div className="flex items-center justify-between px-4 py-4">
-                <button
-                  type="button"
-                  className="-m-2.5 rounded-md p-2.5"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
+                <button type="button" className="-m-2.5 rounded-md p-2.5" onClick={() => setMobileMenuOpen(false)}>
                   <span className="sr-only">Close menu</span>
                   <XMarkIcon className="h-6 w-6 text-black" aria-hidden="true" />
                 </button>
               </div>
-              <div className="mt-6 px-4">
-                <div className="space-y-2 py-4">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.to}
-                      onClick={() => handleLinkClick(item.to)}
-                      className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black/70 hover:text-black/40 ${
-                        item.to === activeLink ? 'text-black/40' : ''
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-                <div className="mt-4">
+              <nav className="flex flex-col items-center space-y-4 mt-6">
+                {navigation.map((item) => (
                   <Link
-                    to="/basket"
-                    className="text-sm font-semibold leading-6 text-gray-900"
+                    key={item.name}
+                    to={item.to}
+                    onClick={() => {
+                      handleLinkClick(item.to);
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`relative text-base font-light text-black transition-colors duration-300 pb-1 ${
+                      item.to === activeLink ? 'text-black' : 'text-black/80'
+                    }`}
                   >
-                    <img
-                      src="./Images/Header/Basket.png"
-                      alt="Кошик"
-                      className="h-8"
-                    />
+                    {item.name}
+                    {item.to === activeLink && (
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-black/40 transform translate-y-1 transition-transform duration-300 rounded-full" style={{ transformOrigin: 'left center', transform: 'scaleX(1)' }} />
+                    )}
                   </Link>
-                </div>
-              </div>
+                ))}
+              </nav>
             </DialogPanel>
           )}
         </AnimatePresence>

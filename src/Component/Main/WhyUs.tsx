@@ -17,7 +17,7 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => (
 
 const WhyUs: React.FC = () => {
   return (
-    <div className="mx-auto  w-[90%] py-16 pt-24">
+    <div className="mx-auto  w-[90%] py-8 pt-8">
       <div className="container mx-auto px-4">
       
         <AnimatedElement direction="up" delay={0.2} className=" text-center mb-12">

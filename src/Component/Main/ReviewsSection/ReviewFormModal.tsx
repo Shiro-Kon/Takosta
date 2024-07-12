@@ -13,10 +13,10 @@ const ReviewFormModal: React.FC<ReviewFormModalProps> = ({ onClose, onAddReview 
   const [imageFiles, setImageFiles] = useState<File[]>([]);
 
   useEffect(() => {
-    // Заблокировать прокрутку страницы при открытии модального окна
+   
     document.body.style.overflow = 'hidden';
     return () => {
-      // Восстановить прокрутку при закрытии модального окна
+
       document.body.style.overflow = 'auto';
     };
   }, []);
