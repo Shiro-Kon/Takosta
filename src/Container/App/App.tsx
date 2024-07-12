@@ -7,7 +7,7 @@ import ProductPage from "../../Page/ProductPage";
 import DeliveryPaymentPage from "../../Page/DeliveryPaymentPage";
 import ServicesPage from "../../Page/ServicesPage";
 import ContactPage from "../../Page/ContactPage";
-import ProductDetailPage from "../../Component/ProductPage/ProductDetails/ProductDetailPage";
+
 
 
 const App = () => {
@@ -25,7 +25,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/product" element={<ProductPage />} />
-          <Route path="/product/:id" element={<ProductDetailPage />} />
           <Route path="/delivery-payment" element={<DeliveryPaymentPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<ContactPage />} />

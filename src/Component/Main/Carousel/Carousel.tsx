@@ -91,7 +91,7 @@ const Carousel: React.FC = () => {
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-block rounded-[20px] border-white bg-black/25 p-2 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-4 lg:py-3 xxl:px-6 xxl:py-5 text-sm md:text-lg lg:text-xl xl:text-2xl font-light text-white transition duration-300 ease-in-out hover:bg-bg-black/15"
+                        className="inline-block rounded-[20px] border-white bg-black/25 p-2 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-4 lg:py-3 xxl:px-6 xxl:py-5 text-sm md:text-lg lg:text-xl xl:text-2xl font-light text-white duration-300  hover:bg-black/35"
                       >
                         Детальніше
                       </motion.button>

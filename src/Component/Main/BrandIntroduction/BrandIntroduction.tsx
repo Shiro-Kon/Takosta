@@ -17,7 +17,7 @@ const BrandIntroduction = () => {
           delay={0.4}
           className="relative flex justify-center items-center py-6 md:py-12"
         >
-          <svg className="oval absolute w-[400px] h-[200px] scale-[0.65] md:scale-[1.2] lg:scale-[1.9] xl:scale-[1.6] xxl:scale-[1.9]  lg:w-[400px] lg:h-[200px]">
+          <svg className="oval absolute w-[400px] h-[200px] sm:scale-[1] md:scale-[1.2] lg:scale-[1.6] xl:scale-[1.6] xxl:scale-[2.3]  lg:w-[400px] lg:h-[200px]">
             <path
               d="M 160,70 C 300,30 360,130 150,150 C 30,160 110,55 200,50"
               fill="none"
