@@ -58,7 +58,7 @@ const ProductDetailsPage: React.FC = () => {
             </p>
           </AnimatedElement>
           <AnimatedElement direction="right" delay={0.4}>
-            <button className="rounded bg-olive-drab/50 backdrop-blur-sm px-8 py-4 text-lg md:text-xl lg:text-2xl xl:text-3xl font-light text-white shadow-sm transition duration-300 ease-out hover:bg-olive-drab/60 hover:text-white active:scale-95">
+            <button className="rounded bg-olive-drab/50 backdrop-blur-sm px-8 py-4 text-sm md:text-xl lg:text-2xl xl:text-3xl font-light text-white shadow-sm transition duration-300 ease-out hover:bg-olive-drab/60 hover:text-white active:scale-95">
               Додати в кошик
             </button>
           </AnimatedElement>
@@ -71,7 +71,7 @@ const ProductDetailsPage: React.FC = () => {
               {['description', 'composition', 'usage'].map((tab) => (
                 <button
                   key={tab}
-                  className={`px-1 py-4 text-lg md:text-xl lg:text-2xl xl:text-3xl font-light relative ${
+                  className={`px-1 py-4 text-sm md:text-xl lg:text-2xl xl:text-3xl font-light relative ${
                     activeTab === tab ? 'text-olive-green' : 'text-olive-drab hover:text-olive-green'
                   }`}
                   onClick={() => setActiveTab(tab as 'description' | 'composition' | 'usage')}
