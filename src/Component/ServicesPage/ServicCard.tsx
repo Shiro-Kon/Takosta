@@ -22,9 +22,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   };
 
   return (
-    <AnimatedElement direction="up" delay={0.6}>
+    <AnimatedElement direction="up" delay={0.6} className='overflow-hidden p-4'>
       <motion.div
-        className='container mx-auto'
+        className='container mx-auto overflow-hidden '
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onMouseEnter={handleMouseEnter}

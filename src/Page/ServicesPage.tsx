@@ -11,9 +11,9 @@ import AnimatedElement from '../Component/AnimatedElement/AnimatedElement';
 const ServicesPage: React.FC = () => {
   
   return (
-    <div className="container mx-auto py-6 md:py-16 flex justify-center min-h-screen text-olive-drab break-words">
-      <div className="md:w-[90%] mx-auto">
-      <div className="container mx-auto px-6 py-24">
+    <div className="container mx-auto my-20 md:my-28 px-4 md:px-6 lg:px-8 xl:max-w-6xl xxl:max-w-7xl min-h-screen overflow-hidden ">
+      
+      <div className="container mx-auto ">
       <AnimatedElement
             direction="right"
             delay={0.4}>
@@ -41,7 +41,7 @@ const ServicesPage: React.FC = () => {
             direction="right"
             delay={0.8}>
         <motion.button
-          className="mt-2 bg-olive-drab/50 backdrop-blur-sm text-white font-light py-3 px-6 rounded text-lg md:text-sm lg:text-xl xl:text-xl xxl:text-3xl shadow-sm mx-auto block hover:bg-olive-drab/60 active:scale-95 transition duration-200 ease-out"
+          className="mt-6 bg-olive-drab/50 backdrop-blur-sm text-white font-light py-3 px-6 rounded text-lg md:text-sm lg:text-xl xl:text-xl xxl:text-3xl shadow-sm mx-auto block hover:bg-olive-drab/60 active:scale-95 transition duration-200 ease-out"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -51,7 +51,7 @@ const ServicesPage: React.FC = () => {
       </div>
 
       
-    </div>
+  
   );
 };
 
