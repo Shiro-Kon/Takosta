@@ -30,6 +30,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     }
   }, [mobileMenuOpen]);
 
+  const closeMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <Dialog as="div" className="lg:hidden" open={mobileMenuOpen || isAnimating} onClose={() => setMobileMenuOpen(false)}>
       <div className="fixed inset-0 z-50">
@@ -45,7 +49,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               className="fixed inset-y-0 right-0 z-50 w-1/2 md:w-1/3 bg-white bg-opacity-90 backdrop-blur-md"
             >
               <div className="flex items-center justify-between px-4 py-4">
@@ -61,7 +64,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     to={item.to}
                     onClick={() => {
                       handleLinkClick(item.to);
-                      setMobileMenuOpen(false);
+                      closeMenu(); // Закрываем меню при клике на ссылку в навигации
                     }}
                     className={`relative text-base font-light text-black transition-colors duration-300 pb-1 ${
                       item.to === activeLink ? 'text-black' : 'text-black/80'
@@ -73,7 +76,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     )}
                   </Link>
                 ))}
+                
+                <Link
+                  to="/basket"
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                  onClick={() => closeMenu()} 
+                >
+                  <img src="/Images/Header/Basket.png" alt="Кошик" className="h-8" />
+                </Link>
               </nav>
+              
             </DialogPanel>
           )}
         </AnimatePresence>
