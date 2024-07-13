@@ -24,7 +24,7 @@ const ProductDetailsPage: React.FC = () => {
       <AnimatedElement direction="right" delay={0.2}>
         <Link to="/product">
           <h1 className='text-sm md:text-md lg:text-lg xl:text-xl font-light text-sage-green m-0 md:ml-8 font-sans mb-6 sm:text-center'>
-            Повернутися назад
+            Повернутися до продуктів
           </h1>
         </Link>
       </AnimatedElement>

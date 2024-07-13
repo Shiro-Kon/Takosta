@@ -18,36 +18,36 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    controls.start({ height: '20%' });
+    controls.start({ height: '22%' });
   };
 
   return (
-    <AnimatedElement direction="up" delay={0.6} className='overflow-hidden p-4'>
+    <AnimatedElement direction="up" delay={0.6} className="p-4">
       <motion.div
-        className='container mx-auto overflow-hidden '
+        className="container mx-auto"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="cursor-pointer relative duration-300 overflow-hidden rounded-[50px]">
+        <div className="relative overflow-hidden rounded-[50px] cursor-pointer duration-300">
           <img
             src={service.image}
             alt={service.title}
-            className="relative w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover overflow-hidden rounded-[40px]"
+            className="w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover rounded-[40px]"
           />
           <motion.div
             initial={{ height: '22%' }}
-            animate={{ height: isHovered ? '60%' : '22%' }}
+            animate={controls}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="absolute bottom-0 left-0 right-0 text-white bg-black bg-opacity-35 backdrop-blur-sm p-6 text-center overflow-hidden rounded-t-[40px] "
+            className="absolute bottom-0 left-0 right-0 text-white bg-black bg-opacity-35 backdrop-blur-sm p-6 text-center rounded-b-[40px]"
           >
-            <h2 className="text-xl md:text-xl lg:text-3xl xl:text-2xl xxl:text-4xl font-light text-white font-sans my-2 xll:my-4">
+            <h2 className="text-xl md:text-xl lg:text-3xl xl:text-2xl xxl:text-4xl font-light font-sans my-2 xl:my-4">
               {service.title}
             </h2>
             {isHovered && (
               <>
-                <p className="text-lg md:text-sm lg:text-xl xl:text-lg xxl:text-xl font-light mb-2 xll:mb-4">
+                <p className="text-lg md:text-sm lg:text-xl xl:text-lg xxl:text-xl font-light mb-2 xl:mb-4">
                   {service.priceRange}
                 </p>
                 <p className="text-md md:text-sm lg:text-lg xl:text-sm xxl:text-lg mb-4 xxl:mb-6">
