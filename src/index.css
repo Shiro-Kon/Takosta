@@ -52,4 +52,6 @@ html{
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out;
 }
-
+body, html {
+  overflow-x: hidden;
+}

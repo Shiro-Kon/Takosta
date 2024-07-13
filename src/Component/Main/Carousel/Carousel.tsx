@@ -19,6 +19,8 @@ const Carousel: React.FC = () => {
     }
   };
 
+  
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
