@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface MobileMenuProps {
@@ -20,6 +20,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   navigation,
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -30,6 +31,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     }
   }, [mobileMenuOpen]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const closeMenu = () => {
     setMobileMenuOpen(false);
   };
@@ -39,7 +44,13 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       <div className="fixed inset-0 z-50">
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="fixed inset-0 bg-black bg-opacity-50" />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black bg-opacity-50"
+            />
           )}
         </AnimatePresence>
         <AnimatePresence>
@@ -64,7 +75,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     to={item.to}
                     onClick={() => {
                       handleLinkClick(item.to);
-                      closeMenu(); // Закрываем меню при клике на ссылку в навигации
+                      closeMenu();
                     }}
                     className={`relative text-base font-light text-black transition-colors duration-300 pb-1 ${
                       item.to === activeLink ? 'text-black' : 'text-black/80'
@@ -76,16 +87,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     )}
                   </Link>
                 ))}
-                
                 <Link
-                  to="/basket"
+                  to="/cart"
                   className="text-sm font-semibold leading-6 text-gray-900"
-                  onClick={() => closeMenu()} 
+                  onClick={closeMenu}
                 >
                   <img src="/Images/Header/Basket.png" alt="Кошик" className="h-8" />
                 </Link>
               </nav>
-              
             </DialogPanel>
           )}
         </AnimatePresence>

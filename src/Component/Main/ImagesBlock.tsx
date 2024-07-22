@@ -21,7 +21,7 @@ const ImagesBlock: React.FC = () => {
             <img 
               src={item.image} 
               alt={`Product ${item.id}`}
-              className="relative  w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover rounded-[40px]"
+              className="relative  w-full h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] xxl:h-[600px] object-cover rounded-[40px]"
             />
             </motion.div>
             

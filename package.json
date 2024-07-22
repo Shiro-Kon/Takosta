@@ -29,7 +29,7 @@
     "react-spring": "^9.7.3",
     "sass": "^1.77.5",
     "slick-carousel": "^1.8.1",
-    "swiper": "^11.1.4",
+    "swiper": "^11.1.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

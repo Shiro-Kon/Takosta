@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import MobileMenu from './MobileMenu';
 
+
 const navigation = [
   { name: 'Головна', to: '/' },
   { name: 'Продукція', to: '/product' },
@@ -16,8 +17,11 @@ const Header = () => {
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const location = useLocation();
 
+
+
+
   useEffect(() => {
-   // Set the active tab when the page loads
+  
     setActiveLink(location.pathname);
   }, [location]);
 
@@ -80,8 +84,11 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/basket" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link to="/cart" className="relative">
+          
             <img src="/Images/Header/Basket.png" alt="Кошик" className="h-8 invert" />
+          
+           
           </Link>
         </div>
       </nav>

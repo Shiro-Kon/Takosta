@@ -8,6 +8,9 @@ import DeliveryPaymentPage from '../../Page/DeliveryPaymentPage';
 import ServicesPage from '../../Page/ServicesPage';
 import ContactPage from '../../Page/ContactPage';
 import ProductDetailsPage from '../../Component/ProductPage/ProductDetails/ProductDetailsPage';
+import CartPage from '../../Page/CartPage';
+
+
 
 
 const App: React.FC = () => {
@@ -28,6 +31,7 @@ const App: React.FC = () => {
           <Route path="/delivery-payment" element={<DeliveryPaymentPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       </div>
       <Footer />

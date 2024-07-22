@@ -34,15 +34,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           <img
             src={service.image}
             alt={service.title}
-            className="w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover rounded-[40px]"
+            className="w-full h-[450px] md:h-[450px] lg:h-[500px] xl:h-[450px] xxl:h-[600px] object-cover rounded-[30px]"
           />
           <motion.div
             initial={{ height: '22%' }}
             animate={controls}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="absolute bottom-0 left-0 right-0 text-white bg-black bg-opacity-35 backdrop-blur-sm p-6 text-center rounded-b-[40px]"
+            className="absolute bottom-0 left-0 right-0 text-white bg-black bg-opacity-35 backdrop-blur-sm p-6 text-center rounded-b-[30px]"
           >
-            <h2 className="text-xl md:text-xl lg:text-3xl xl:text-2xl xxl:text-4xl font-light font-sans my-2 xl:my-4">
+            <h2 className="text-xl md:text-xl lg:text-3xl xl:text-2xl xxl:text-4xl font-light font-sans ">
               {service.title}
             </h2>
             {isHovered && (

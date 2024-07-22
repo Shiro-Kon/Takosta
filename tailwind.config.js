@@ -19,7 +19,7 @@ module.exports = {
         forum: ["Forum"],
       },
       colors: {
-        "very-light-gray": "#FDFDFD", //bg
+        
         "sage-green": "#859070", //title
         "olive-drab": "#626936", //text main
         "olive-green": "#57622A" ,  

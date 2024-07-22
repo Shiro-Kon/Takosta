@@ -17,7 +17,7 @@ const DeliveryPaymentPage: React.FC = () => {
   };
 
   return (
-    <main className="md:pt-[20px] lg:pt-[200px] xl:pt-[100px] flex justify-center min-h-screen  text-olive-drab">
+    <main className="container mx-auto md:w-[90%]  overflow-hidden  my-8 md:my-24 flex justify-center min-h-screen  text-olive-drab">
       <div className="container mx-auto px-6 py-24">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-8">
           <div className="mb-8 md:mb-0 md:mx-16">
@@ -70,7 +70,7 @@ const DeliveryPaymentPage: React.FC = () => {
                         />
                       );
                     } else {
-                      return <p key={idx} className="font-semibold text-left text-md md:text-md md:text-xl lg:text-2xl xl:text-xl xxl:text-2xl mb-4 p-4 rounded-xl ">{content.text}</p>;
+                      return <p key={idx} className="font-semibold text-left text-sm md:text-md md:text-md   xxl:text-xl mb-4 p-4 rounded-xl ">{content.text}</p>;
                     }
                   })}
                 </Section>

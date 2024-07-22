@@ -11,13 +11,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <div className='bg-very-light-gray'>
-  <BrowserRouter>
-        <App />
+      <BrowserRouter>
+          <App />
       </BrowserRouter>
-      </div>
   </React.StrictMode>
 );
-
 
 reportWebVitals();

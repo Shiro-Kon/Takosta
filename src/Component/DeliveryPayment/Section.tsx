@@ -9,9 +9,9 @@ type SectionProps = {
 };
 
 const Section: React.FC<SectionProps> = ({ title, isOpen, toggleSection, children }) => (
-  <div className="-mb-2 md:mb-6">
+  <div className=" md:mb-6">
     <div
-      className="cursor-pointer font-semibold  flex justify-between items-center text-2xl md:text-3xl xl:text-2xl xxl:text-5xl select-none"
+      className="cursor-pointer font-semibold  flex justify-between items-center text-2xl md:text-3xl xl:text-xl xxl:text-5xl select-none"
       onClick={toggleSection}
     >
       {title}
@@ -20,7 +20,7 @@ const Section: React.FC<SectionProps> = ({ title, isOpen, toggleSection, childre
       </span>
     </div>
     <div
-      className={`mt-6 pl-4 border-l-2 border-gray-300 overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[1000px]" : "max-h-0"}`}
+      className={`mt-2 pl-1  overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[1000px]" : "max-h-0"}`}
     >
       {children}
     </div>
