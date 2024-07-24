@@ -1,3 +1,5 @@
+// src/Container/App/App.tsx
+
 import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
@@ -6,12 +8,7 @@ import Footer from '../Footer/Footer';
 import ProductPage from '../../Page/ProductPage';
 import DeliveryPaymentPage from '../../Page/DeliveryPaymentPage';
 import ServicesPage from '../../Page/ServicesPage';
-import ContactPage from '../../Page/ContactPage';
 import ProductDetailsPage from '../../Component/ProductPage/ProductDetails/ProductDetailsPage';
-import CartPage from '../../Page/CartPage';
-
-
-
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -30,8 +27,7 @@ const App: React.FC = () => {
           <Route path="/product/:productId" element={<ProductDetailsPage />} />
           <Route path="/delivery-payment" element={<DeliveryPaymentPage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/cart" element={<CartPage />} />
+          
         </Routes>
       </div>
       <Footer />

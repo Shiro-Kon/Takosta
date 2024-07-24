@@ -1,9 +1,10 @@
 import React from 'react';
 import { footerSections } from '../../Utils/FooterData';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-olive-drab/15 py-8">
+    <footer className="py-8 border-t-2 border-sage-green">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {footerSections.map((section, index) => (
@@ -32,9 +33,9 @@ const Footer: React.FC = () => {
               ) : (
                 section.links.map((link, idx) => (
                   <div key={idx} className="mb-1">
-                    <a href={link.url} className="text-sage-green sm:text-sm md:text-lg duration-300 ease-in-out hover:text-sage-green/50">
+                    <Link to={link.url} className="text-sage-green sm:text-sm md:text-lg duration-300 ease-in-out hover:text-sage-green/50">
                       {link.name}
-                    </a>
+                    </Link>
                   </div>
                 ))
               )}
@@ -42,7 +43,7 @@ const Footer: React.FC = () => {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <div className="text-sage-green  sm:text-sm md:text-lg ">
+          <div className="text-sage-green  sm:text-sm md:text-lg cursor-default ">
             TAKOSTA professional cosmetics
           </div>
         </div>

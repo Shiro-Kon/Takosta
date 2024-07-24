@@ -38,8 +38,8 @@ const ServicesPage: React.FC = () => {
       
         </div>
         <AnimatedElement
-            direction="right"
-            delay={0.8}>
+            direction="visibility"
+            delay={0.2}>
         <motion.button
           className="mt-6 bg-olive-drab/50 backdrop-blur-sm text-white font-light py-3 px-6 rounded text-lg md:text-sm lg:text-xl xl:text-xl xxl:text-3xl shadow-sm mx-auto block hover:bg-olive-drab/60 active:scale-95 transition duration-200 ease-out"
           whileHover={{ scale: 1.05 }}

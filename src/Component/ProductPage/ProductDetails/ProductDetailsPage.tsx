@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { products } from '../../../Utils/Products';
+import {  useNavigate, useLocation, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Product, products } from '../../../Utils/Products';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedElement from '../../AnimatedElement/AnimatedElement';
-
+import { useCart } from '../../CartPage/CartContext';
 
 const ProductDetailsPage: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const { productId } = useParams<{ productId: string }>();
   const product = products.find((p) => p.id === productId);
   const [activeTab, setActiveTab] = useState<'description' | 'composition' | 'usage'>('description');
-
+  const { addToCart } = useCart();
 
   if (!product) {
     return <div>Продукт не найден</div>;
@@ -21,18 +23,16 @@ const ProductDetailsPage: React.FC = () => {
     usage: product.usage
   };
 
-  
-
   return (
-    <main className="container mx-auto py-16  md:py-20 px-4 md:px-6 lg:px-8 xl:max-w-6xl xxl:max-w-7xl min-h-screen overflow-hidden">
+    <main className="container mx-auto py-16 md:py-20 xxl:py-24 px-4 md:px-6 lg:px-8 xl:max-w-6xl xxl:max-w-7xl min-h-screen overflow-hidden">
       <AnimatedElement direction="right" delay={0.2}>
-        <Link to="/product">
-          <h1 className='text-sm md:text-sm lg:text-md xl:text-lg font-light text-sage-green m-0 md:ml-8 font-sans mb-6 sm:text-center'>
+        <button onClick={() => navigate("/product", { state: { scrollPosition: location.state?.scrollPosition || 0 } })}>
+          <h1 className='text-sm md:text-sm lg:text-md xl:text-lg font-light text-sage-green ml-6 md:ml-8 font-sans mb-6 sm:text-center border-b-[1px] border-sage-green '>
             Повернутися до продуктів
           </h1>
-        </Link>
+        </button>
       </AnimatedElement>
-      <div className="flex flex-col md:flex-row gap-12">
+      <div className="flex flex-col md:flex-row gap-12 cursor-default">
         <div className="md:w-1/2">
           <AnimatedElement direction="right" delay={0.2}>
             <img 
@@ -64,7 +64,7 @@ const ProductDetailsPage: React.FC = () => {
           <AnimatedElement direction="right" delay={0.4}>
             <button 
               className="rounded bg-olive-drab/50 backdrop-blur-sm px-4 py-2 text-sm md:text-md lg:text-lg xl:text-xl font-semibold text-white shadow-sm transition duration-300 ease-out hover:bg-olive-drab/60 hover:text-white active:scale-95"
-            
+              onClick={() => addToCart(product)}
             >
               Додати в кошик
             </button>
@@ -74,41 +74,35 @@ const ProductDetailsPage: React.FC = () => {
       <div className="mt-16 max-w-6xl xl:max-w-6xl">
         <AnimatedElement direction="right" delay={0.5}>
           <div className="border-b border-olive-drab/30">
-            <nav className="flex justify-start sm:space-x-2 md:space-x-6">
+            <nav className="flex space-x-4 md:space-x-8 lg:space-x-12">
               {['description', 'composition', 'usage'].map((tab) => (
                 <button
                   key={tab}
-                  className={`px-1 py-4 text-sm md:text-xl lg:text-2xl xl:text-3xl font-light relative ${
-                    activeTab === tab ? 'text-olive-green' : 'text-olive-drab hover:text-olive-green'
+                  className={`pb-2 text-md md:text-lg lg:text-xl font-medium ${
+                    activeTab === tab ? 'text-olive-drab border-b-2 border-olive-drab' : 'text-olive-drab/70'
                   }`}
                   onClick={() => setActiveTab(tab as 'description' | 'composition' | 'usage')}
                 >
-                  {tab === 'description' ? 'Опис' : tab === 'composition' ? 'Склад' : 'Спосіб використання'}
-                  {activeTab === tab && (
-                    <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-olive-green"
-                      layoutId="underline"
-                    />
-                  )}
+                  {tab === 'description' ? 'Опис' : tab === 'composition' ? 'Склад' : 'Застосування'}
                 </button>
               ))}
             </nav>
           </div>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="mt-8"
-            >
-              <p className="text-sm md:text-base lg:text-lg xl:text-xl text-olive-drab">
-                {tabContent[activeTab]}
-              </p>
-            </motion.div>
-          </AnimatePresence>
         </AnimatedElement>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="mt-8 text-sm md:text-md lg:text-lg xl:text-xl text-olive-drab/80 cursor-default"
+          >
+            <AnimatedElement direction="right" delay={0.6}>
+              <p>{tabContent[activeTab]}</p>
+            </AnimatedElement>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </main>
   );

@@ -15,7 +15,7 @@ const ProductItem: React.FC<{ product: Product; delay: number }> = ({ product, d
 
     
     <AnimatedElement direction="right" delay={0.5} >
-      <main className='flex flex-col md:flex-row mb-12 text-wrap sm:text-center md:text-left sm:px-6 px-4 '> 
+      <main className='flex flex-col md:flex-row mb-20 text-wrap sm:text-center md:text-left sm:px-6 px-4 '> 
       <img
         src={product.image}
         alt={product.name}
@@ -23,7 +23,7 @@ const ProductItem: React.FC<{ product: Product; delay: number }> = ({ product, d
         className="w-full md:w-[300px] lg:w-[400px] xl:w-[350px] xxl:w-[550px] h-[350px] md:h-[350px] lg:h-[450px] xl:h-[400px] xxl:h-[600px] object-cover mb-4 md:mb-0 md:mr-6 lg:mr-12 rounded-[30px] shadow-black/20 shadow-lg"
       />
       <div className="flex-grow sm:mt-4">
-        <h3 className="text-4xl md:text-4xl lg:text-6xl xl:text-7xl xxl:text-8xl font-light text-sage-green md:text-sage-green font-forum mb-2 lg:mb-6 ">
+        <h3 className="text-4xl md:text-4xl lg:text-6xl xl:text-7xl xxl:text-8xl font-light text-sage-green  font-forum mb-2 lg:mb-6 ">
           {product.name} <br />
           <span className="text-olive-green">{product.subname}</span>
         </h3>

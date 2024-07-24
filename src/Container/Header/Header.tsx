@@ -1,27 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import MobileMenu from './MobileMenu';
-
+import Cart from '../../Component/CartPage/Cart';
+import { useCart } from '../../Component/CartPage/CartContext';
+import ContactModal from '../../Component/Contac/ContactModal';
 
 const navigation = [
   { name: 'Головна', to: '/' },
   { name: 'Продукція', to: '/product' },
   { name: 'Доставка та оплата', to: '/delivery-payment' },
   { name: 'Послуги', to: '/services' },
-  { name: 'Контакти', to: '/contact' },
 ];
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false); 
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const location = useLocation();
-
-
-
+  const { getTotalQuantity } = useCart();
 
   useEffect(() => {
-  
     setActiveLink(location.pathname);
   }, [location]);
 
@@ -31,8 +31,8 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-black bg-opacity-25 backdrop-blur-md font-sans">
-      <nav className="flex items-center justify-between py-2 xxl:py-4 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14" aria-label="Global">
+    <header className="fixed inset-x-0 top-0 z-40 bg-sage-green/60 backdrop-blur-sm font-sans">
+      <nav className="flex items-center justify-between py-3 xxl:py-4 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">TAKOSTA</span>
@@ -83,13 +83,24 @@ const Header = () => {
           ))}
         </div>
 
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/cart" className="relative">
-          
-            <img src="/Images/Header/Basket.png" alt="Кошик" className="h-8 invert" />
-          
-           
-          </Link>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end md:space-x-6">
+          <button
+            className="text-base sm:text-lg md:text-xl lg:text-xl xxl:text-2xl font-light text-white/80 transition-colors duration-300 pb-1"
+            onClick={() => setContactOpen(true)} 
+          >
+            Контакти
+          </button>
+          <button
+            className="relative"
+            onClick={() => setCartOpen(true)}
+          >
+            <img src="/Images/Header/Basket.png" alt="Кошик" className="h-8 pb-2 invert" />
+            {getTotalQuantity() > 0 && (
+              <span className="absolute -top-2 -right-3 flex w-4 h-4  items-center justify-center rounded-full bg-white/20  text-[12px] text-white">
+                {getTotalQuantity()}
+              </span>
+            )}
+          </button>
         </div>
       </nav>
       <MobileMenu
@@ -98,7 +109,11 @@ const Header = () => {
         activeLink={activeLink}
         handleLinkClick={handleLinkClick}
         navigation={navigation}
+        openCart={() => setCartOpen(true)}
+        openContact={() => setContactOpen(true)} // Додано для відкриття контактного модального вікна
       />
+      <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
+      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} /> {/* Контактне модальне вікно */}
     </header>
   );
 };

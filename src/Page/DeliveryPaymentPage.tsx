@@ -17,8 +17,8 @@ const DeliveryPaymentPage: React.FC = () => {
   };
 
   return (
-    <main className="container mx-auto md:w-[90%]  overflow-hidden  my-8 md:my-24 flex justify-center min-h-screen  text-olive-drab">
-      <div className="container mx-auto px-6 py-24">
+    <main className="container mx-auto lg:w-[90%]  overflow-hidden  my-12 md:my-16 xxl:my-28 flex justify-center min-h-screen  text-olive-drab">
+      <div className="container mx-auto px-6 py-14 md:py-24">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-8">
           <div className="mb-8 md:mb-0 md:mx-16">
             <AnimatedElement

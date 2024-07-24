@@ -22,7 +22,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   };
 
   return (
-    <AnimatedElement direction="up" delay={0.6} className="p-4">
+    <AnimatedElement direction="up" delay={0.2} className="p-4">
       <motion.div
         className="container mx-auto"
         whileHover={{ scale: 1.05 }}
