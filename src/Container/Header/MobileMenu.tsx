@@ -37,9 +37,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     }
   }, [mobileMenuOpen]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+
 
   const closeMenu = () => {
     setMobileMenuOpen(false);
