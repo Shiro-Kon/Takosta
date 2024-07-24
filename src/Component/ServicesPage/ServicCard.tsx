@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Service } from '../../Utils/servicesData';
-import AnimatedElement from '../AnimatedElement/AnimatedElement';
 
 interface ServiceCardProps {
   service: Service;
