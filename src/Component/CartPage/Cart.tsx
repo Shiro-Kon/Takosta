@@ -11,7 +11,7 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
 
   const handleProductClick = (productId: string) => {
     navigate(`/product/${productId}`);
-    onClose(); // Закрываем корзину при переходе на страницу товара
+    onClose(); 
   };
 
   return (
@@ -57,7 +57,7 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
                     ) : (
                       <div className="mt-8">
                         <div className="flow-root">
-                          <ul role="list" className="-my-2 divide-y divide-olive-green">
+                          <ul  className="-my-2 divide-y divide-olive-green">
                             {cart.map(item => (
                               <li key={item.product.id} className="flex py-6">
                                 <div

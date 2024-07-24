@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dialog, DialogPanel } from '@headlessui/react';
+import { Dialog } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,8 +11,8 @@ interface MobileMenuProps {
   activeLink: string | null;
   handleLinkClick: (to: string) => void;
   navigation: { name: string; to: string }[];
-  openCart: () => void; // Функція для відкриття кошика
-  openContact: () => void; // Функція для відкриття контактного модального вікна
+  openCart: () => void; 
+  openContact: () => void; 
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
@@ -26,7 +26,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const location = useLocation();
-  const { getTotalQuantity } = useCart(); // Отримуємо загальну кількість товарів у кошику
+  const { getTotalQuantity } = useCart(); 
 
   useEffect(() => {
     if (mobileMenuOpen) {

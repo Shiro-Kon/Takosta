@@ -1,6 +1,6 @@
 import {  useNavigate, useLocation, useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { Product, products } from '../../../Utils/Products';
+import { products } from '../../../Utils/Products';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedElement from '../../AnimatedElement/AnimatedElement';
 import { useCart } from '../../CartPage/CartContext';
