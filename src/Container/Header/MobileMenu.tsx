@@ -67,7 +67,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.5 }}
-              className="fixed inset-y-0 right-0 z-50 w-1/2 md:w-1/3 bg-white/90 "
+              className="fixed inset-y-0 right-0 z-50 w-full md:w-3/5 bg-white "
             >
               <div className="flex justify-left px-6 py-6">
                 <button type="button" className="-m-2.5 rounded-md p-2.5" onClick={() => setMobileMenuOpen(false)}>
@@ -75,7 +75,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   <XMarkIcon className="h-6 w-6 text-black" aria-hidden="true" />
                 </button>
               </div>
-              <nav className="flex flex-col items-start space-y-4 mt-6 ml-6">
+              <nav className="flex flex-col items-center space-y-4 mt-6 ml-6 ">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
@@ -84,13 +84,13 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                       handleLinkClick(item.to);
                       closeMenu();
                     }}
-                    className={`relative text-base font-light text-black transition-colors duration-300 pb-1 ${
-                      item.to === activeLink ? 'text-black' : 'text-black/80'
+                    className={`relative  text-2xl font-semibold font-sans text-olive-drab transition-colors duration-300 pb-1 ${
+                      item.to === activeLink ? 'text-olive-drab' : 'text-olive-drab/80'
                     }`}
                   >
                     {item.name}
                     {item.to === activeLink && (
-                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-black/40 transform translate-y-1 transition-transform duration-300 rounded-full" style={{ transformOrigin: 'left center', transform: 'scaleX(1)' }} />
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-olive-drab/40 transform translate-y-1 transition-transform duration-300 rounded-full" style={{ transformOrigin: 'left center', transform: 'scaleX(1)' }} />
                     )}
                   </Link>
                 ))}
@@ -99,7 +99,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     openContact();
                     closeMenu(); 
                   }}
-                  className="relative text-base font-light text-black transition-colors duration-300 pb-1"
+                  className="relative text-2xl font-semibold font-sans text-olive-drab/80  pb-1"
                 >
                   Контакти
                 </button>
@@ -108,11 +108,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     openCart();
                     closeMenu(); 
                   }}
-                  className="relative flex items-center text-sm font-semibold leading-6 text-gray-900 mt-6"
+                  className="relative text-2xl font-semibold font-sans bg-olive-drab/50 mt-6 py-2 px-6 rounded-xl"
                 >
-                  <img src="/Images/Header/Basket.png" alt="Кошик" className="h-6 w-auto" />
+                  <img src="/Images/Header/Basket.png" alt="Кошик" className="h-10 w-auto invert " />
                   {getTotalQuantity() > 0 && (
-                    <span className="absolute -top-2 -right-2 flex h-3 w-3 items-center justify-center rounded-full bg-black/50 text-white text-[10px] text-white ">
+                    <span className="absolute -top-0 -right-10 flex text-xl items-center justify-center border-b-2 border-olive-drab/80  text-[10px] text-olive-drab/80  px-2">
                       {getTotalQuantity()}
                     </span>
                   )}

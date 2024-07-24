@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Review } from '../../../Utils/reviewsData';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const FullReviewModal: React.FC<Review & { onClose: () => void }> = ({ name, service, fullReview, images, onClose }) => {
   useEffect(() => {
@@ -36,7 +37,14 @@ const FullReviewModal: React.FC<Review & { onClose: () => void }> = ({ name, ser
         <p className="text-lg lg:text-xl xl:text-2xl mb-6">{fullReview}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 flex justify-center">
           {images && images.map((img, index) => (
-            <img key={index} src={img} alt={`${name}'s ${service} ${index + 1}`} className="w-full h-full object-cover rounded-md" />
+             <LazyLoadImage
+            key={index} src={img} alt={`${name}'s ${service} ${index + 1}`} className="w-full h-full object-cover rounded-md"
+               effect="opacity"
+               wrapperProps={{
+                 
+                   style: {transitionDelay: "1s", willChange: "transform"},
+               }}
+           />
           ))}
         </div>
       </motion.div>

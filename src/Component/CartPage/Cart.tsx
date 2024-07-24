@@ -27,15 +27,15 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
             onClick={onClose}
           />
           <motion.div
-            className="fixed inset-0 overflow-hidden"
+            className="fixed inset-0 "
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.5 }}
           >
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full ">
+            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full">
               <DialogPanel className="pointer-events-auto w-screen max-w-md transform transition duration-500 ease-in-out">
-                <div className="flex h-full flex-col overflow-y-scroll bg-white/80 shadow-xl">
+                <div className="flex h-full flex-col  bg-white shadow-xl">
                   <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                     <div className="flex items-start justify-between">
                       <DialogTitle className="text-3xl font-cocomat text-olive-drab cursor-default">Кошик</DialogTitle>
@@ -53,13 +53,13 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
                     </div>
 
                     {cart.length === 0 ? (
-                      <div className="px-4 py-6 md:py-12 text-center text-lg md:text-xl lg:text-2xl xl:text-3xl xxl:text-8xl font-light text-sage-green font-cocomat">Кошик порожній</div>
+                      <div className="px-4 py-6 md:py-12 text-center text-lg md:text-xl lg:text-2xl xl:text-3xl font-light text-sage-green font-cocomat">Кошик порожній</div>
                     ) : (
-                      <div className="mt-8">
+                      <div className="my-8">
                         <div className="flow-root">
-                          <ul  className="-my-2 divide-y divide-olive-green">
+                          <ul className="-my-2">
                             {cart.map(item => (
-                              <li key={item.product.id} className="flex py-6">
+                              <li key={item.product.id} className="flex py-6 ">
                                 <div
                                   className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md cursor-pointer"
                                   onClick={() => handleProductClick(item.product.id)}
@@ -87,7 +87,7 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
                                     <p className="text-olive-green font-cocomat cursor-default">Кількість {item.quantity}</p>
                                     <div className="flex space-x-4 md:space-x-6 text-olive-green font-cocomat">
                                       <div className='flex space-x-3 text-xl'>
-                                        <button onClick={() => increaseQuantity(item.product.id)} className="text-olive-green hover:scale-[1.1] ">+</button>
+                                        <button onClick={() => increaseQuantity(item.product.id)} className="text-olive-green hover:scale-[1.1]">+</button>
                                         <button onClick={() => decreaseQuantity(item.product.id)} className="text-olive-green hover:scale-[1.1]">-</button>
                                       </div>
                                       <button onClick={() => removeFromCart(item.product.id)} className="text-red-500 hover:text-red-700 text-md md:text-lg">Видалити</button>
@@ -107,7 +107,7 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
                       <p>Разом</p>
                       <p>{getTotalPrice().toFixed(2)}₴</p>
                     </div>
-                    <p className="mt-0.5 text-sm font-sans text-sage-green cursor-default ">Доставка та податки розраховуються при оформленні замовлення.</p>
+                    <p className="mt-0.5 text-sm font-sans text-sage-green cursor-default">Доставка та податки розраховуються при оформленні замовлення.</p>
                     <div className="mt-6">
                       <button
                         onClick={() => alert('Оформити замовлення')}

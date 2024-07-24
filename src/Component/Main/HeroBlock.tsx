@@ -1,25 +1,37 @@
 import { Link } from "react-router-dom";
 import AnimatedElement from "../AnimatedElement/AnimatedElement";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const HeroBlock = () => {
   return (
     <div className="relative h-screen">
       <AnimatedElement direction="visibility" delay={0.2}>
-        <img
-          src="./Images/Heroblock/Heroblok.png"
-          alt="Background"
-          loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      <LazyLoadImage
+      alt="Background"
+      className="absolute inset-0 w-full h-full object-cover"
+      src="./Images/Heroblock/Heroblok.png"
+      effect="opacity"
+      wrapperProps={{
+         
+          style: {transitionDelay: "1s"},
+      }}
+    />
+       
       </AnimatedElement>
       <div className="flex items-center justify-center h-full mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 ">
         <div className="text-center">
           <AnimatedElement direction="up" delay={0.2}>
-            <img
-              src="./Images/Heroblock/TAKOSTA_logo.PNG"
-              alt="Takosta professional cosmetics"
-              className="scale-75 sm:scale-90 md:scale-100 lg:scale-110 xl:scale-125 mobile-landscape:scale-50"
-            />
+          <LazyLoadImage
+      alt="Takosta professional cosmetics"
+      className="scale-75 sm:scale-90 md:scale-100 lg:scale-110 xl:scale-125 mobile-landscape:scale-50"
+      src="./Images/Heroblock/TAKOSTA_logo.PNG"
+      effect="opacity"
+      wrapperProps={{
+         
+          style: {transitionDelay: "1s"},
+      }}
+    />
+           
           </AnimatedElement>
           <AnimatedElement direction="up" delay={0.6}>
             <div className="mt-6 lg:mt-16 flex justify-center mobile-landscape:-mt-6">

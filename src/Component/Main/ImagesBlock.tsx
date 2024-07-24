@@ -2,6 +2,7 @@ import React from 'react';
 import ImagesBlockArry, { ImagesBlockData } from '../../Utils/ImagesBlockArry';
 import AnimatedElement from '../AnimatedElement/AnimatedElement';
 import { motion } from 'framer-motion';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ImagesBlock: React.FC = () => {
   return (
@@ -18,11 +19,18 @@ const ImagesBlock: React.FC = () => {
           
          
         >
-            <img 
-              src={item.image} 
-              alt={`Product ${item.id}`}
-              className="relative  w-full h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] xxl:h-[600px] object-cover rounded-[40px]"
-            />
+          <LazyLoadImage
+                   src={item.image} 
+                   alt={`Product ${item.id}`}
+                   className="relative  w-full h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] xxl:h-[600px] object-cover rounded-[40px]"
+                  
+                    effect="opacity"
+                    wrapperProps={{
+                      
+                        style: {transitionDelay: "1s", willChange: "transform"},
+                    }}
+                />
+           
             </motion.div>
             
             

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Product, products } from "../../../Utils/Products";
 import AnimatedElement from "../../AnimatedElement/AnimatedElement";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Carousel: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState<number | null>(null);
@@ -51,9 +52,10 @@ const Carousel: React.FC = () => {
         }}
         effect="fade"
         speed={600}
+        
       >
         {products.map((product: Product, index) => (
-          <SwiperSlide key={product.id} className=" py-6">
+          <SwiperSlide key={product.id} className=" p-6">
             <div className="container relative">
               <motion.div
                 className="relative cursor-pointer transition duration-300"
@@ -61,12 +63,15 @@ const Carousel: React.FC = () => {
                 whileTap={{ scale: activeSlide === index ? 1 : 0.98 }}
                 onClick={() => handleSlideClick(index)}
               >
-                <img
-                  src={product.image}
-                  alt={`${product.name} ${product.subname}`}
-                  loading="lazy"
-                  className="relative w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[450px] xxl:h-[650px] transition object-cover overflow-hidden rounded-[40px] drop-shadow-lg"
-                  style={{ willChange: "transform" }}
+                <LazyLoadImage
+                    src={product.image}
+                    alt={`${product.name} ${product.subname}`}
+                    className="relative w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[450px] xxl:h-[650px] transition object-cover overflow-hidden rounded-[40px] drop-shadow-lg"
+                    effect="opacity"
+                    wrapperProps={{
+                      
+                        style: {transitionDelay: "1s", willChange: "transform"},
+                    }}
                 />
               </motion.div>
 

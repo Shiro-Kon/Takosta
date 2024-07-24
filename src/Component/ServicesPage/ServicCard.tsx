@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Service } from '../../Utils/servicesData';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 interface ServiceCardProps {
   service: Service;
@@ -29,11 +30,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         onMouseLeave={handleMouseLeave}
       >
         <div className="relative overflow-hidden rounded-[50px] cursor-pointer duration-300">
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-[450px] md:h-[450px] lg:h-[500px] xl:h-[450px] xxl:h-[600px] object-cover rounded-[30px]"
-          />
+        <LazyLoadImage
+           src={service.image}
+           alt={service.title}
+           className="w-full h-[450px] md:h-[450px] lg:h-[500px] xl:h-[450px] xxl:h-[600px] object-cover rounded-[30px]"
+               effect="opacity"
+               wrapperProps={{
+                 
+                   style: {transitionDelay: "1s", willChange: "transform"},
+               }}
+           />
+         
           <motion.div
             initial={{ height: '22%' }}
             animate={controls}

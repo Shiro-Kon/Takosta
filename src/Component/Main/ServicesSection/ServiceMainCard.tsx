@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import React from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 interface ServiceProps {
     title: string;
@@ -26,7 +27,16 @@ const ServiceMainCard: React.FC<ServiceProps> = ({
           whileTap={{ scale: 0.98 }}
         >
           <div className="cursor-pointer relative duration-500 overflow-hidden  rounded-[30px]">
-          <img src={image} alt={title} className="relative  w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover " />
+          <LazyLoadImage
+                  src={image} alt={title} className="relative  w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover "
+                  
+                    effect="opacity"
+                    wrapperProps={{
+                      
+                        style: {transitionDelay: "1s", willChange: "transform"},
+                    }}
+                />
+         
           <div className="absolute bottom-0 left-0 right-0 h-[25%] text-white bg-sage-green/20 backdrop-blur-md p-6  text-center rounded-[30px]  text-center">
             <button onClick={onClick} className="text-xl md:text-xl lg:text-3xl xl:text-2xl xxl:text-4xl font-light text-white font-sans my-2 xll:my-4">{buttonText}</button>
           </div>

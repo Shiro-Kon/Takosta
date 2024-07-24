@@ -1,9 +1,11 @@
-import {  useNavigate, useLocation, useParams } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { products } from '../../../Utils/Products';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedElement from '../../AnimatedElement/AnimatedElement';
 import { useCart } from '../../CartPage/CartContext';
+import Notification from './Notification';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ProductDetailsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -11,6 +13,7 @@ const ProductDetailsPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
   const product = products.find((p) => p.id === productId);
   const [activeTab, setActiveTab] = useState<'description' | 'composition' | 'usage'>('description');
+  const [showNotification, setShowNotification] = useState(false);
   const { addToCart } = useCart();
 
   if (!product) {
@@ -21,6 +24,12 @@ const ProductDetailsPage: React.FC = () => {
     description: product.description,
     composition: product.composition,
     usage: product.usage
+  };
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    setShowNotification(true);
+    setTimeout(() => setShowNotification(false), 2000); 
   };
 
   return (
@@ -35,11 +44,16 @@ const ProductDetailsPage: React.FC = () => {
       <div className="flex flex-col md:flex-row gap-12 cursor-default">
         <div className="md:w-1/2">
           <AnimatedElement direction="right" delay={0.2}>
-            <img 
-              src={product.image} 
-              alt={`${product.name} ${product.subname}`} 
-              className="w-full h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-cover rounded-[30px] shadow-black/20 shadow-lg"
-            />
+          <LazyLoadImage
+            src={product.image} 
+            alt={`${product.name} ${product.subname}`} 
+            className="w-full h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-cover rounded-[30px] shadow-black/20 shadow-lg"
+               effect="opacity"
+               wrapperProps={{
+                 
+                   style: {transitionDelay: "1s", willChange: "transform"},
+               }}
+           />
           </AnimatedElement>
         </div>
         <div className="md:w-1/2">
@@ -57,15 +71,15 @@ const ProductDetailsPage: React.FC = () => {
             </div>
          
              <div className='flex flex-row justify-between items-end self-end'>
-            <p className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl  font-bold text-olive-green">
-              {product.price.toFixed(2)}₴
-            </p>
-            <button 
-              className="rounded-[10px] bg-olive-drab/50 backdrop-blur-sm px-4 py-2 text-sm md:text-sm lg:text-md xl:text-lg  font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-drab/60 hover:scale-[1.03] active:scale-95 mobile-landscape:text-base "
-              onClick={() => addToCart(product)}
-            >
-              Додати в кошик
-            </button>
+              <p className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl  font-bold text-olive-green">
+                {product.price.toFixed(2)}₴
+              </p>
+              <button 
+                className="rounded-[10px] bg-olive-drab/50 backdrop-blur-sm px-4 py-2 text-sm md:text-sm lg:text-md xl:text-lg  font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-drab/60 hover:scale-[1.03] active:scale-95 mobile-landscape:text-base "
+                onClick={handleAddToCart}
+              >
+                Додати в кошик
+              </button>
             </div>
             </AnimatedElement>
           
@@ -104,6 +118,14 @@ const ProductDetailsPage: React.FC = () => {
           </motion.div>
         </AnimatePresence>
       </div>
+      <AnimatePresence>
+        {showNotification && (
+          <Notification 
+            message="Товар додано в кошик!" 
+            onClose={() => setShowNotification(false)} 
+          />
+        )}
+      </AnimatePresence>
     </main>
   );
 };
