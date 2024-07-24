@@ -16,7 +16,7 @@ const navigation = [
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  const [contactOpen, setContactOpen] = useState(false); 
+  const [contactOpen, setContactOpen] = useState(false);
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const location = useLocation();
   const { getTotalQuantity } = useCart();
@@ -86,7 +86,7 @@ const Header = () => {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end md:space-x-6">
           <button
             className="text-base sm:text-lg md:text-xl lg:text-xl xxl:text-2xl font-light text-white/80 transition-colors duration-300 pb-1"
-            onClick={() => setContactOpen(true)} 
+            onClick={() => setContactOpen(true)}
           >
             Контакти
           </button>
@@ -96,7 +96,7 @@ const Header = () => {
           >
             <img src="/Images/Header/Basket.png" alt="Кошик" className="h-8 pb-2 invert" />
             {getTotalQuantity() > 0 && (
-              <span className="absolute -top-2 -right-3 flex w-4 h-4  items-center justify-center rounded-full bg-white/20  text-[12px] text-white">
+              <span className="absolute -top-2 -right-3 flex w-4 h-4 items-center justify-center rounded-full bg-white/20 text-[12px] text-white">
                 {getTotalQuantity()}
               </span>
             )}
@@ -110,10 +110,10 @@ const Header = () => {
         handleLinkClick={handleLinkClick}
         navigation={navigation}
         openCart={() => setCartOpen(true)}
-        openContact={() => setContactOpen(true)} // Додано для відкриття контактного модального вікна
+        openContact={() => setContactOpen(true)}
       />
       <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
-      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} /> {/* Контактне модальне вікно */}
+      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </header>
   );
 };

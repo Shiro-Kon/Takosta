@@ -11,8 +11,8 @@ interface MobileMenuProps {
   activeLink: string | null;
   handleLinkClick: (to: string) => void;
   navigation: { name: string; to: string }[];
-  openCart: () => void; 
-  openContact: () => void; 
+  openCart: () => void;
+  openContact: () => void;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
@@ -26,7 +26,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const location = useLocation();
-  const { getTotalQuantity } = useCart(); 
+  const { getTotalQuantity } = useCart();
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -55,7 +55,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-sage-green/50  backdrop-blur-md"
+              className="fixed inset-0 bg-sage-green/50 backdrop-blur-md"
               onClick={() => setMobileMenuOpen(false)}
             />
           )}
@@ -67,7 +67,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.5 }}
-              className="fixed inset-y-0 right-0 z-50 w-full md:w-3/5 bg-white "
+              className="fixed inset-y-0 right-0 z-50 w-full md:w-3/5 bg-white"
             >
               <div className="flex justify-left px-6 py-6">
                 <button type="button" className="-m-2.5 rounded-md p-2.5" onClick={() => setMobileMenuOpen(false)}>
@@ -75,7 +75,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   <XMarkIcon className="h-6 w-6 text-black" aria-hidden="true" />
                 </button>
               </div>
-              <nav className="flex flex-col items-center space-y-4 mt-6 ml-6 ">
+              <nav className="flex flex-col items-center space-y-4 mt-6 ml-6">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
@@ -84,7 +84,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                       handleLinkClick(item.to);
                       closeMenu();
                     }}
-                    className={`relative  text-2xl font-semibold font-sans text-olive-drab transition-colors duration-300 pb-1 ${
+                    className={`relative text-2xl font-semibold font-sans text-olive-drab transition-colors duration-300 pb-1 ${
                       item.to === activeLink ? 'text-olive-drab' : 'text-olive-drab/80'
                     }`}
                   >
@@ -97,22 +97,22 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                 <button
                   onClick={() => {
                     openContact();
-                    closeMenu(); 
+                    closeMenu();
                   }}
-                  className="relative text-2xl font-semibold font-sans text-olive-drab/80  pb-1"
+                  className="relative text-2xl font-semibold font-sans text-olive-drab/80 pb-1"
                 >
                   Контакти
                 </button>
                 <button
                   onClick={() => {
                     openCart();
-                    closeMenu(); 
+                    closeMenu();
                   }}
                   className="relative text-2xl font-semibold font-sans bg-olive-drab/50 mt-6 py-2 px-6 rounded-xl"
                 >
-                  <img src="/Images/Header/Basket.png" alt="Кошик" className="h-10 w-auto invert " />
+                  <img src="/Images/Header/Basket.png" alt="Кошик" className="h-10 w-auto invert" />
                   {getTotalQuantity() > 0 && (
-                    <span className="absolute -top-0 -right-10 flex text-xl items-center justify-center border-b-2 border-olive-drab/80  text-[10px] text-olive-drab/80  px-2">
+                    <span className="absolute -top-0 -right-10 flex text-xl items-center justify-center border-b-2 border-olive-drab/80 text-[10px] text-olive-drab/80 px-2">
                       {getTotalQuantity()}
                     </span>
                   )}

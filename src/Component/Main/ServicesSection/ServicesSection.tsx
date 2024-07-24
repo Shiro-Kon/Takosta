@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AnimatedElement from "../../AnimatedElement/AnimatedElement";
 import ServiceMainCard from "./ServiceMainCard";
 import { Link } from "react-router-dom";
+import ContactModal from "../../Contac/ContactModal";
 
 
 
 
 
 const ServicesSection: React.FC = () => {
+  const [contactOpen, setContactOpen] = useState(false);
+
+
+ 
+
   return (
     <div className="py-16">
       <div className="container mx-auto px-4">
         <AnimatedElement
           direction="left"
-          delay={0.1}
+          delay={0.4}
           className="text-[45px] md:text-7xl lg:text-8xl xl:text-9xl  xxl:text-9xl font-pushkin text-white text-center mb-12"
         >
           <span className="text-olive-green text-7xl md:text-8xl lg:text-9xl  xl:text-9xl xxl:text-[170px]">
@@ -22,9 +28,9 @@ const ServicesSection: React.FC = () => {
           <br /> <div className="text-sage-green mt-6  md:mt-4 xxl:mt-6">які ми надаємо</div>
         </AnimatedElement>
         <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-16 md:gap-8 xl:gap-0">
-          <AnimatedElement direction="left" delay={0.2}>
-          <Link
-                to="/contact"
+          <AnimatedElement direction="left" delay={0.6}>
+          <div
+                 onClick={() => setContactOpen(true)}
                 
               >
             <ServiceMainCard
@@ -33,9 +39,9 @@ const ServicesSection: React.FC = () => {
               buttonText="Записатися на консультацію"
               onClick={() => console.log("Book consultation")}
             />
-            </Link>
+            </div>
           </AnimatedElement>
-          <AnimatedElement direction="left" delay={0.3}>
+          <AnimatedElement direction="left" delay={0.4}>
           <Link
                 to="/product"
                 
@@ -50,6 +56,7 @@ const ServicesSection: React.FC = () => {
           </AnimatedElement>
         </div>
       </div>
+      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </div>
   );
 };

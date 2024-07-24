@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import React from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 interface ServiceProps {
     title: string;
@@ -23,21 +22,13 @@ const ServiceMainCard: React.FC<ServiceProps> = ({
       </h3>
         
          <motion.div
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          className='overflow-hidden'
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <div className="cursor-pointer relative duration-500 overflow-hidden  rounded-[30px]">
-          <LazyLoadImage
-                  src={image} alt={title} className="relative  w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover "
-                  
-                    effect="opacity"
-                    wrapperProps={{
-                      
-                        style: {transitionDelay: "1s", willChange: "transform"},
-                    }}
-                />
-         
-          <div className="absolute bottom-0 left-0 right-0 h-[25%] text-white bg-sage-green/20 backdrop-blur-md p-6  text-center rounded-[30px]  text-center">
+          <div className="cursor-pointer relative duration-300  rounded-[50px]">
+          <img src={image} alt={title} className="relative  w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[550px] xxl:h-[650px] object-cover rounded-[50px]" />
+          <div className="absolute bottom-0 left-0 right-0 max-h-[60%] text-white  bg-black bg-opacity-35 backdrop-blur-sm p-6  text-center rounded-[50px] overflow-hidden">
             <button onClick={onClick} className="text-xl md:text-xl lg:text-3xl xl:text-2xl xxl:text-4xl font-light text-white font-sans my-2 xll:my-4">{buttonText}</button>
           </div>
           </div>
