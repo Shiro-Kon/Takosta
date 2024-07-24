@@ -25,7 +25,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   openContact,
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
-  const location = useLocation();
   const { getTotalQuantity } = useCart();
 
   useEffect(() => {
