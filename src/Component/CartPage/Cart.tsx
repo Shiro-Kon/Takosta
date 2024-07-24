@@ -17,7 +17,7 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
   return (
     <AnimatePresence>
       {isOpen && (
-        <Dialog open={isOpen} onClose={onClose} className="relative z-50">
+        <Dialog open={isOpen} onClose={onClose} className="relative z-50 w-full">
           <motion.div
             className="fixed inset-0 bg-black/40 backdrop-blur-md"
             initial={{ opacity: 0 }}
@@ -33,7 +33,7 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
             exit={{ x: '100%' }}
             transition={{ duration: 0.5 }}
           >
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full ">
               <DialogPanel className="pointer-events-auto w-screen max-w-md transform transition duration-500 ease-in-out">
                 <div className="flex h-full flex-col overflow-y-scroll bg-white/80 shadow-xl">
                   <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
@@ -103,7 +103,7 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
                   </div>
 
                   <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-                    <div className="flex justify-between text-lg font-sans text-olive-drab cursor-default">
+                    <div className="flex justify-between text-lg font-sans text-olive-drab cursor-default mb-2">
                       <p>Разом</p>
                       <p>{getTotalPrice().toFixed(2)}₴</p>
                     </div>
@@ -116,7 +116,7 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
                         Оформити замовлення
                       </button>
                     </div>
-                    <div className="mt-6 flex justify-center text-center text-sm font-sans text-sage-green cursor-default">
+                    <div className="mt-6 flex justify-start text-center text-sm font-sans text-sage-green cursor-default">
                       <p>
                         або{' '}
                         <Link

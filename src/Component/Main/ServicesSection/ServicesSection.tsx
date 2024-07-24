@@ -13,7 +13,7 @@ const ServicesSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <AnimatedElement
           direction="left"
-          delay={0.4}
+          delay={0.1}
           className="text-[45px] md:text-7xl lg:text-8xl xl:text-9xl  xxl:text-9xl font-pushkin text-white text-center mb-12"
         >
           <span className="text-olive-green text-7xl md:text-8xl lg:text-9xl  xl:text-9xl xxl:text-[170px]">
@@ -22,7 +22,7 @@ const ServicesSection: React.FC = () => {
           <br /> <div className="text-sage-green mt-6  md:mt-4 xxl:mt-6">які ми надаємо</div>
         </AnimatedElement>
         <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-16 md:gap-8 xl:gap-0">
-          <AnimatedElement direction="left" delay={0.6}>
+          <AnimatedElement direction="left" delay={0.2}>
           <Link
                 to="/contact"
                 
@@ -35,7 +35,7 @@ const ServicesSection: React.FC = () => {
             />
             </Link>
           </AnimatedElement>
-          <AnimatedElement direction="left" delay={0.4}>
+          <AnimatedElement direction="left" delay={0.3}>
           <Link
                 to="/product"
                 

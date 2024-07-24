@@ -49,7 +49,7 @@ const ReviewsSection: React.FC = () => {
   return (
     <AnimatedElement
       direction="visibility"
-      delay={0.2}
+      delay={0.1}
       className="relative py-24"
     >
       <img
@@ -61,7 +61,7 @@ const ReviewsSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-20">
         <AnimatedElement
           direction="up"
-          delay={0.4}
+          delay={0.2}
           className="text-3xl md:text-4xl lg:text-4xl xl:text-7xl xxl:text-8xl text-center text-white mb-16 font-pushkin"
         >
           Відгуки наших клієнтів
@@ -72,7 +72,7 @@ const ReviewsSection: React.FC = () => {
           {displayedReviews.map((review) => (
             <AnimatedElement
             direction="up"
-            delay={0.7}
+            delay={0.3}
             className="flex justify-center space-x-4 mb-4"
           >
             <ReviewCard
@@ -85,7 +85,7 @@ const ReviewsSection: React.FC = () => {
         </div>
         <AnimatedElement
           direction="up"
-          delay={0.7}
+          delay={0.4}
           className="flex justify-center space-x-4 mb-4"
         >
           <button
@@ -108,7 +108,7 @@ const ReviewsSection: React.FC = () => {
         <div className="flex justify-center mt-8">
           <AnimatedElement
             direction="up"
-            delay={0.7}
+            delay={0.4}
             className="flex justify-center space-x-4 mb-4"
           >
             <button

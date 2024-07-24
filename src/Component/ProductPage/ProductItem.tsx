@@ -14,7 +14,7 @@ const ProductItem: React.FC<{ product: Product; delay: number }> = ({ product, d
     
 
     
-    <AnimatedElement direction="right" delay={0.5} >
+    <AnimatedElement direction="right" delay={0.1} >
       <main className='flex flex-col md:flex-row mb-20 text-wrap sm:text-center md:text-left sm:px-6 px-4 '> 
       <img
         src={product.image}
@@ -31,7 +31,7 @@ const ProductItem: React.FC<{ product: Product; delay: number }> = ({ product, d
           {product.description}
         </p>
         <button
-          className="rounded bg-olive-drab/50 backdrop-blur-sm px-4 py-3 text-sm md:text-sm lg:text-xl xl:text-xl xxl:text-3xl font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-drab/60 hover:text-white active:scale-95 mobile-landscape:text-base "
+          className="rounded-[10px] bg-olive-drab/50 backdrop-blur-sm px-4 py-3 text-sm md:text-sm lg:text-xl xl:text-xl xxl:text-3xl font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-drab/60 hover:scale-[1.03] active:scale-95 mobile-landscape:text-base "
           onClick={handleButtonClick}
         >
           Детальніше

@@ -55,7 +55,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black bg-opacity-50"
+              className="fixed inset-0 bg-sage-green/50  backdrop-blur-md"
               onClick={() => setMobileMenuOpen(false)}
             />
           )}
@@ -67,7 +67,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.5 }}
-              className="fixed inset-y-0 right-0 z-50 w-1/2 md:w-1/3 bg-white bg-opacity-90 backdrop-blur-md"
+              className="fixed inset-y-0 right-0 z-50 w-1/2 md:w-1/3 bg-white/90 "
             >
               <div className="flex justify-left px-6 py-6">
                 <button type="button" className="-m-2.5 rounded-md p-2.5" onClick={() => setMobileMenuOpen(false)}>

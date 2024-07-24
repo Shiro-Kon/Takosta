@@ -23,18 +23,18 @@ const DeliveryPaymentPage: React.FC = () => {
           <div className="mb-8 md:mb-0 md:mx-16">
             <AnimatedElement
               direction="up"
-              delay={0.4}
+              delay={0.1}
               className="text-5xl md:text-5xl lg:text-7xl xl:text-7xl xxl:text-8xl text-soft-sand font-pushkin mb-2 md:mb-6 lg:mb-4"
             >
               Доставка <span className='text-sage-green/70 md:text-sage-green'>та оплата</span>
             </AnimatedElement>
-            <AnimatedElement direction="up" delay={0.7}>
+            <AnimatedElement direction="up" delay={0.2}>
               <p className="text-md md:text-2xl lg:text-2xl xl:text-xl xxl:text-2xl mb-2 lg:mb-4  font-semibold">
                 У нас є 2 способи доставки та 3 способи оплати, ви можете
                 скористатись найбільш зручним для вас.
               </p>
             </AnimatedElement>
-            <AnimatedElement direction="up" delay={1}>
+            <AnimatedElement direction="up" delay={0.3}>
               <p className="text-md md:text-2xl lg:text-2xl xl:text-xl xxl:text-2xl font-extrabold ">
                 ЗВЕРНІТЬ УВАГУ! <span className='text-olive-drab/80'>Посилка зберігається на відділенні 5 днів.</span>
               </p>
@@ -43,7 +43,7 @@ const DeliveryPaymentPage: React.FC = () => {
 
           <div className="mb-14 md:mx-16">
             {DelPaySectionsData.map((section, index) => (
-              <AnimatedElement  key={index} direction="up" delay={1.2 + index * 0.3}>
+              <AnimatedElement  key={index} direction="up" delay={0.3 + index * 0.1}>
                 <Section
                   title={section.title}
                   isOpen={sections[index]}

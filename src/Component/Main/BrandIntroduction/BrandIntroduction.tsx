@@ -14,7 +14,7 @@ const BrandIntroduction = () => {
         </AnimatedElement>
         <AnimatedElement
           direction="up"
-          delay={0.4}
+          delay={0.3}
           className="relative flex justify-center items-center py-6 md:py-12"
         >
           <svg className="oval absolute w-[400px] h-[200px] sm:scale-[1] md:scale-[1.2] lg:scale-[1.6] xl:scale-[1.6] xxl:scale-[2.3]  lg:w-[400px] lg:h-[200px]">
@@ -32,7 +32,7 @@ const BrandIntroduction = () => {
       </h2>
       <AnimatedElement
         direction="up"
-        delay={0.6}
+        delay={0.3}
         className="mx-auto lg:py-10 xl:py-2 px-4  lg:px-6 xl:px-12 text-md   md:text-xl lg:text-3xl xl:text-2xl xxl:text-3xl leading-relaxed text-center text-olive-drab font-sans  break-words "
       >
         <p>Вітає вас у світі краси та догляду!</p>

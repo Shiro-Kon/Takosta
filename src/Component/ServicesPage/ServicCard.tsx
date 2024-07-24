@@ -22,9 +22,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   };
 
   return (
-    <AnimatedElement direction="up" delay={0.2} className="p-4">
       <motion.div
-        className="container mx-auto"
+        className="container mx-auto p-4"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onMouseEnter={handleMouseEnter}
@@ -58,7 +57,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           </motion.div>
         </div>
       </motion.div>
-    </AnimatedElement>
   );
 };
 

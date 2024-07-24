@@ -20,12 +20,12 @@ const WhyUs: React.FC = () => {
     <div className="mx-auto  w-[90%] py-8 pt-8">
       <div className="container mx-auto px-4">
       
-        <AnimatedElement direction="up" delay={0.2} className=" text-center mb-12">
+        <AnimatedElement direction="up" delay={0.1} className=" text-center mb-12">
         <span className="font-pushkin text-6xl md:text-7xl lg:text-8xl xl:text-9xl xxl:text-[140px] text-sage-green ">
       Чому саме <span className="text-olive-green">ми?</span>
         </span>
         </AnimatedElement>
-        <AnimatedElement direction="up" delay={0.6} className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6">
+        <AnimatedElement direction="up" delay={0.2} className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6">
         
           <Feature
             icon={<svg className="w-[80px] h-[80px] " viewBox="0 0 24 24"><path fill="currentColor" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>}

@@ -8,7 +8,7 @@ const ImagesBlock: React.FC = () => {
     <div className="container mx-auto w-[90%] ">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 ">
         {ImagesBlockArry.map((item: ImagesBlockData) => (
-          <AnimatedElement direction="left" delay={0.2} 
+          <AnimatedElement direction="left" delay={0.1} 
             key={item.id} 
             className="relative "
           >

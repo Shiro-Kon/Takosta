@@ -25,7 +25,7 @@ const ProductDetailsPage: React.FC = () => {
 
   return (
     <main className="container mx-auto py-16 md:py-20 xxl:py-24 px-4 md:px-6 lg:px-8 xl:max-w-6xl xxl:max-w-7xl min-h-screen overflow-hidden">
-      <AnimatedElement direction="right" delay={0.2}>
+      <AnimatedElement direction="right" delay={0.1}>
         <button onClick={() => navigate("/product", { state: { scrollPosition: location.state?.scrollPosition || 0 } })}>
           <h1 className='text-sm md:text-sm lg:text-md xl:text-lg font-light text-sage-green ml-6 md:ml-8 font-sans mb-6 sm:text-center border-b-[1px] border-sage-green '>
             Повернутися до продуктів
@@ -55,24 +55,24 @@ const ProductDetailsPage: React.FC = () => {
               <p>Примітка: {product.note}</p>
               <p>Зроблено в {product.madeIn}</p>
             </div>
-          </AnimatedElement>
-          <AnimatedElement direction="right" delay={0.3}>
-            <p className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-olive-green mb-8">
+         
+             <div className='flex flex-row justify-between items-end self-end'>
+            <p className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl  font-bold text-olive-green">
               {product.price.toFixed(2)}₴
             </p>
-          </AnimatedElement>
-          <AnimatedElement direction="right" delay={0.4}>
             <button 
-              className="rounded bg-olive-drab/50 backdrop-blur-sm px-4 py-2 text-sm md:text-md lg:text-lg xl:text-xl font-semibold text-white shadow-sm transition duration-300 ease-out hover:bg-olive-drab/60 hover:text-white active:scale-95"
+              className="rounded-[10px] bg-olive-drab/50 backdrop-blur-sm px-4 py-2 text-sm md:text-sm lg:text-md xl:text-lg  font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-drab/60 hover:scale-[1.03] active:scale-95 mobile-landscape:text-base "
               onClick={() => addToCart(product)}
             >
               Додати в кошик
             </button>
-          </AnimatedElement>
+            </div>
+            </AnimatedElement>
+          
         </div>
       </div>
       <div className="mt-16 max-w-6xl xl:max-w-6xl">
-        <AnimatedElement direction="right" delay={0.5}>
+        <AnimatedElement direction="right" delay={0.2}>
           <div className="border-b border-olive-drab/30">
             <nav className="flex space-x-4 md:space-x-8 lg:space-x-12">
               {['description', 'composition', 'usage'].map((tab) => (
@@ -98,7 +98,7 @@ const ProductDetailsPage: React.FC = () => {
             transition={{ duration: 0.3 }}
             className="mt-8 text-sm md:text-md lg:text-lg xl:text-xl text-olive-drab/80 cursor-default"
           >
-            <AnimatedElement direction="right" delay={0.6}>
+            <AnimatedElement direction="right" delay={0.3}>
               <p>{tabContent[activeTab]}</p>
             </AnimatedElement>
           </motion.div>
