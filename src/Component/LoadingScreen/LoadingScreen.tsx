@@ -18,7 +18,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ minimumLoadingTime = 2000
   if (!isLoading) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-sage-green/50">
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white">
       <div className="relative">
         <div className="w-24 h-24 border-4 border-olive-drab rounded-full"></div>
         <div className="absolute top-0 left-0 w-24 h-24 border-4 border-olive-green rounded-full animate-ping"></div>

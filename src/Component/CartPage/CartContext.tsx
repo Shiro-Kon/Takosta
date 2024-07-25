@@ -1,4 +1,3 @@
-// src/Context/CartContext.tsx
 
 import React, { createContext, useState, ReactNode } from 'react';
 import { Product } from '../../Utils/Products';
@@ -16,7 +15,7 @@ interface CartContextType {
   decreaseQuantity: (productId: string) => void;
   clearCart: () => void;
   getQuantity: (productId: string) => number;
-  getTotalQuantity: () => number; // Добавлено
+  getTotalQuantity: () => number;
   getTotalPrice: () => number;
 }
 
@@ -77,7 +76,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const getTotalQuantity = () => {
-    return cart.reduce((total, item) => total + item.quantity, 0); // Подсчет общего количества товаров
+    return cart.reduce((total, item) => total + item.quantity, 0);
   };
 
   const getTotalPrice = () => {

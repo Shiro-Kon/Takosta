@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Product, products } from "../../../Utils/Products";
 import AnimatedElement from "../../AnimatedElement/AnimatedElement";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Carousel: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState<number | null>(null);
@@ -22,17 +21,14 @@ const Carousel: React.FC = () => {
   };
 
   return (
-    <AnimatedElement direction="left" delay={0.2}
-      className="container mx-auto sm:px-2 md:w-[90%] xl:w-[80%] xxl:w-[70%] relative py-8"
+    <AnimatedElement direction="left" delay={0.1}
+      className="container mx-auto  relative py-8"
     >
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={20}
+        spaceBetween={5}
         slidesPerView={3}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }}
+        
         pagination={{
           clickable: true,
           el: ".swiper-pagination",
@@ -40,39 +36,32 @@ const Carousel: React.FC = () => {
           bulletActiveClass: "swiper-pagination-bullet-active !bg-olive-green",
         }}
         autoplay={{
-          delay: 3000,
+          delay: 2000,
           disableOnInteraction: true,
           pauseOnMouseEnter: true,
         }}
         onSwiper={setSwiper}
         breakpoints={{
           320: { slidesPerView: 1 },
-          600: { slidesPerView: 2 },
-          1300: { slidesPerView: 3 },
+          700: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
         }}
         effect="fade"
-        speed={600}
+        speed={500}
         
       >
         {products.map((product: Product, index) => (
-          <SwiperSlide key={product.id} className=" p-6">
-            <div className="container relative">
+          <SwiperSlide key={product.id} className="container p-4 ">
+            <div className="relative">
               <motion.div
                 className="relative cursor-pointer transition duration-300"
                 whileHover={{ scale: activeSlide === index ? 1 : 1.02 }}
                 whileTap={{ scale: activeSlide === index ? 1 : 0.98 }}
                 onClick={() => handleSlideClick(index)}
               >
-                <LazyLoadImage
-                    src={product.image}
+                <img src={product.image}
                     alt={`${product.name} ${product.subname}`}
-                    className="relative w-full h-[450px] md:h-[450px] lg:h-[550px] xl:h-[450px] xxl:h-[650px] transition object-cover overflow-hidden rounded-[40px] drop-shadow-lg"
-                    effect="opacity"
-                    wrapperProps={{
-                      
-                        style: {transitionDelay: "1s", willChange: "transform"},
-                    }}
-                />
+                    className="relative w-full h-[500px] md:h-[500px]  xxl:h-[650px] transition object-cover overflow-hidden rounded-[30px] drop-shadow-lg"/>
               </motion.div>
 
               {activeSlide === index && (
@@ -80,7 +69,7 @@ const Carousel: React.FC = () => {
                   initial={{ maxHeight: "20%", opacity: 0 }}
                   animate={{ maxHeight: "80%", opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute bottom-0 left-0 right-0 text-white bg-sage-green/60 backdrop-blur-lg p-6 text-center rounded-[40px] overflow-hidden w-full "
+                  className="absolute bottom-0 left-0 right-0 text-white bg-sage-green/60 backdrop-blur-lg p-6 text-center rounded-[30px] overflow-hidden w-full "
                 >
                   <div className="w-full">
                     <h3 className="text-2xl md:text-2xl lg:text-2xl  xxl:text-3xl font-light text-white font-sans my-2 xll:my-4">

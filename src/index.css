@@ -56,7 +56,7 @@ html{
 }
 body, html {
   overflow-x: hidden;
-  
+  height: 100%;
 }
 
 /* Для WebKit браузеров (Chrome, Safari) */

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence,  } from 'framer-motion';
 import { useCart } from '../../Component/CartPage/CartContext';
 
 interface MobileMenuProps {
@@ -67,7 +67,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               className="fixed inset-y-0 right-0 z-50 w-full md:w-3/5 bg-white"
             >
               <div className="flex justify-left px-6 py-6">
-                <button type="button" className="-m-2.5 rounded-md p-2.5" onClick={() => setMobileMenuOpen(false)}>
+                <button type="button" className="-m-2.5 rounded-md p-2.5" onClick={() =>{ setMobileMenuOpen(false); } }>
                   <span className="sr-only">Закрити меню</span>
                   <XMarkIcon className="h-6 w-6 text-black" aria-hidden="true" />
                 </button>

@@ -20,7 +20,7 @@ const ReviewsSection: React.FC = () => {
 
   const handleAddReview = (newReview: Review) => {
     setReviewList([...reviewList, newReview]);
-    setIsReviewFormOpen(false); // Close form after adding review
+    setIsReviewFormOpen(false); 
   };
 
   const getReviewsPerPage = () => {

@@ -14,6 +14,11 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
     onClose(); 
   };
 
+  const handleCheckout = () => {
+    navigate('/checkout');
+    onClose();
+  };
+  
   return (
     <AnimatePresence>
       {isOpen && (
@@ -110,7 +115,7 @@ const Cart: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onCl
                     <p className="mt-0.5 text-sm font-sans text-sage-green cursor-default">Доставка та податки розраховуються при оформленні замовлення.</p>
                     <div className="mt-6">
                       <button
-                        onClick={() => alert('Оформити замовлення')}
+                        onClick={handleCheckout}
                         className="rounded bg-olive-drab/50 backdrop-blur-sm px-4 py-3 text-sm md:text-sm lg:text-xl xl:text-xl xxl:text-3xl font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-drab/60 hover:text-white active:scale-95 mobile-landscape:text-base cursor-pointer"
                       >
                         Оформити замовлення

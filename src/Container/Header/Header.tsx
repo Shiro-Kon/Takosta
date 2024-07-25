@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import MobileMenu from './MobileMenu';
 import Cart from '../../Component/CartPage/Cart';
@@ -29,6 +29,7 @@ const Header = () => {
     setActiveLink(to);
     setMobileMenuOpen(false);
   };
+  
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 bg-sage-green/60 backdrop-blur-sm font-sans">

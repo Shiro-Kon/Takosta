@@ -5,14 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedElement from '../../AnimatedElement/AnimatedElement';
 import { useCart } from '../../CartPage/CartContext';
 import Notification from './Notification';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ProductDetailsPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { productId } = useParams<{ productId: string }>();
   const product = products.find((p) => p.id === productId);
-  const [activeTab, setActiveTab] = useState<'description' | 'composition' | 'usage'>('description');
+  const [activeTab, setActiveTab] = useState<'description' | 'composition' | 'usage' | 'contraindication'>('description');
   const [showNotification, setShowNotification] = useState(false);
   const { addToCart } = useCart();
 
@@ -23,7 +22,8 @@ const ProductDetailsPage: React.FC = () => {
   const tabContent = {
     description: product.description,
     composition: product.composition,
-    usage: product.usage
+    usage: product.usage,
+    contraindication: product.contraindication
   };
 
   const handleAddToCart = () => {
@@ -33,7 +33,7 @@ const ProductDetailsPage: React.FC = () => {
   };
 
   return (
-    <main className="container mx-auto py-16 md:py-20 xxl:py-24 px-4 md:px-6 lg:px-8 xl:max-w-6xl xxl:max-w-7xl min-h-screen overflow-hidden">
+    <main className="container mx-auto py-16 md:py-20 xxl:py-24 px-4 md:px-6 lg:px-8 xl:max-w-6xl xxl:max-w-7xl min-h-screen overflow-hidden ">
       <AnimatedElement direction="right" delay={0.1}>
         <button onClick={() => navigate("/product", { state: { scrollPosition: location.state?.scrollPosition || 0 } })}>
           <h1 className='text-sm md:text-sm lg:text-md xl:text-lg font-light text-sage-green ml-6 md:ml-8 font-sans mb-6 sm:text-center border-b-[1px] border-sage-green '>
@@ -44,16 +44,10 @@ const ProductDetailsPage: React.FC = () => {
       <div className="flex flex-col md:flex-row gap-12 cursor-default">
         <div className="md:w-1/2">
           <AnimatedElement direction="right" delay={0.2}>
-          <LazyLoadImage
-            src={product.image} 
+            <img src={product.image} 
             alt={`${product.name} ${product.subname}`} 
-            className="w-full h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-cover rounded-[30px] shadow-black/20 shadow-lg"
-               effect="opacity"
-               wrapperProps={{
-                 
-                   style: {transitionDelay: "1s", willChange: "transform"},
-               }}
-           />
+            className="w-full h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-cover rounded-[30px] shadow-black/20 shadow-lg" />
+          
           </AnimatedElement>
         </div>
         <div className="md:w-1/2">
@@ -61,7 +55,7 @@ const ProductDetailsPage: React.FC = () => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-sage-green font-forum mb-6">
               {product.name} <span className="text-olive-green">{product.subname}</span>
             </h1>
-            <div className="space-y-3 text-sm md:text-sm lg:text-md xl:text-lg text-olive-drab mb-8">
+            <div className="space-y-3 text-sm md:text-sm lg:text-md xl:text-lg text-olive-drab mb-8 normal-case">
               <p>Група товару: {product.productGroup}</p>
               <p>Призначення: {product.purpose}</p>
               <p>Тип волосся: {product.hairType}</p>
@@ -75,7 +69,7 @@ const ProductDetailsPage: React.FC = () => {
                 {product.price.toFixed(2)}₴
               </p>
               <button 
-                className="rounded-[10px] bg-olive-drab/50 backdrop-blur-sm px-4 py-2 text-sm md:text-sm lg:text-md xl:text-lg  font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-drab/60 hover:scale-[1.03] active:scale-95 mobile-landscape:text-base "
+                className="rounded-[10px] bg-olive-green backdrop-blur-sm px-4 py-2 text-sm md:text-sm lg:text-md xl:text-lg  font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-green/80 hover:scale-[1.03] active:scale-95 mobile-landscape:text-base "
                 onClick={handleAddToCart}
               >
                 Додати в кошик
@@ -85,19 +79,19 @@ const ProductDetailsPage: React.FC = () => {
           
         </div>
       </div>
-      <div className="mt-16 max-w-6xl xl:max-w-6xl">
+      <div className="my-10  max-w-6xl xl:max-w-6xl">
         <AnimatedElement direction="right" delay={0.2}>
           <div className="border-b border-olive-drab/30">
             <nav className="flex space-x-4 md:space-x-8 lg:space-x-12">
-              {['description', 'composition', 'usage'].map((tab) => (
+              {['description', 'composition', 'usage', 'contraindication' ].map((tab) => (
                 <button
                   key={tab}
                   className={`pb-2 text-md md:text-lg lg:text-xl font-medium ${
                     activeTab === tab ? 'text-olive-drab border-b-2 border-olive-drab' : 'text-olive-drab/70'
                   }`}
-                  onClick={() => setActiveTab(tab as 'description' | 'composition' | 'usage')}
+                  onClick={() => setActiveTab(tab as 'description' | 'composition' | 'usage' | 'contraindication' )}
                 >
-                  {tab === 'description' ? 'Опис' : tab === 'composition' ? 'Склад' : 'Застосування'}
+                  {tab === 'description' ? 'Опис' : tab === 'composition' ? 'Склад' : tab === 'usage' ? 'Застосування' : 'Протипоказання'}
                 </button>
               ))}
             </nav>
@@ -110,9 +104,9 @@ const ProductDetailsPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="mt-8 text-sm md:text-md lg:text-lg xl:text-xl text-olive-drab/80 cursor-default"
+            className="mt-8 text-sm md:text-md lg:text-lg xl:text-xl text-olive-drab/80 cursor-default whitespace-pre-wrap "
           >
-            <AnimatedElement direction="right" delay={0.3}>
+            <AnimatedElement direction="up" delay={0.1}>
               <p>{tabContent[activeTab]}</p>
             </AnimatedElement>
           </motion.div>

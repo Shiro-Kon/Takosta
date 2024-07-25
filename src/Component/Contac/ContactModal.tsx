@@ -14,7 +14,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <Dialog open={isOpen} onClose={onClose} className="relative z-50 ">
+        <Dialog open={isOpen} onClose={onClose} className="relative z-50">
           <motion.div
             className="fixed inset-0 bg-black/40 backdrop-blur-md"
             initial={{ opacity: 0 }}
@@ -29,9 +29,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            
           >
-            <div className="absolute inset-0 flex items-center justify-center px-8 ">
+            <div className="absolute inset-0 flex items-center justify-center px-8">
               <DialogPanel className="w-full max-w-sm min-h-md mx-auto bg-white/80 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out">
                 <div className="relative p-4">
                   <div className="flex items-center justify-between">
@@ -46,7 +45,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     </button>
                   </div>
 
-                  <div className="mt-6 space-y-2 ">
+                  <div className="mt-6 space-y-2">
                     <ContactItem
                       icon={<FaInstagram className="text-blue-500" />}
                       label="Instagram"
@@ -65,7 +64,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                       icon={<FaPhoneAlt className="text-green-500" />}
                       label="Телефон"
                       value="+380(93)954 61 97"
-                      link="tel:+380 93954 61 97"
+                      link="tel:+380939546197"
                       delay={0.3}
                     />
                     <ContactItem
