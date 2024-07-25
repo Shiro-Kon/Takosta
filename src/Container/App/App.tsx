@@ -6,7 +6,6 @@ import ProductDetailsPage from '../../Component/ProductPage/ProductDetails/Produ
 import DeliveryPaymentPage from '../../Page/DeliveryPaymentPage';
 import ServicesPage from '../../Page/ServicesPage';
 import CheckoutPage from '../../Page/CheckoutPage';
-import ScrollToTop from '../../Component/ScrollToTop/ScrollToTop ';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
