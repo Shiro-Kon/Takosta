@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Link, useLocation, } from 'react-router-dom';
+import  { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import MobileMenu from './MobileMenu';
 import Cart from '../../Component/CartPage/Cart';
@@ -18,24 +18,21 @@ const Header = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [activeLink, setActiveLink] = useState<string | null>(null);
-  const location = useLocation();
   const { getTotalQuantity } = useCart();
-
-  useEffect(() => {
-    setActiveLink(location.pathname);
-  }, [location]);
+  const navigate = useNavigate();
 
   const handleLinkClick = (to: string) => {
     setActiveLink(to);
     setMobileMenuOpen(false);
+    navigate(to);
+    window.location.reload();
   };
-  
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 bg-sage-green/60 backdrop-blur-sm font-sans">
       <nav className="flex items-center justify-between py-3 xxl:py-4 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5" onClick={() => handleLinkClick('/')}>
             <span className="sr-only">TAKOSTA</span>
             <img className="h-8 md:h-10 w-auto" src="/Images/Header/TAKOSTA_header.svg" alt="TAKOSTA Logo" />
           </Link>

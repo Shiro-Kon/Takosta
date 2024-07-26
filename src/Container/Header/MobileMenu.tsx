@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Dialog } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { Link, } from 'react-router-dom';
-import { motion, AnimatePresence,  } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../Component/CartPage/CartContext';
 
 interface MobileMenuProps {
@@ -24,26 +24,22 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   openCart,
   openContact,
 }) => {
-  const [isAnimating, setIsAnimating] = useState(false);
   const { getTotalQuantity } = useCart();
-
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      setIsAnimating(true);
-    } else {
-      const timeout = setTimeout(() => setIsAnimating(false), 300);
-      return () => clearTimeout(timeout);
-    }
-  }, [mobileMenuOpen]);
-
-
+  const navigate = useNavigate();
 
   const closeMenu = () => {
     setMobileMenuOpen(false);
   };
 
+  const handleMobileLinkClick = (to: string) => {
+    handleLinkClick(to);
+    closeMenu();
+    navigate(to);
+    window.location.reload();
+  };
+
   return (
-    <Dialog as="div" className="lg:hidden" open={mobileMenuOpen || isAnimating} onClose={() => setMobileMenuOpen(false)}>
+    <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
       <div className="fixed inset-0 z-50">
         <AnimatePresence>
           {mobileMenuOpen && (
@@ -67,7 +63,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               className="fixed inset-y-0 right-0 z-50 w-full md:w-3/5 bg-white"
             >
               <div className="flex justify-left px-6 py-6">
-                <button type="button" className="-m-2.5 rounded-md p-2.5" onClick={() =>{ setMobileMenuOpen(false); } }>
+                <button type="button" className="-m-2.5 rounded-md p-2.5" onClick={() => setMobileMenuOpen(false)}>
                   <span className="sr-only">Закрити меню</span>
                   <XMarkIcon className="h-6 w-6 text-black" aria-hidden="true" />
                 </button>
@@ -77,17 +73,17 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   <Link
                     key={item.name}
                     to={item.to}
-                    onClick={() => {
-                      handleLinkClick(item.to);
-                      closeMenu();
-                    }}
+                    onClick={() => handleMobileLinkClick(item.to)}
                     className={`relative text-2xl font-semibold font-sans text-olive-drab transition-colors duration-300 pb-1 ${
                       item.to === activeLink ? 'text-olive-drab' : 'text-olive-drab/80'
                     }`}
                   >
                     {item.name}
                     {item.to === activeLink && (
-                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-olive-drab/40 transform translate-y-1 transition-transform duration-300 rounded-full" style={{ transformOrigin: 'left center', transform: 'scaleX(1)' }} />
+                      <span
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-olive-drab/40 transform translate-y-1 transition-transform duration-300 rounded-full"
+                        style={{ transformOrigin: 'left center', transform: 'scaleX(1)' }}
+                      />
                     )}
                   </Link>
                 ))}

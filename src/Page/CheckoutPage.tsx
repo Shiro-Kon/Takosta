@@ -1,4 +1,3 @@
-// src/Page/CheckoutPage.tsx
 import React, { useState } from 'react';
 import { useCart } from '../Component/CartPage/CartContext';
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +5,7 @@ import AnimatedElement from '../Component/AnimatedElement/AnimatedElement';
 import OrderConfirmationModal from '../Component/OrderConfirmationModal/OrderConfirmationModal';
 
 const CheckoutPage: React.FC = () => {
-  const { cart, getTotalPrice, clearCart  } = useCart();
+  const { cart, getTotalPrice, clearCart } = useCart();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
@@ -23,10 +22,24 @@ const CheckoutPage: React.FC = () => {
     setFormData(prevState => ({ ...prevState, [name]: value }));
   };
 
+  const handleDeliveryMethodChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      deliveryMethod: value,
+      // Clear post office field if not needed
+      ...(value === 'pickup' ? { postOffice: '' } : {})
+    }));
+  };
+
+  const handlePaymentMethodChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setFormData(prevState => ({ ...prevState, paymentMethod: value }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Подготовка данных заказа
     const orderData = {
       products: cart.map(item => ({
         name: item.product.name,
@@ -37,35 +50,35 @@ const CheckoutPage: React.FC = () => {
       ...formData
     };
     
-   // Відкриття модального вікна із підтвердженням замовлення
- setIsModalOpen(true);
+    // Open the confirmation modal
+    setIsModalOpen(true);
 
- // Логування даних у консоль (замініть це на відправку на сервер за необхідності)
- console.log('Order Data:', orderData);
+    // Log the order data to the console
+    console.log('Order Data:', orderData);
 
- // Приклад надсилання даних на сервер (тут просто логуємо, реальний запит може бути як POST на API)
- // fetch('/api/orders', {
- // method: 'POST',
- // headers: {
- // 'Content-Type': 'application/json'
- // },
- // body: JSON.stringify(orderData)
- // })
- // .then(response => response.json())
- // .then(data => console.log('Server Response:', data))
- // .catch(error => console.error('Error:', error));
- };
+    // Example of sending data to the server (just logging here, replace with actual POST request)
+    // fetch('/api/orders', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(orderData)
+    // })
+    // .then(response => response.json())
+    // .then(data => console.log('Server Response:', data))
+    // .catch(error => console.error('Error:', error));
+  };
 
- const handleModalClose = () => {
+  const handleModalClose = () => {
     setIsModalOpen(false);
     clearCart(); 
-    navigate('/product'); // Перенаправлення на сторінку продуктів
+    navigate('/product'); // Redirect to the products page
   };
 
   return (
-    <main className="container mx-auto py-12 px-4 lg:px-12 flex justify-center">
-      <div className="w-full max-w-4xl space-y-8">
-        <div className="bg-white p-6 rounded-lg shadow-md">
+    <main className="container mx-auto py-14 md:py-20 px-4 lg:px-12 flex justify-center">
+      <div className="w-full max-w-2xl space-y-8">
+        <div className="bg-white p-6 shadow-sm rounded-lg">
           <AnimatedElement direction="up" delay={0.1} className="text-3xl font-bold mb-4 text-olive-drab text-center">
             Ваше замовлення
           </AnimatedElement>
@@ -95,21 +108,21 @@ const CheckoutPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 shadow-sm rounded-lg">
           <AnimatedElement direction="up" delay={0.2} className="text-3xl font-bold mb-4 text-olive-drab text-center">
             Оформлення замовлення
           </AnimatedElement>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="space-y-6">
               <div>
-                <label htmlFor="fullName" className="block text-lg font-medium">ФІО</label>
+                <label htmlFor="fullName" className="block text-lg font-medium">ПІБ</label>
                 <input
                   type="text"
                   id="fullName"
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-olive-drab transition"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-olive-drab"
                   required
                 />
               </div>
@@ -121,7 +134,7 @@ const CheckoutPage: React.FC = () => {
                   name="phoneNumber"
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-olive-drab transition"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-olive-drab"
                   required
                 />
               </div>
@@ -133,7 +146,7 @@ const CheckoutPage: React.FC = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-olive-drab transition"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-olive-drab"
                   required
                 />
               </div>
@@ -146,47 +159,109 @@ const CheckoutPage: React.FC = () => {
                     name="postOffice"
                     value={formData.postOffice}
                     onChange={handleInputChange}
-                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-olive-drab transition"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-olive-drab"
                   />
                 </div>
               )}
             </div>
 
-            <div className="space-y-4">
-              <div>
-                <label htmlFor="deliveryMethod" className="block text-lg font-medium">Спосіб доставки</label>
-                <select
-                  id="deliveryMethod"
-                  name="deliveryMethod"
-                  value={formData.deliveryMethod}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-olive-drab transition"
-                >
-                  <option value="pickup">Забрати в салоні</option>
-                  <option value="delivery">Доставка на Нову Пошту</option>
-                </select>
-              </div>
-
-              {formData.deliveryMethod === 'pickup' && (
-                <div>
-                  <label htmlFor="paymentMethod" className="block text-lg font-medium">Спосіб оплати</label>
-                  <select
-                    id="paymentMethod"
-                    name="paymentMethod"
-                    value={formData.paymentMethod}
-                    onChange={handleInputChange}
-                    className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-olive-drab transition"
+            <fieldset className="space-y-6">
+              <legend className="text-lg font-medium">Спосіб доставки</legend>
+              <div className="mt-4 space-y-4">
+                <div className="flex items-center gap-x-3">
+                  <input
+                    id="pickup"
+                    name="deliveryMethod"
+                    type="radio"
+                    value="pickup"
+                    checked={formData.deliveryMethod === 'pickup'}
+                    onChange={handleDeliveryMethodChange}
+                    className="hidden peer"
+                  />
+                  <label
+                    htmlFor="pickup"
+                    className="flex items-center cursor-pointer p-3 border border-gray-300 rounded-md peer-checked:bg-olive-drab peer-checked:text-white"
                   >
-                    <option value="card">Картка</option>
-                    <option value="cash">Готівка</option>
-                  </select>
+                    <span className="w-4 h-4 border border-gray-300 rounded-full flex items-center justify-center mr-2 peer-checked:bg-white peer-checked:border-transparent">
+                      <span className="block w-2 h-2 bg-olive-drab rounded-full"></span>
+                    </span>
+                    Забрати в салоні
+                  </label>
                 </div>
-              )}
-            </div>
+                <div className="flex items-center gap-x-3">
+                  <input
+                    id="delivery"
+                    name="deliveryMethod"
+                    type="radio"
+                    value="delivery"
+                    checked={formData.deliveryMethod === 'delivery'}
+                    onChange={handleDeliveryMethodChange}
+                    className="hidden peer"
+                  />
+                  <label
+                    htmlFor="delivery"
+                    className="flex items-center cursor-pointer p-3 border border-gray-300 rounded-md peer-checked:bg-olive-drab peer-checked:text-white"
+                  >
+                    <span className="w-4 h-4 border border-gray-300 rounded-full flex items-center justify-center mr-2 peer-checked:bg-white peer-checked:border-transparent">
+                      <span className="block w-2 h-2 bg-olive-drab rounded-full"></span>
+                    </span>
+                    Доставка
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+
+            {formData.deliveryMethod === 'delivery' && (
+              <fieldset className="space-y-6">
+                <legend className="text-lg font-medium">Спосіб оплати</legend>
+                <div className="mt-4 space-y-4">
+                  <div className="flex items-center gap-x-3">
+                    <input
+                      id="card"
+                      name="paymentMethod"
+                      type="radio"
+                      value="card"
+                      checked={formData.paymentMethod === 'card'}
+                      onChange={handlePaymentMethodChange}
+                      className="hidden peer"
+                    />
+                    <label
+                      htmlFor="card"
+                      className="flex items-center cursor-pointer p-3 border border-gray-300 rounded-md peer-checked:bg-olive-drab peer-checked:text-white"
+                    >
+                      <span className="w-4 h-4 border border-gray-300 rounded-full flex items-center justify-center mr-2 peer-checked:bg-white peer-checked:border-transparent">
+                        <span className="block w-2 h-2 bg-olive-drab rounded-full"></span>
+                      </span>
+                      Оплата карткою
+                    </label>
+                  </div>
+                  <div className="flex items-center gap-x-3">
+                    <input
+                      id="cash"
+                      name="paymentMethod"
+                      type="radio"
+                      value="cash"
+                      checked={formData.paymentMethod === 'cash'}
+                      onChange={handlePaymentMethodChange}
+                      className="hidden peer"
+                    />
+                    <label
+                      htmlFor="cash"
+                      className="flex items-center cursor-pointer p-3 border border-gray-300 rounded-md peer-checked:bg-olive-drab peer-checked:text-white"
+                    >
+                      <span className="w-4 h-4 border border-gray-300 rounded-full flex items-center justify-center mr-2 peer-checked:bg-white peer-checked:border-transparent">
+                        <span className="block w-2 h-2 bg-olive-drab rounded-full"></span>
+                      </span>
+                      Готівкою
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            )}
 
             <button
               type="submit"
-              className="w-full bg-olive-drab text-white py-3 rounded-md font-semibold hover:bg-olive-drab/80 transition"
+              className="w-full bg-olive-drab text-white py-3 px-6 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
             >
               Підтвердити замовлення
             </button>
@@ -194,7 +269,8 @@ const CheckoutPage: React.FC = () => {
         </div>
       </div>
 
-      <OrderConfirmationModal
+      {isModalOpen && (
+        <OrderConfirmationModal
         isOpen={isModalOpen}
         onClose={handleModalClose}  
         orderData={{
@@ -207,6 +283,7 @@ const CheckoutPage: React.FC = () => {
           ...formData
         }}
       />
+      )}
     </main>
   );
 };

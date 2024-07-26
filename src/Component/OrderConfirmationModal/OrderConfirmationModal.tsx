@@ -24,7 +24,7 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({ isOpen,
       <div className="fixed inset-0 bg-black/40 backdrop-blur-md" onClick={onClose} />
       <div className="fixed inset-0 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center px-8">
-          <DialogPanel className="w-full max-w-lg bg-white rounded-lg shadow-lg p-6 relative">
+          <DialogPanel className="w-full max-w-md max-h-md bg-white rounded-lg shadow-lg p-6 relative">
             <button
               type="button"
               onClick={onClose}
@@ -35,16 +35,16 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({ isOpen,
             </button>
             <div className="text-center mb-6">
               <FaCheckCircle className="text-olive-drab h-12 w-12 mx-auto mb-4" />
-              <h1 className="text-3xl font-bold mb-4 text-center text-olive-drab">
+              <h1 className="text-lg font-bold mb-4 text-center text-olive-drab">
             Ваше замовлення підтверджено!
           </h1>
-          <p className="text-lg mb-4 text-center">
+          <p className="text-sm mb-4 text-center">
             Дякуємо за ваше замовлення. Ми отримали його і обробимо найближчим часом.
           </p>
             </div>
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-semibold text-olive-green">Дані замовника</h3>
+                <h3 className="text-sm font-semibold text-olive-green">Дані замовника</h3>
                 <p><strong>ФІО:</strong> {orderData.fullName}</p>
                 <p><strong>Телефон:</strong> {orderData.phoneNumber}</p>
                 <p><strong>Email:</strong> {orderData.email}</p>
@@ -55,7 +55,7 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({ isOpen,
                 <p><strong>Спосіб оплати:</strong> {orderData.paymentMethod === 'card' ? 'Картка' : 'Готівка'}</p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-olive-green">Товари в замовленні</h3>
+                <h3 className="text-sm font-semibold text-olive-green">Товари в замовленні</h3>
                 <ul className="space-y-2">
                   {orderData.products.map((product, index) => (
                     <li key={index} className="flex justify-between">
@@ -64,7 +64,7 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({ isOpen,
                     </li>
                   ))}
                 </ul>
-                <p className="mt-4 text-lg font-bold">Разом: {orderData.totalPrice.toFixed(2)}₴</p>
+                <p className="mt-4 text-sm font-bold">Разом: {orderData.totalPrice.toFixed(2)}₴</p>
               </div>
             </div>
           </DialogPanel>

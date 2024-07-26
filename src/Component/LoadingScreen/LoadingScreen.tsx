@@ -4,7 +4,7 @@ interface LoadingScreenProps {
   minimumLoadingTime?: number;
 }
 
-const LoadingScreen: React.FC<LoadingScreenProps> = ({ minimumLoadingTime = 2000 }) => {
+const LoadingScreen: React.FC<LoadingScreenProps> = ({ minimumLoadingTime = 1000 }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
