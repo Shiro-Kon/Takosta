@@ -25,17 +25,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   openContact,
 }) => {
   const { getTotalQuantity } = useCart();
-  const navigate = useNavigate();
 
   const closeMenu = () => {
     setMobileMenuOpen(false);
   };
 
+  const navigate = useNavigate();
+
   const handleMobileLinkClick = (to: string) => {
     handleLinkClick(to);
     closeMenu();
-    navigate(to);
-    window.location.reload();
   };
 
   return (

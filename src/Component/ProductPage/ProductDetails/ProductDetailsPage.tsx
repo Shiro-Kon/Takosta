@@ -16,7 +16,7 @@ const ProductDetailsPage: React.FC = () => {
   const { addToCart } = useCart();
 
   if (!product) {
-    return <div>Продукт не найден</div>;
+    return <div>Продукт не  знайден</div>;
   }
 
   const tabContent = {
