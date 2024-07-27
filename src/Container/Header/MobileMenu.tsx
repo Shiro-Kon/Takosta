@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dialog } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../Component/CartPage/CartContext';
 
@@ -30,7 +30,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     setMobileMenuOpen(false);
   };
 
-  const navigate = useNavigate();
 
   const handleMobileLinkClick = (to: string) => {
     handleLinkClick(to);
