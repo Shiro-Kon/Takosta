@@ -18,7 +18,7 @@ const App: React.FC = () => {
   
   useEffect(() => {
   // Scroll page up when route changes
-  window.scrollTo({ top: 0, behavior: 'auto' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [pathname]);
   
   useEffect(() => {
