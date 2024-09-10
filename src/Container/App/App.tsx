@@ -18,7 +18,7 @@ const App: React.FC = () => {
   
   useEffect(() => {
   // Scroll page up when route changes
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'auto' });
   }, [pathname]);
   
   useEffect(() => {
@@ -36,7 +36,7 @@ const App: React.FC = () => {
   return (
     <>
       <Header />
-      <main className="h-full">
+      <main className="min-h-screen">
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Main />} />
