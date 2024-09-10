@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import LoadingScreen from '../../Component/LoadingProgress/LoadingProgress';
 import { ErrorBoundary } from 'react-error-boundary';
-import { useTransition, useDeferredValue } from 'react';
+import { useDeferredValue } from 'react';
 
 const Main = lazy(() => import('../../Page/Main'));
 const ProductPage = lazy(() => import('../../Page/ProductPage'));
@@ -17,7 +17,6 @@ const NotFoundPage = lazy(() => import('../../Page/NotFoundPage'));
 const App: React.FC = () => {
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(true);
-  const [isPending, startTransition] = useTransition();
   const deferredPathname = useDeferredValue(pathname);
 
   useEffect(() => {
