@@ -9,7 +9,6 @@ import { motion } from "framer-motion";
 import { Product, products } from "../../../Utils/Products";
 import AnimatedElement from "../../AnimatedElement/AnimatedElement";
 
-
 const Carousel: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState<number | null>(null);
   const [swiper, setSwiper] = useState<any>(null);
@@ -20,10 +19,10 @@ const Carousel: React.FC = () => {
   }, [swiper]);
 
   return (
-    <AnimatedElement direction="visibility" delay={0.1} className="container mx-auto relative py-8">
+    <AnimatedElement direction="visibility" delay={0.2} className="container mx-auto relative py-8">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={5}
+        spaceBetween={20} // Увеличить пространство между слайдами
         slidesPerView={3}
         pagination={{
           clickable: true,
@@ -31,7 +30,7 @@ const Carousel: React.FC = () => {
           bulletActiveClass: "swiper-pagination-bullet-active !bg-olive-green",
         }}
         autoplay={{
-          delay: 2000,
+          delay: 3000, // Увеличить задержку автопрокрутки
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
@@ -41,16 +40,16 @@ const Carousel: React.FC = () => {
           700: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        effect="fade"
-        speed={500}
+        effect="slide" // Использовать эффект "slide" для плавного пролистывания
+        speed={800} // Увеличить скорость анимации
       >
         {products.map((product: Product, index) => (
           <SwiperSlide key={product.id} className="p-4 mb-6">
             <div className="relative">
               <motion.div
                 className="relative cursor-pointer transition-transform duration-300"
-                whileHover={{ scale: activeSlide === index ? 1 : 1.02 }}
-                whileTap={{ scale: activeSlide === index ? 1 : 0.98 }}
+                whileHover={{ scale: activeSlide === index ? 1 : 1.03 }}
+                whileTap={{ scale: activeSlide === index ? 1 : 0.97 }}
                 onClick={() => handleSlideClick(index)}
               >
                 <img
