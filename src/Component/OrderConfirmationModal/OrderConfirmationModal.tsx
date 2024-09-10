@@ -23,7 +23,7 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({ isOpen,
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 bg-black/40 backdrop-blur-md" onClick={onClose} />
       <div className="fixed inset-0 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center ">
+        <div className="absolute inset-0 flex items-center justify-center p-8">
           <DialogPanel className="w-full max-w-md max-h-md bg-white rounded-lg shadow-lg p-4 relative">
             <button
               type="button"
