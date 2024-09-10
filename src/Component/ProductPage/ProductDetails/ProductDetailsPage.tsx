@@ -69,7 +69,7 @@ const ProductDetailsPage: React.FC = () => {
                 {product.price.toFixed(2)}₴
               </p>
               <button 
-                className="rounded-[10px] bg-olive-green backdrop-blur-sm px-4 py-2 text-sm md:text-sm lg:text-md xl:text-lg  font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-green/80 hover:scale-[1.03] active:scale-95 mobile-landscape:text-base "
+                className="rounded-[10px] bg-olive-green/60 backdrop-blur-sm px-4 py-2 text-sm md:text-sm lg:text-md xl:text-lg  font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-green/80 hover:scale-[1.03] active:scale-95 mobile-landscape:text-base "
                 onClick={handleAddToCart}
               >
                 Додати в кошик

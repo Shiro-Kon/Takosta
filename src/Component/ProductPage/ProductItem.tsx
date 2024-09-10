@@ -31,7 +31,7 @@ const ProductItem: React.FC<{ product: Product; delay: number }> = ({ product, d
           {product.description}
         </p>
         <button
-          className="rounded-[10px] bg-olive-green backdrop-blur-sm px-4 py-3 text-sm md:text-sm lg:text-xl xl:text-xl xxl:text-3xl font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-green/80 hover:scale-[1.03] active:scale-95 mobile-landscape:text-base "
+          className="rounded-[10px] bg-olive-green/60 backdrop-blur-sm px-4 py-3 text-sm md:text-sm lg:text-xl xl:text-xl xxl:text-3xl font-light text-white shadow-sm duration-200 ease-out hover:bg-olive-green/80 hover:scale-[1.03] active:scale-95 mobile-landscape:text-base "
           onClick={handleButtonClick}
         >
           Детальніше

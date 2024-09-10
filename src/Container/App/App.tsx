@@ -1,7 +1,8 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import LoadingScreen from '../../Component/LoadingProgress/LoadingProgress';
 
 const Main = lazy(() => import('../../Page/Main'));
 const ProductPage = lazy(() => import('../../Page/ProductPage'));
@@ -13,11 +14,25 @@ const NotFoundPage = lazy(() => import('../../Page/NotFoundPage'));
 
 const App: React.FC = () => {
   const { pathname } = useLocation();
-
+  const [loading, setLoading] = useState(true); // Manage loading state
+  
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Scroll page up when route changes
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [pathname]);
-
+  
+  useEffect(() => {
+  // Simulate loading delay (e.g. when site first loads)
+  const timer = setTimeout(() => {
+  setLoading(false); // Hide loading screen
+  }, 1500); // Delay for 1.5 seconds
+  
+  return () => clearTimeout(timer); // Clear timer
+  }, []);
+  
+  if (loading) {
+  return <LoadingScreen />; // Show loading screen until site is loaded
+  }
   return (
     <>
       <Header />

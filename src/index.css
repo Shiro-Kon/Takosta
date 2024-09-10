@@ -1,6 +1,4 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+
 
 
 
@@ -39,12 +37,6 @@ h1, h2, h3 {
 }
 
 
-html{
-  margin: 0 auto;
-  padding: 0 auto;
-  scrollbar-width: none;
-  
-}
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -54,19 +46,26 @@ html{
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out;
 }
-body, html {
-  overflow-x: hidden;
-  height: 100%;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  /* scrollbar-width: none;
+  overflow-x: hidden; */
+  width: 100%;
+  position: relative;
 }
 
-/* Для WebKit браузеров (Chrome, Safari) */
-::-webkit-scrollbar {
-  display: none;
+.spinner-border {
+  border-top-color: transparent;
+  border-right-color: rgba(0, 0, 0, 0.1);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
 }
 
 
 
-/* Для Internet Explorer и Edge */
-::-ms-overflow-style{
-  display: none
-} 
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
