@@ -3,6 +3,8 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import LoadingScreen from '../../Component/LoadingProgress/LoadingProgress';
+import { ErrorBoundary } from 'react-error-boundary';
+import { useTransition, useDeferredValue } from 'react';
 
 const Main = lazy(() => import('../../Page/Main'));
 const ProductPage = lazy(() => import('../../Page/ProductPage'));
@@ -14,44 +16,56 @@ const NotFoundPage = lazy(() => import('../../Page/NotFoundPage'));
 
 const App: React.FC = () => {
   const { pathname } = useLocation();
-  const [loading, setLoading] = useState(true); // Manage loading state
-  
+  const [loading, setLoading] = useState(true);
+  const [isPending, startTransition] = useTransition();
+  const deferredPathname = useDeferredValue(pathname);
+
   useEffect(() => {
-  // Scroll page up when route changes
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [pathname]);
-  
+    window.scrollTo({ top: -50, behavior: 'smooth' });
+  }, [deferredPathname]);
+
   useEffect(() => {
-  // Simulate loading delay (e.g. when site first loads)
-  const timer = setTimeout(() => {
-  setLoading(false); // Hide loading screen
-  }, 1500); // Delay for 1.5 seconds
-  
-  return () => clearTimeout(timer); // Clear timer
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Delay for 2 seconds
+
+    return () => clearTimeout(timer);
   }, []);
-  
+
   if (loading) {
-  return <LoadingScreen />; // Show loading screen until site is loaded
+    return <LoadingScreen />; // Show loading screen until site is loaded
   }
+
   return (
     <>
       <Header />
-      <main className="min-h-screen">
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/product" element={<ProductPage />} />
-            <Route path="/product/:productId" element={<ProductDetailsPage />} />
-            <Route path="/delivery-payment" element={<DeliveryPaymentPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+      <main className="min-h-screen flex-grow">
+        <Suspense fallback={<LoadingScreen />}>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="/product" element={<ProductPage />} />
+              <Route path="/product/:productId" element={<ProductDetailsPage />} />
+              <Route path="/delivery-payment" element={<DeliveryPaymentPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </ErrorBoundary>
         </Suspense>
       </main>
       <Footer />
     </>
   );
 };
+
+// Error fallback component
+const ErrorFallback: React.FC<{ error: Error; resetErrorBoundary: () => void }> = ({ error, resetErrorBoundary }) => (
+  <div role="alert">
+    <p>Something went wrong:</p>
+    <pre>{error.message}</pre>
+    <button onClick={resetErrorBoundary}>Try again</button>
+  </div>
+);
 
 export default App;
