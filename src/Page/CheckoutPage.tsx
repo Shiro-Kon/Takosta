@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useDeferredValue, useEffect, useState } from 'react';
 import AnimatedElement from '../Component/AnimatedElement/AnimatedElement';
 import OrderConfirmationModal from '../Component/OrderConfirmationModal/OrderConfirmationModal';
 import { useCart } from '../Component/CartPage/CartContext';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const CheckoutPage: React.FC = () => {
   const { cart, getTotalPrice, clearCart } = useCart();
@@ -16,6 +16,13 @@ const CheckoutPage: React.FC = () => {
     deliveryMethod: 'pickup'
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const { pathname } = useLocation();
+  const deferredPathname = useDeferredValue(pathname);
+
+  useEffect(() => {
+    window.scrollTo({ top: -20, behavior: 'smooth' });
+  }, [deferredPathname]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
