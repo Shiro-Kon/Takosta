@@ -1,8 +1,8 @@
-import React, { useDeferredValue, useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AnimatedElement from '../Component/AnimatedElement/AnimatedElement';
 import OrderConfirmationModal from '../Component/OrderConfirmationModal/OrderConfirmationModal';
 import { useCart } from '../Component/CartPage/CartContext';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutPage: React.FC = () => {
   const { cart, getTotalPrice, clearCart } = useCart();
@@ -16,13 +16,11 @@ const CheckoutPage: React.FC = () => {
     deliveryMethod: 'pickup'
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
-  const { pathname } = useLocation();
-  const deferredPathname = useDeferredValue(pathname);
 
+  // Scroll to top on component mount
   useEffect(() => {
-    window.scrollTo({ top: -20, behavior: 'smooth' });
-  }, [deferredPathname]);
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -65,28 +63,29 @@ const CheckoutPage: React.FC = () => {
           </div>
 
           <div className="space-y-6">
-            {cart.map(item => (
-              <div key={item.product.id} className="flex items-center justify-between border-b pb-4">
-                <div className="flex items-center">
-                  <img
-                    alt={item.product.name}
-                    src={item.product.image}
-                    className="h-14 w-14 object-cover rounded-md"
-                  />
-                  <div className="ml-4">
-                    <p className="text-base font-medium text-gray-800">{item.product.name} {item.product.subname}</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p className="text-sm text-gray-600">{item.quantity} шт.</p>
-                  <p className="text-base font-medium text-green-600">{(item.product.price * item.quantity).toFixed(2)}₴</p>
-                </div>
-              </div>
-            ))}
-            <div className="mt-6 border-t pt-4 text-right">
-              <p className="text-lg font-semibold text-gray-800">Разом: {getTotalPrice().toFixed(2)}₴</p>
-            </div>
-          </div>
+  {cart.map(item => (
+    <div key={item.product.id} className="flex items-start justify-between border-b pb-4">
+      <div className="flex items-start">
+        <img
+          alt={item.product.name}
+          src={item.product.image}
+          className="h-14 w-14 object-cover rounded-md"
+        />
+        <div className="ml-4 flex flex-col justify-between">
+          <p className="text-lg font-semibold text-gray-800">{item.product.name} {item.product.subname}</p>
+          <p className="text-md text-gray-600">{item.quantity} шт.</p>
+        </div>
+      </div>
+      <div className="text-right">
+        <p className="text-lg font-medium text-olive-green">{(item.product.price * item.quantity).toFixed(2)}₴</p>
+      </div>
+    </div>
+  ))}
+  <div className="mt-6 border-t pt-4 text-right">
+    <p className="text-xl font-semibold text-gray-800">Разом: <span className="text-xl font-semibold text-olive-green">{getTotalPrice().toFixed(2)}₴ </span></p>
+  </div>
+</div>
+
         </AnimatedElement>
 
         <AnimatedElement direction="up" delay={0.2} className="p-6 ">
