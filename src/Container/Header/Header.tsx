@@ -30,6 +30,7 @@ const Header = () => {
   const handleLinkClick = (to: string) => {
     setActiveLink(to);
     setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     navigate(to);
   };
 

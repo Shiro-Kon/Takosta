@@ -20,7 +20,7 @@ const App: React.FC = () => {
   const deferredPathname = useDeferredValue(pathname);
 
   useEffect(() => {
-    window.scrollTo({ top: -50, behavior: 'smooth' });
+    window.scrollTo({ top: -20, behavior: 'smooth' });
   }, [deferredPathname]);
 
   useEffect(() => {
