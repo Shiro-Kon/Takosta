@@ -1,12 +1,10 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState, useCallback } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import LoadingScreen from '../../Component/LoadingProgress/LoadingProgress';
-import { ErrorBoundary } from 'react-error-boundary';
-import { useDeferredValue } from 'react';
-
-const Main = lazy(() => import('../../Page/Main'));
+import { ErrorBoundary } from 'react-error-boundary'
+import Main from '../../Page/Main';
 const ProductPage = lazy(() => import('../../Page/ProductPage'));
 const ProductDetailsPage = lazy(() => import('../../Component/ProductPage/ProductDetails/ProductDetailsPage'));
 const DeliveryPaymentPage = lazy(() => import('../../Page/DeliveryPaymentPage'));
@@ -17,40 +15,28 @@ const NotFoundPage = lazy(() => import('../../Page/NotFoundPage'));
 const App: React.FC = () => {
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(true);
-  const deferredPathname = useDeferredValue(pathname);
 
   useEffect(() => {
-    window.scrollTo({ top: -20, behavior: 'smooth' });
-  }, [deferredPathname]);
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // Delay for 2 seconds
-
-    return () => clearTimeout(timer);
+    setLoading(false);
   }, []);
 
-  if (loading) {
-    return <LoadingScreen />; // Show loading screen until site is loaded
-  }
-
-
-
-  const handlePageLoaded = () => {
-    // Отключаем загрузочный экран после полной загрузки
+  const handlePageLoaded = useCallback(() => {
     setLoading(false);
-  };
+  }, []);
 
   return (
     <>
-     {loading && <LoadingScreen />} 
+      {loading && <LoadingScreen />}
       <Header />
       <main className="min-h-screen flex-grow">
         <Suspense fallback={<LoadingScreen />}>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <Routes>
-            <Route path="/" element={<Main onLoaded={handlePageLoaded} />} />
+              <Route path="/" element={<Main />} />
               <Route path="/product" element={<ProductPage />} />
               <Route path="/product/:productId" element={<ProductDetailsPage />} />
               <Route path="/delivery-payment" element={<DeliveryPaymentPage />} />
