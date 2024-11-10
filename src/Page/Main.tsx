@@ -1,4 +1,3 @@
-import React, { useEffect, lazy, Suspense } from 'react';
 import HeroBlock from '../Component/Main/HeroBlock';
 import Carousel from '../Component/Main/Carousel/Carousel';
 import WhyUs from '../Component/Main/WhyUs';

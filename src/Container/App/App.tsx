@@ -24,9 +24,7 @@ const App: React.FC = () => {
     setLoading(false);
   }, []);
 
-  const handlePageLoaded = useCallback(() => {
-    setLoading(false);
-  }, []);
+ 
 
   return (
     <>
