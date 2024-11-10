@@ -15,7 +15,7 @@ const SwiperImg: React.FC = React.memo(() => {
   const [selectedSlide, setSelectedSlide] = useState<Slide | null>(null);
 
   const handleSlideClick = useCallback((slide: Slide, index: number) => {
-    setActiveSlide(prevIndex => (prevIndex === index ? null : index));
+    setActiveSlide(prevIndex => (prevIndex === index ? null : index)); // Set active slide
     setSelectedSlide(slide); 
     setIsModalOpen(true); 
     swiper?.autoplay.stop(); 
@@ -55,10 +55,8 @@ const SwiperImg: React.FC = React.memo(() => {
         {slides.map((slide, index) => (
           <SwiperSlide key={slide.id} className="p-4 mb-6">
             <div className="relative">
-            
               <motion.div
-                className="relative cursor-pointer transition-transform duration-300"
-               
+                className={`relative cursor-pointer transition-transform duration-300 ${activeSlide === index ? 'scale-105' : ''}`} // Apply scale for active slide
                 onClick={() => handleSlideClick(slide, index)}
               >
                 <img
@@ -68,14 +66,12 @@ const SwiperImg: React.FC = React.memo(() => {
                   loading="lazy"
                 />
               </motion.div>
-
-              
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
- ]
+      {/* Modal for full-size image */}
       {isModalOpen && selectedSlide && (
         <motion.div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
@@ -95,7 +91,7 @@ const SwiperImg: React.FC = React.memo(() => {
           />
         </motion.div>
       )}
-      
+
       <div className="swiper-pagination"></div>
     </AnimatedElement>
   );
