@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useState, useCallback } from 'react';
+import React, { lazy, Suspense, useEffect, useState} from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
