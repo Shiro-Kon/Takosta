@@ -22,7 +22,7 @@ const Carousel: React.FC = () => {
     <AnimatedElement direction="visibility" delay={0.2} className="container mx-auto relative py-8">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={20} // Увеличить пространство между слайдами
+        spaceBetween={20}
         slidesPerView={3}
         pagination={{
           clickable: true,
@@ -30,7 +30,7 @@ const Carousel: React.FC = () => {
           bulletActiveClass: "swiper-pagination-bullet-active !bg-olive-green",
         }}
         autoplay={{
-          delay: 3000, // Увеличить задержку автопрокрутки
+          delay: 3000, 
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
@@ -40,8 +40,8 @@ const Carousel: React.FC = () => {
           700: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        effect="slide" // Использовать эффект "slide" для плавного пролистывания
-        speed={800} // Увеличить скорость анимации
+        effect="slide" 
+        speed={800} 
       >
         {products.map((product: Product, index) => (
           <SwiperSlide key={product.id} className="p-4 mb-6">
@@ -55,7 +55,7 @@ const Carousel: React.FC = () => {
                 <img
                   src={product.image}
                   alt={`${product.name} ${product.subname}`}
-                  className="w-full h-[500px] md:h-[500px] xxl:h-[650px] object-cover rounded-2xl shadow-lg"
+                  className="w-full h-[500px] md:h-[500px] xxl:h-[650px] object-cover rounded-2xl "
                 />
               </motion.div>
 

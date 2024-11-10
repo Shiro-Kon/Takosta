@@ -35,14 +35,22 @@ const App: React.FC = () => {
     return <LoadingScreen />; // Show loading screen until site is loaded
   }
 
+
+
+  const handlePageLoaded = () => {
+    // Отключаем загрузочный экран после полной загрузки
+    setLoading(false);
+  };
+
   return (
     <>
+     {loading && <LoadingScreen />} 
       <Header />
       <main className="min-h-screen flex-grow">
         <Suspense fallback={<LoadingScreen />}>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <Routes>
-              <Route path="/" element={<Main />} />
+            <Route path="/" element={<Main onLoaded={handlePageLoaded} />} />
               <Route path="/product" element={<ProductPage />} />
               <Route path="/product/:productId" element={<ProductDetailsPage />} />
               <Route path="/delivery-payment" element={<DeliveryPaymentPage />} />
@@ -58,7 +66,6 @@ const App: React.FC = () => {
   );
 };
 
-// Error fallback component
 const ErrorFallback: React.FC<{ error: Error; resetErrorBoundary: () => void }> = ({ error, resetErrorBoundary }) => (
   <div role="alert">
     <p>Something went wrong:</p>

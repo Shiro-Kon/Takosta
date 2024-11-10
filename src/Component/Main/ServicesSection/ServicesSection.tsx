@@ -15,19 +15,18 @@ const ServicesSection: React.FC = () => {
  
 
   return (
-    <div className="py-16">
       <div className="container mx-auto px-4">
         <AnimatedElement
           direction="left"
           delay={0.4}
-          className="text-[45px] md:text-7xl lg:text-8xl xl:text-9xl  xxl:text-9xl font-pushkin text-white text-center mb-12"
+          className="text-[45px] md:text-6xl lg:text-7xl xl:text-8xl  xxl:text-9xl font-pushkin text-white text-center mb-6"
         >
-          <span className="text-olive-green text-7xl md:text-8xl lg:text-9xl  xl:text-9xl xxl:text-[170px]">
+          <span className="text-olive-green text-5xl md:text-6xl lg:text-7xl  xl:text-8xl xxl:text-[170px]">
             Послуги{" "}
           </span>
-          <br /> <div className="text-sage-green mt-6  md:mt-4 xxl:mt-6">які ми надаємо</div>
+          <br /> <div className="text-sage-green mt-4 ">які ми надаємо</div>
         </AnimatedElement>
-        <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-16 md:gap-8 xl:gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-4 md:gap-4 xl:gap-0">
           <AnimatedElement direction="left" delay={0.6}>
           <div
                  onClick={() => setContactOpen(true)}
@@ -55,7 +54,6 @@ const ServicesSection: React.FC = () => {
             </Link>
           </AnimatedElement>
         </div>
-      </div>
       <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </div>
   );

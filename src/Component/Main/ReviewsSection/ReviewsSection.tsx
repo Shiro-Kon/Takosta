@@ -50,7 +50,7 @@ const ReviewsSection: React.FC = () => {
     <AnimatedElement
       direction="visibility"
       delay={0.1}
-      className="relative py-24"
+      className="relative  py-24"
     >
       <img
         src="./Images/Reviews/Reviews.png"
