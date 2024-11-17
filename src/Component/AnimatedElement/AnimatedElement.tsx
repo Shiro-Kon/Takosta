@@ -44,7 +44,8 @@ const AnimatedElement: React.FC<{
   children: React.ReactNode;
   direction?: Direction;
   delay?: number;
-}> = ({ className, children, direction = 'up', delay = 0 }) => {
+  duration?: number;
+}> = React.memo(({ className, children, direction = 'up', delay = 0, duration = 0.5 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -57,11 +58,15 @@ const AnimatedElement: React.FC<{
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
       variants={getVariants(direction)}
-      transition={{ duration: 0.5, ease: 'easeOut', delay }}
+      transition={{
+        duration: duration,  
+        ease: 'easeOut',      
+        delay: delay,         
+      }}
     >
       {children}
     </motion.div>
   );
-};
+});
 
 export default AnimatedElement;

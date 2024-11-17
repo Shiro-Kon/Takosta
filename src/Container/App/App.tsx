@@ -1,10 +1,11 @@
-import React, { lazy, Suspense, useEffect, useState} from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import LoadingScreen from '../../Component/LoadingProgress/LoadingProgress';
-import { ErrorBoundary } from 'react-error-boundary'
-import Main from '../../Page/Main';
+import { ErrorBoundary } from 'react-error-boundary';
+
+const Main = lazy(() => import('../../Page/Main'));
 const ProductPage = lazy(() => import('../../Page/ProductPage'));
 const ProductDetailsPage = lazy(() => import('../../Component/ProductPage/ProductDetails/ProductDetailsPage'));
 const DeliveryPaymentPage = lazy(() => import('../../Page/DeliveryPaymentPage'));
@@ -15,46 +16,56 @@ const NotFoundPage = lazy(() => import('../../Page/NotFoundPage'));
 const App: React.FC = () => {
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    const timer = setTimeout(() => {
+      setFadeOut(true); // Начинаем исчезновение
+      setTimeout(() => setLoading(false), 500); // Убираем экран через 500ms
+    }, 2000);
 
-  useEffect(() => {
-    setLoading(false);
+    return () => clearTimeout(timer);
   }, []);
 
- 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
 
   return (
     <>
-      {loading && <LoadingScreen />}
-      <Header />
-      <main className="min-h-screen flex-grow">
-        <Suspense fallback={<LoadingScreen />}>
-          <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <Routes>
-              <Route path="/" element={<Main />} />
-              <Route path="/product" element={<ProductPage />} />
-              <Route path="/product/:productId" element={<ProductDetailsPage />} />
-              <Route path="/delivery-payment" element={<DeliveryPaymentPage />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-          </ErrorBoundary>
-        </Suspense>
-      </main>
-      <Footer />
+      {loading && <LoadingScreen fadeOut={fadeOut} />}
+      {!loading && (
+        <>
+          <Header />
+          <main className="min-h-screen flex-grow">
+            <Suspense fallback={<LoadingScreen fadeOut={false} />}>
+              <ErrorBoundary FallbackComponent={ErrorFallback}>
+                <Routes>
+                  <Route path="/" element={<Main />} />
+                  <Route path="/product" element={<ProductPage />} />
+                  <Route path="/product/:productId" element={<ProductDetailsPage />} />
+                  <Route path="/delivery-payment" element={<DeliveryPaymentPage />} />
+                  <Route path="/services" element={<ServicesPage />} />
+                  <Route path="/checkout" element={<CheckoutPage />} />
+                  <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+              </ErrorBoundary>
+            </Suspense>
+          </main>
+          <Footer />
+        </>
+      )}
     </>
   );
 };
 
 const ErrorFallback: React.FC<{ error: Error; resetErrorBoundary: () => void }> = ({ error, resetErrorBoundary }) => (
-  <div role="alert">
-    <p>Something went wrong:</p>
+  <div role="alert" className="p-4 bg-red-100 text-red-700">
+    <h2>Something went wrong:</h2>
     <pre>{error.message}</pre>
-    <button onClick={resetErrorBoundary}>Try again</button>
+    <button onClick={resetErrorBoundary} className="btn">
+      Try again
+    </button>
   </div>
 );
 

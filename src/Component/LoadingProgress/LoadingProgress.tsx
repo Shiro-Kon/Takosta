@@ -1,9 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const LoadingScreen: React.FC = () => {
+interface LoadingScreenProps {
+  fadeOut: boolean; // Управляет анимацией исчезновения
+}
+
+const LoadingScreen: React.FC<LoadingScreenProps> = ({ fadeOut }) => {
   return (
-    <div className="fixed inset-0 bg-sage-green/100 z-50 flex flex-col items-center justify-center">
+    <motion.div
+      className={`fixed inset-0 bg-sage-green/100 z-50 flex flex-col items-center justify-center ${
+        fadeOut ? 'opacity-0 transition-opacity duration-500' : 'opacity-100'
+      }`}
+      initial={{ opacity: 1 }}
+      animate={{ opacity: fadeOut ? 0 : 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Анимация точек */}
       <motion.div className="relative flex space-x-4 mb-6">
         {[...Array(3)].map((_, index) => (
           <motion.div
@@ -23,6 +35,8 @@ const LoadingScreen: React.FC = () => {
           />
         ))}
       </motion.div>
+
+      {/* Текст */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -35,7 +49,7 @@ const LoadingScreen: React.FC = () => {
       >
         Завантажуємо красу для вас...
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

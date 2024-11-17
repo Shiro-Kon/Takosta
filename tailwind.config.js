@@ -24,8 +24,19 @@ module.exports = {
         "olive-drab": "#626936", //text main
         "olive-green": "#57622A" ,  
       },
+      animation: {
+        spin: 'spin 1s linear infinite',
+        fade: 'fadeOut 0.5s ease-in-out',
+      },
     },
+    
   },
+  keyframes: {
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+      },
   variants: {},
   plugins: [],
 };

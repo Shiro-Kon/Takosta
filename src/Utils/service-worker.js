@@ -1,74 +1,71 @@
-// service-worker.js
-
-import { precacheAndRoute, createHandlerBoundToURL, setCacheNameDetails } from 'workbox-precaching';
+import { precacheAndRoute } from 'workbox-precaching';
 import { CacheFirst, NetworkFirst, StaleWhileRevalidate } from 'workbox-strategies';
 import { registerRoute } from 'workbox-routing';
+import { setCacheNameDetails } from 'workbox-core';
+import { ExpirationPlugin } from 'workbox-expiration';
 
-// Устанавливаем имя кэша
 setCacheNameDetails({
   prefix: 'my-app',
   suffix: 'v1',
 });
 
-// Предварительно кэшируем файлы, указанные в manifest.json
+// Предварительное кэширование файлов из manifest.json
 precacheAndRoute(self.__WB_MANIFEST);
 
-// Стратегия Cache First для изображений
+// Кэширование HTML файлов
+registerRoute(
+  ({ request }) => request.mode === 'navigate',
+  new NetworkFirst({
+    cacheName: 'html-pages',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 10,
+        maxAgeSeconds: 24 * 60 * 60, // 1 день
+      }),
+    ],
+  })
+);
+
+// Кэширование изображений
 registerRoute(
   ({ request }) => request.destination === 'image',
   new CacheFirst({
     cacheName: 'images',
     plugins: [
-      // Плагин для максимального размера кэша
-      new workbox.expiration.ExpirationPlugin({
-        maxEntries: 50, // Максимальное количество изображений в кэше
+      new ExpirationPlugin({
+        maxEntries: 50,
         maxAgeSeconds: 30 * 24 * 60 * 60, // 30 дней
       }),
     ],
   })
 );
 
-// Стратегия Network First для API-запросов
-registerRoute(
-  ({ request }) => request.destination === 'fetch' && request.url.includes('/api/'),
-  new NetworkFirst({
-    cacheName: 'api-data',
-    networkTimeoutSeconds: 10, // Период ожидания для сети
-    plugins: [
-      new workbox.expiration.ExpirationPlugin({
-        maxEntries: 20, // Максимальное количество API-запросов в кэше
-        maxAgeSeconds: 5 * 60, // 5 минут
-      }),
-    ],
-  })
-);
-
-// Стратегия Stale While Revalidate для JS и CSS файлов
+// Кэширование JS и CSS
 registerRoute(
   ({ request }) => request.destination === 'script' || request.destination === 'style',
   new StaleWhileRevalidate({
     cacheName: 'static-resources',
     plugins: [
-      new workbox.expiration.ExpirationPlugin({
-        maxEntries: 50, // Максимальное количество ресурсов в кэше
+      new ExpirationPlugin({
+        maxEntries: 50,
         maxAgeSeconds: 7 * 24 * 60 * 60, // 7 дней
       }),
     ],
   })
 );
 
-// Очищаем старые кэши
+// Очистка старых кэшей
 self.addEventListener('activate', (event) => {
-  const currentCaches = [ 'images', 'api-data', 'static-resources' ];
+  const cacheWhitelist = ['my-app-html-pages', 'my-app-images', 'my-app-static-resources'];
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
+    caches.keys().then((cacheNames) =>
+      Promise.all(
         cacheNames.map((cacheName) => {
-          if (!currentCaches.includes(cacheName)) {
+          if (!cacheWhitelist.includes(cacheName)) {
             return caches.delete(cacheName);
           }
         })
-      );
-    })
+      )
+    )
   );
 });

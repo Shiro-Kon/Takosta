@@ -18,7 +18,6 @@ const Main: React.FC = () => {
     <WhyUs/>
     <ImageSlider/>
     <ServicesSection/>
-    <ReviewsSection/>
     </div>
   );
 };

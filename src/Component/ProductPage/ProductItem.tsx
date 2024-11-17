@@ -20,7 +20,7 @@ const ProductItem: React.FC<{ product: Product; delay: number }> = ({ product, d
         src={product.image}
         alt={product.name}
         loading="lazy"
-        className="w-full md:w-[300px] lg:w-[400px] xl:w-[350px] xxl:w-[550px] h-[350px] md:h-[350px] lg:h-[450px] xl:h-[400px] xxl:h-[600px] object-cover mb-4 md:mb-0 md:mr-6 lg:mr-12 rounded-[30px] shadow-black/20 shadow-lg"
+        className="w-full md:w-[300px] lg:w-[400px] xl:w-[350px] xxl:w-[550px] h-[350px] md:h-[350px] lg:h-[450px] xl:h-[400px] xxl:h-[600px] object-cover mb-4 md:mb-0 md:mr-6 lg:mr-12 rounded-3xl "
       />
       <div className="flex-grow sm:mt-4">
         <h3 className="text-4xl md:text-4xl lg:text-6xl xl:text-7xl xxl:text-8xl font-light text-sage-green  font-forum mb-2 lg:mb-6 ">

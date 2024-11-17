@@ -1,7 +1,8 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 interface AnimationContextType {
   startAnimation: boolean;
+  triggerAnimation: () => void;
 }
 
 const AnimationContext = createContext<AnimationContextType | undefined>(undefined);
@@ -17,6 +18,10 @@ export const useAnimation = () => {
 export const AnimationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [startAnimation, setStartAnimation] = useState(false);
 
+  const triggerAnimation = useCallback(() => {
+    setStartAnimation(true);
+  }, []);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setStartAnimation(true);
@@ -26,7 +31,7 @@ export const AnimationProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   }, []);
 
   return (
-    <AnimationContext.Provider value={{ startAnimation }}>
+    <AnimationContext.Provider value={{ startAnimation, triggerAnimation }}>
       {children}
     </AnimationContext.Provider>
   );

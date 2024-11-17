@@ -21,7 +21,7 @@ export interface Product {
 export const products: Product[] = [
   {
     id: "Shampoo Repair",
-    image: "/Images/Products/Shampoo Repair.jpg",
+    image: "/Images/Products/Shampoo Repair.webp",
     name: "Shampoo",
     subname: "Repair",
     productGroup: "Шампунь",
@@ -41,7 +41,7 @@ export const products: Product[] = [
   },
   {
     id: "Shampoo Trietment",
-    image: "/Images/Products/Shampoo Treatment.jpg",
+    image: "/Images/Products/Shampoo Treatment.webp",
     name: "Shampoo",
     subname: "Trietment",
     productGroup: "Шампунь",
@@ -61,7 +61,7 @@ export const products: Product[] = [
   },
   {
     id: "Condicioner For all hair types",
-    image: "/Images/Products/Condicioner For all hair types.jpg",
+    image: "/Images/Products/Condicioner For all hair types.webp",
     name: "Condicioner",
     subname: "For all hair types",
     productGroup: "Кондиціонер",
@@ -81,7 +81,7 @@ export const products: Product[] = [
   },
   {
     id: "Nektar Hair Oil",
-    image: "/Images/Products/Nektar Hair Oil.jpg",
+    image: "/Images/Products/Nektar Hair Oil.webp",
     name: "Nektar ",
     subname: "Hair Oil",
     productGroup: "Кондиціонер",
@@ -121,7 +121,7 @@ export const products: Product[] = [
   },
   {
     id: "Express Conditioner",
-    image: "/Images/Products/Express Conditioner.jpg",
+    image: "/Images/Products/Express Conditioner.webp",
     name: "Express ",
     subname: "Conditioner",
     productGroup: "Кондиціонер",
@@ -160,7 +160,7 @@ contraindication: "Індивідуальна чутливість до комп
   },
   {
     id: "Liquid Silk",
-    image: "/Images/Products/Liquid Silk.jpg",
+    image: "/Images/Products/Liquid Silk.webp",
     name: "Liquid  ",
     subname: "Silk",
     productGroup: "додатковий догляд",

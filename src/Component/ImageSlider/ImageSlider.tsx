@@ -7,13 +7,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import AnimatedElement from "../AnimatedElement/AnimatedElement";
 import { sliderData } from "../../Utils/ImageSlider/sliderData";
-
+import { motion } from "framer-motion";
 
 const CarouselImg: React.FC = () => {
   const swiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <AnimatedElement direction="visibility" delay={0.2} className="container mx-auto relative">
+    <AnimatedElement direction="visibility" delay={0.2} className="container mx-auto relative duration-300">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
@@ -36,22 +36,34 @@ const CarouselImg: React.FC = () => {
         }}
         effect="slide"
         speed={800}
+        className="relative"
       >
-        {sliderData.map((slide) => (
+        
+        {sliderData.map((slide, index) => (
+          
           <SwiperSlide key={slide.id} className="p-6 mb-6">
-            <div className="relative">
+            
+            <motion.div
+              initial={{ opacity: 0, y: 50 }} 
+              animate={{ opacity: 1, y: 0 }}   
+              transition={{ delay: index * 0.2, duration: 0.8, ease: "easeOut" }} 
+              className="relative"
+            >
               <img
                 src={slide.image}
                 alt={slide.alt}
                 className="w-full h-[400px] max-w-xl md:h-[500px] object-cover rounded-3xl"
                 loading="lazy"
               />
-            </div>
+              
+            </motion.div>
           </SwiperSlide>
+          
         ))}
+        
       </Swiper>
       <div className="swiper-pagination"></div>
-    </AnimatedElement>
+      </AnimatedElement>
   );
 };
 
