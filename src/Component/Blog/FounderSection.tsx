@@ -40,11 +40,12 @@ const FounderSection = () => {
       <div className="w-full h-full flex items-center justify-between">
         {/* Левая часть: изображение */}
         <div className="w-1/2 h-full overflow-hidden">
-          <img
-            src={slides[index].image}
-            alt={`Founder's Image ${index + 1}`}
-            className="w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100"
-          />
+        <img
+  src={slides[index].image}
+  alt={`Founder of TAKOSTA ${index + 1}`}
+  className="w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100"
+/>
+
         </div>
 
         {/* Правая часть: текст */}
