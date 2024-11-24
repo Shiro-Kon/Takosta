@@ -1,7 +1,6 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import LoadingScreen from '../../Component/LoadingProgress/LoadingProgress';
 import { ErrorBoundary } from 'react-error-boundary';
 import Blog from '../../Page/Blog';

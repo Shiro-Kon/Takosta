@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import AnimatedElement from "../AnimatedElement/AnimatedElement";
 
 const FounderSection = () => {
@@ -19,10 +19,10 @@ const FounderSection = () => {
     },
   ];
 
-  // Функции для переключения слайда
-  const nextSlide = () => {
+  // Мемоизация функции для переключения слайда
+  const nextSlide = useCallback(() => {
     setIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
+  }, [slides.length]);
 
   const prevSlide = () => {
     setIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
@@ -33,7 +33,7 @@ const FounderSection = () => {
     const timer = setInterval(nextSlide, 5000); // смена каждые 5 секунд
 
     return () => clearInterval(timer); // очистка таймера при размонтировании компонента
-  }, []);
+  }, [nextSlide]);
 
   return (
     <section className="relative flex items-center justify-center h-screen">
@@ -52,8 +52,8 @@ const FounderSection = () => {
           <AnimatedElement direction="up" delay={0.3} className="">
             <span className="font-pushkin text-7xl md:text-7xl lg:text-8xl xl:text-8xl xxl:text-[140px] text-olive-green mr-4">Я засновник</span>
             <div className="z-20 text-6xl md:text-7xl lg:text-8xl xl:text-8xl xxl:text-[140px] text-olive-green font-forum">
-            TAKOSTA
-          </div>
+              TAKOSTA
+            </div>
           </AnimatedElement>
 
           <AnimatedElement direction="up" delay={0.5} className="text-xl font-sans text-olive-drab leading-relaxed mb-8">
