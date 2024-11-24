@@ -11,6 +11,7 @@ const navigation = [
   { name: 'Продукція', to: '/product' },
   { name: 'Доставка та оплата', to: '/delivery-payment' },
   { name: 'Послуги', to: '/services' },
+  { name: 'Блог', to: '/blog' },
 ];
 
 const Header = () => {

@@ -4,29 +4,26 @@ import AnimatedElement from "../AnimatedElement/AnimatedElement";
 const HeroBlock = () => {
   return (
     <div className="relative h-screen">
-      {/* Animated background image */}
       <AnimatedElement direction="visibility" delay={0.2}>
         <img 
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
           src="./Images/Heroblock/Heroblok.png"
-          loading="lazy"  // Добавлен lazy load для оптимизации производительности
+          loading="lazy" 
         />
       </AnimatedElement>
 
       <div className="flex items-center justify-center h-full mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          {/* Animated logo */}
           <AnimatedElement direction="up" delay={0.2}>
             <img 
               alt="Takosta professional cosmetics"
               className="scale-75 sm:scale-90 md:scale-100 lg:scale-110 xl:scale-125 mobile-landscape:scale-50 transition-transform duration-500 ease-out"
               src="./Images/Heroblock/TAKOSTA_logo.PNG"
-              loading="lazy"  // lazy load изображения
+              loading="lazy" 
             />
           </AnimatedElement>
 
-          {/* Animated button */}
           <AnimatedElement direction="up" delay={0.6}>
             <div className="mt-6 lg:mt-16 flex justify-center mobile-landscape:-mt-6">
               <Link

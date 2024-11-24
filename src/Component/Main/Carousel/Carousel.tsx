@@ -11,13 +11,14 @@ import { Product, products } from "../../../Utils/Products";
 import AnimatedElement from "../../AnimatedElement/AnimatedElement";
 
 const Carousel: React.FC = () => {
+  // Убедимся, что тип для activeSlide правильный
   const [activeSlide, setActiveSlide] = useState<number | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
 
+  // Для индексации используем Record с числовыми ключами
   const handleSlideClick = useCallback(
     (index: number) => {
       setActiveSlide((prevIndex) => (prevIndex === index ? null : index));
-      swiperRef.current?.autoplay.stop();
     },
     []
   );
@@ -44,10 +45,9 @@ const Carousel: React.FC = () => {
           700: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        effect="slide"
         speed={800}
       >
-        {products.map((product: Product, index) => (
+        {products.map((product: Product, index: number) => (
           <SwiperSlide key={product.id} className="p-6 mb-6">
             <div className="relative">
               <motion.div
@@ -62,44 +62,44 @@ const Carousel: React.FC = () => {
                   className="w-full h-[400px] max-w-xl md:h-[500px] object-cover rounded-3xl"
                   loading="lazy"
                 />
-              
 
-              <AnimatePresence>
-                {activeSlide === index && (
-                  <motion.div
-                    initial={{ maxHeight: "20%", opacity: 0 }}
-                    animate={{ maxHeight: "80%", opacity: 1 }}
-                    exit={{ maxHeight: "20%", opacity: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="absolute bottom-0 left-0 right-0 text-white bg-sage-green/60 backdrop-blur-lg p-6 text-center rounded-3xl overflow-hidden"
-                  >
-                    <h3 className="text-xl md:text-2xl lg:text-3xl font-light mb-2">
-                      {product.name} {product.subname}
-                    </h3>
-                    <p className="text-sm md:text-md lg:text-lg xxl:text-xl mb-2">
-                      {product.shirtDescription}
-                    </p>
-                    <p className="text-sm md:text-md lg:text-lg font-semibold mb-2">
-                      {product.price} грн.
-                    </p>
-                    <Link to={`/product/${product.id}`}>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="rounded-lg border-2 border-white/50 bg-sage-green/40 backdrop-blur-md px-4 py-2 text-white shadow-sm transition-transform duration-200 hover:bg-black/30 hover:text-white"
-                      >
-                        Детальніше
-                      </motion.button>
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                <AnimatePresence>
+                  {activeSlide === index && (
+                    <motion.div
+                      initial={{ maxHeight: "20%", opacity: 0 }}
+                      animate={{ maxHeight: "80%", opacity: 1 }}
+                      exit={{ maxHeight: "20%", opacity: 0 }}
+                      transition={{ duration: 0.6 }}
+                      className="absolute bottom-0 left-0 right-0 text-white bg-sage-green/60 backdrop-blur-lg p-6 text-center rounded-3xl overflow-hidden"
+                    >
+                      <h3 className="text-xl md:text-2xl lg:text-3xl font-light mb-2">
+                        {product.name} {product.subname}
+                      </h3>
+                      <p className="text-sm md:text-md lg:text-lg xxl:text-xl mb-2">
+                        {product.shirtDescription}
+                      </p>
+                      <p className="text-sm md:text-md lg:text-lg font-semibold mb-2">
+                        {product.price} грн.
+                      </p>
+                      <Link to={`/product/${product.id}`}>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="rounded-lg border-2 border-white/50 bg-sage-green/40 backdrop-blur-md px-4 py-2 text-white shadow-sm transition-transform duration-200 hover:bg-black/30 hover:text-white"
+                        >
+                          Детальніше
+                        </motion.button>
+                      </Link>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="swiper-pagination"></div>
+
+     
     </AnimatedElement>
   );
 };
