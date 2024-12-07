@@ -16,7 +16,9 @@ const Main: React.FC = () => {
     <Carousel/>
     <WhyUs/>
     <ImageSlider/>
+    <section className="pt-12 pb-16">
     <ServicesSection/>
+    </section>
     </div>
   );
 };

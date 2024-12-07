@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import LoadingScreen from '../../Component/LoadingProgress/LoadingProgress';
 import { ErrorBoundary } from 'react-error-boundary';
 import Blog from '../../Page/Blog';
+import BlogDetailsPage from '../../Component/Blog/BlogDetailsPage';
 
 const Main = lazy(() => import('../../Page/Main'));
 const ProductPage = lazy(() => import('../../Page/ProductPage'));
@@ -47,6 +48,7 @@ const App: React.FC = () => {
                   <Route path="/delivery-payment" element={<DeliveryPaymentPage />} />
                   <Route path="/services" element={<ServicesPage />} />
                   <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:postId" element={<BlogDetailsPage />} />
                   <Route path="/checkout" element={<CheckoutPage />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Routes>

@@ -13,11 +13,11 @@ const CarouselImg: React.FC = () => {
   const swiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <AnimatedElement direction="visibility" delay={0.2} className="container mx-auto relative duration-300">
+    <AnimatedElement direction="visibility" delay={0.2} className="container mx-auto w-[90%] relative duration-300">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={20} // Расстояние между слайдами
-        slidesPerView={4} // Количество слайдов, которые показываются на экране
+        spaceBetween={20} 
+        slidesPerView={4} 
         pagination={{
           clickable: true,
           bulletClass: "swiper-pagination-bullet !bg-sage-green",
@@ -30,10 +30,10 @@ const CarouselImg: React.FC = () => {
         }}
         onSwiper={(swiper: SwiperType) => (swiperRef.current = swiper)}
         breakpoints={{
-          320: { slidesPerView: 1 },  // 1 слайд на мобильных
-          700: { slidesPerView: 2 },  // 2 слайда на экранах среднего размера
-          1024: { slidesPerView: 3 }, // 3 слайда на экранах типа планшет
-          1280: { slidesPerView: 4 }, // 4 слайда на десктопах
+          320: { slidesPerView: 1 }, 
+          700: { slidesPerView: 2 }, 
+          1024: { slidesPerView: 3 }, 
+          1280: { slidesPerView: 4 },
         }}
         effect="slide"
         speed={800}
@@ -50,8 +50,8 @@ const CarouselImg: React.FC = () => {
               <img
                 src={slide.image}
                 alt={slide.alt}
-                className="w-full h-[400px] max-w-full md:h-[500px] object-cover rounded-3xl"
-                loading="lazy"  // Оптимизация загрузки изображений
+                className="w-[500px] h-[500px] lg:w-[500px] lg:h-[600] object-cover rounded-3xl"
+                loading="lazy"  
               />
             </motion.div>
           </SwiperSlide>
