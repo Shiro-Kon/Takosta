@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const BlogCTA = () => {
   return (
@@ -8,12 +9,12 @@ const BlogCTA = () => {
       <p className="text-md md:text-lg mb-6">
         Підпишіться на наш блог, щоб отримувати найновіші статті та рекомендації від професіоналів.
       </p>
-      <a
-        href="#"
+      <Link
+        to=""
         className="inline-block bg-white text-olive-green px-6 py-3 rounded-lg font-semibold hover:bg-soft-sand transition duration-300"
       >
         Підписатися
-      </a>
+      </Link>
     </div>
   );
 };
