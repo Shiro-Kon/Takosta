@@ -62,6 +62,21 @@ html, body {
   border-bottom-color: rgba(0, 0, 0, 0.1);
   border-left-color: #000;
 }
+/* В файле global.css или tailwind.config */
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.button-hover:hover {
+  animation: scaleUp 0.3s ease-out;
+}
+
+
 
 
 

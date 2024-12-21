@@ -21,7 +21,7 @@ export interface Product {
 export const products: Product[] = [
   {
     id: "Shampoo Repair",
-    image: "/Images/Products/Shampoo Repair.webp",
+    image: "/Images/Products/Shampoo Repair-min.jpg",
     name: "Shampoo",
     subname: "Repair",
     productGroup: "Шампунь",
@@ -41,7 +41,7 @@ export const products: Product[] = [
   },
   {
     id: "Shampoo Trietment",
-    image: "/Images/Products/Shampoo Treatment.webp",
+    image: "/Images/Products/Shampoo Treatment-min.jpg",
     name: "Shampoo",
     subname: "Trietment",
     productGroup: "Шампунь",
@@ -61,7 +61,7 @@ export const products: Product[] = [
   },
   {
     id: "Condicioner For all hair types",
-    image: "/Images/Products/Condicioner For all hair types.webp",
+    image: "/Images/Products/Condicioner For all hair types-min.jpg",
     name: "Condicioner",
     subname: "For all hair types",
     productGroup: "Кондиціонер",
@@ -81,7 +81,7 @@ export const products: Product[] = [
   },
   {
     id: "Nektar Hair Oil",
-    image: "/Images/Products/Nektar Hair Oil.webp",
+    image: "/Images/Products/Nektar Hair Oil-min.jpg",
     name: "Nektar ",
     subname: "Hair Oil",
     productGroup: "Кондиціонер",
@@ -101,7 +101,7 @@ export const products: Product[] = [
   },
   {
     id: "Nektar Hair Oil Small",
-    image: "/Images/Products/Nektar Hair Oil Small.JPEG",
+    image: "/Images/Products/Nektar Hair Oil Small-min.jpeg",
     name: "Nektar ",
     subname: "Hair Oil Small",
     productGroup: "Кондиціонер",
@@ -121,7 +121,7 @@ export const products: Product[] = [
   },
   {
     id: "Express Conditioner",
-    image: "/Images/Products/Express Conditioner.webp",
+    image: "/Images/Products/Express Conditioner-min.jpg",
     name: "Express ",
     subname: "Conditioner",
     productGroup: "Кондиціонер",
@@ -160,7 +160,7 @@ contraindication: "Індивідуальна чутливість до комп
   },
   {
     id: "Liquid Silk",
-    image: "/Images/Products/Liquid Silk.webp",
+    image: "/Images/Products/Liquid Silk-min.jpg",
     name: "Liquid  ",
     subname: "Silk",
     productGroup: "додатковий догляд",

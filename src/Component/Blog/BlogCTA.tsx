@@ -10,11 +10,13 @@ const BlogCTA = () => {
         Підпишіться на наш блог, щоб отримувати найновіші статті та рекомендації від професіоналів.
       </p>
       <Link
-        to=""
-        className="inline-block bg-white text-olive-green px-6 py-3 rounded-lg font-semibold hover:bg-soft-sand transition duration-300"
-      >
-        Підписатися
-      </Link>
+  to="#"
+  onClick={() => window.open("https://www.instagram.com/takosta_ua/", "_blank")}
+  className="inline-block bg-white text-olive-green px-6 py-3 rounded-lg font-semibold hover:bg-soft-sand transition duration-300"
+>
+  Підписатися
+</Link>
+
     </div>
   );
 };
