@@ -77,6 +77,15 @@ html, body {
 }
 
 
+body {
+  user-select: none; /* Запрет выделения текста */
+}
+
+img {
+  user-drag: none; /* Запрет перетаскивания изображений */
+  -webkit-user-drag: none;
+}
+
 
 
 

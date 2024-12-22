@@ -15,7 +15,7 @@ const Main: React.FC = () => {
       <section className="pt-12 pb-16">
         <ServicesSection />
       </section>
-      <section className="pt-12 pb-12">
+      <section className="pb-12">
         <BeforeAfterImages />
       </section>
     </div>

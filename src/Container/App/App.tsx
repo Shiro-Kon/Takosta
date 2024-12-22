@@ -1,36 +1,34 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
-import Header from '../Header/Header';
-import LoadingScreen from '../../Component/LoadingProgress/LoadingProgress';
-import { ErrorBoundary } from 'react-error-boundary';
-import Blog from '../../Page/Blog';
-import BlogDetailsPage from '../../Component/Blog/BlogDetailsPage';
+import React, { lazy, Suspense, useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Header from "../Header/Header";
+import { ErrorBoundary } from "react-error-boundary";
+import ScrollToTop from "../../Component/ScrollToTop/ScrollToTop";
+import LoadingScreen from "../../Component/LoadingProgress/LoadingProgress";
 
-const Main = lazy(() => import('../../Page/Main'));
-const ProductPage = lazy(() => import('../../Page/ProductPage'));
-const ProductDetailsPage = lazy(() => import('../../Component/ProductPage/ProductDetails/ProductDetailsPage'));
-const DeliveryPaymentPage = lazy(() => import('../../Page/DeliveryPaymentPage'));
-const ServicesPage = lazy(() => import('../../Page/ServicesPage'));
-const CheckoutPage = lazy(() => import('../../Page/CheckoutPage'));
-const NotFoundPage = lazy(() => import('../../Page/NotFoundPage'));
+// Ленивая загрузка страниц
+const Main = lazy(() => import("../../Page/Main"));
+const ProductPage = lazy(() => import("../../Page/ProductPage"));
+const ProductDetailsPage = lazy(() => import("../../Component/ProductPage/ProductDetails/ProductDetailsPage"));
+const DeliveryPaymentPage = lazy(() => import("../../Page/DeliveryPaymentPage"));
+const ServicesPage = lazy(() => import("../../Page/ServicesPage"));
+const CheckoutPage = lazy(() => import("../../Page/CheckoutPage"));
+const Blog = lazy(() => import("../../Page/Blog"));
+const BlogDetailsPage = lazy(() => import("../../Component/Blog/BlogDetailsPage"));
+const NotFoundPage = lazy(() => import("../../Page/NotFoundPage"));
 
 const App: React.FC = () => {
-  const { pathname } = useLocation();
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
+  // Управление загрузочным экраном
   useEffect(() => {
     const timer = setTimeout(() => {
-      setFadeOut(true); // Начинаем исчезновение
-      setTimeout(() => setLoading(false), 500); // Убираем экран через 500ms
-    }, 2000);
+      setFadeOut(true); 
+      setTimeout(() => setLoading(false), ); 
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [pathname]);
 
   return (
     <>
@@ -38,8 +36,9 @@ const App: React.FC = () => {
       {!loading && (
         <>
           <Header />
-          <main className="min-h-screen flex-grow">
-            <Suspense fallback={<LoadingScreen fadeOut={false} />}>
+          <ScrollToTop /> {/* Добавляем компонент для прокрутки страницы наверх */}
+          <main className="min-h-screen flex-grow duration-300">
+            <Suspense  fallback={<LoadingScreen fadeOut={false} />}>
               <ErrorBoundary FallbackComponent={ErrorFallback}>
                 <Routes>
                   <Route path="/" element={<Main />} />
@@ -55,13 +54,13 @@ const App: React.FC = () => {
               </ErrorBoundary>
             </Suspense>
           </main>
-          {/* <Footer /> */}
         </>
       )}
     </>
   );
 };
 
+// Компонент для обработки ошибок
 const ErrorFallback: React.FC<{ error: Error; resetErrorBoundary: () => void }> = ({ error, resetErrorBoundary }) => (
   <div role="alert" className="p-4 bg-red-100 text-red-700">
     <h2>Something went wrong:</h2>

@@ -1,154 +1,133 @@
 import { useEffect, useState } from "react";
-import AnimatedElement from "../AnimatedElement/AnimatedElement";
-import { FaSearchPlus } from "react-icons/fa"; // Иконка увеличения
+import { FaExpand } from "react-icons/fa";
+import { FiMaximize } from "react-icons/fi";
+import { BiExpandAlt } from "react-icons/bi";
+
+
 import { beforeAfterData } from "../../Utils/beforeAndAfterData";
 
 const BeforeAfterImages = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [fullscreenImage, setFullscreenImage] = useState<string>(""); // Изначально строка, а не null
-  const [showAfter, setShowAfter] = useState(false); // Для переключения между "до" и "после"
+  const [fullscreenImage, setFullscreenImage] = useState<string>("");
+  const [showAfter, setShowAfter] = useState(false);
 
   useEffect(() => {
-    if (isFullscreen) {
-      document.body.style.overflow = "hidden"; // Блокируем прокрутку
-    } else {
-      document.body.style.overflow = ""; // Восстанавливаем прокрутку
-    }
+    document.body.style.overflow = isFullscreen ? "hidden" : "";
     return () => {
-        document.body.style.overflow = "";
-      };
-    }, [isFullscreen]);
+      document.body.style.overflow = "";
+    };
+  }, [isFullscreen]);
 
-  const toggleFullscreen = (image: string, isAfter: boolean) => {
+  const toggleFullscreen = (image: string) => {
     setIsFullscreen(!isFullscreen);
-    if (!isFullscreen) {
-      setFullscreenImage(image);
-    }
+    setFullscreenImage(image);
   };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % beforeAfterData.length);
-    setShowAfter(false); // Сбрасываем отображение "после" при переключении на следующую карточку
+    setShowAfter(false);
   };
 
   const handlePrev = () => {
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + beforeAfterData.length) % beforeAfterData.length
     );
-    setShowAfter(false); // Сбрасываем отображение "после"
+    setShowAfter(false);
   };
 
   const { before, after, alt, procedure, issues } = beforeAfterData[currentIndex];
 
-  
-
   return (
-    <section className="mx-auto w-[90%]">
-      <h2 className="font-forum text-center mb-8 xl:mb-10 px-4">
-        <AnimatedElement direction="up" delay={0.2}>
-          <span className="font-pushkin text-5xl md:text-7xl text-olive-green mr-4">
-            До і після
-          </span>
-        </AnimatedElement>
-      </h2>
+    <section className="container mx-auto px-4">
+      <h2 className="font-pushkin text-5xl md:text-7xl text-center text-olive-green mb-6">До і після</h2>
 
-      <div className="relative flex flex-wrap justify-between">
-        {/* Сетка карточек с описанием */}
-        <AnimatedElement
-          direction="visibility"
-          delay={0.3}
-          className="flex flex-col md:flex-row mb-4 text-wrap sm:text-center md:text-left sm:px-6 px-4 duration-300"
-        >
-          <div className="relative overflow-hidden rounded-3xl group cursor-pointer w-full sm:w-full md:w-[calc(50%-20px)] lg:w-[calc(50%-20px)] xl:w-[calc(50%-20px)]">
-            <div
-              className="w-full h-[500px] object-cover rounded-3xl overflow-hidden group-hover:scale-105 duration-500 transition-transform"
-              onClick={() => setShowAfter(!showAfter)} // Убираем затемнение
-            >
-              <img
-                src={before}
-                alt={`Фото до: ${alt}`}
-                className={`rounded-3xl object-cover w-full h-full transition-opacity duration-500 ${showAfter ? "opacity-0" : "opacity-100"}`}
-              />
-              <img
-                src={after}
-                alt={`Фото після: ${alt}`}
-                className={`rounded-3xl object-cover w-full h-full absolute inset-0 transition-opacity duration-500 ${showAfter ? "opacity-100" : "opacity-0"}`}
-              />
-            </div>
-
-            {/* Иконка увеличения, только для области нажатия на картинку */}
-            <div
-              className="absolute top-4 right-4 cursor-pointer z-10"
-              onClick={(e) => {
-                e.stopPropagation(); // Останавливаем событие для предотвращения переключения "до" и "после"
-                toggleFullscreen(showAfter ? after : before, showAfter); // Открываем изображение в полный экран в зависимости от "до" или "после"
-              }}
-            >
-              <FaSearchPlus className="text-white text-3xl" />
-            </div>
-
-            {/* Текст "До" или "После" */}
-            <div className="absolute top-4 left-4  backdrop-blur-sm bg-sage-green/45  text-white text-xl font-semibold p-3 rounded-md">
-              {showAfter ? "Після" : "До"}
-            </div>
+      <div className="flex flex-col gap-6 items-start md:flex-row">
+        {/* Карточка изображений */}
+        <div className="relative w-full md:w-1/2 h-[500px] bg-gray-100 rounded-3xl shadow-lg overflow-hidden flex flex-col group">
+          <div
+            className="relative flex-1 cursor-pointer"
+            onClick={() => setShowAfter(!showAfter)}
+          >
+            <img
+              src={before}
+              alt={`Фото до: ${alt}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                showAfter ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <img
+              src={after}
+              alt={`Фото після: ${alt}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                showAfter ? "opacity-100" : "opacity-0"
+              }`}
+            />
           </div>
 
-        {/* Описание процесса и проблемы */}
-          <div className="w-full md:w-[50%] sm:mt-4 font-forum ml-6">
-            <h3 className="text-4xl md:text-4xl font-light text-sage-green mb-2 lg:mb-6">
-              Процедура: {procedure}
-            </h3>
-            <p className="text-sm md:text-sm lg:text-md xl:text-xl xxl:text-3xl font-sans text-olive-drab my-4 xl:my-6 text-balance break-words">
-              {issues && issues.length > 0 ? (
-                <>
-                  <span className="font-semibold">Проблеми:</span>
-                  <ul className="list-disc pl-5">
-                    {issues.map((issue, index) => (
-                      <li key={index}>{issue}</li>
-                    ))}
-                  </ul>
-                </>
-              ) : (
-                <span>Проблем не було під час процедури.</span>
-              )}
-            </p>
+          {/* Иконка для увеличения изображения */}
+          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <button
+              className="text-white bg-black bg-opacity-50 rounded-xl p-2 "
+              onClick={() => toggleFullscreen(showAfter ? after : before)}
+            >
+              <BiExpandAlt size={20} />
+            </button>
           </div>
-        </AnimatedElement>
 
-        {/* Кнопки "вперед" и "назад" */}
-        <AnimatedElement
-          direction="visibility"
-          delay={0.4}>
-        <div className="flex justify-start gap-2 mt-4 ml-4 w-full">
-          <button
-            onClick={handlePrev}
-            className="px-4 py-2 bg-olive-green text-white rounded-lg hover:bg-dark-green transition-colors"
-          >
-            Попереднє
-          </button>
-          <button
-            onClick={handleNext}
-            className="px-4 py-2 bg-olive-green text-white rounded-lg hover:bg-dark-green transition-colors"
-          >
-            Наступне
-          </button>
+          <div className="absolute top-4 left-4 backdrop-blur-sm bg-black/50 text-white text-xl  px-4 py-1 rounded-xl">
+            {showAfter ? "Після" : "До"}
+          </div>
+
+          <div className="absolute bottom-4 left-4 right-4 flex justify-between">
+            <button
+              onClick={handlePrev}
+              className="px-4 py-2 backdrop-blur-sm bg-black/50 text-white rounded-xl duration-300 active:scale-95"
+            >
+              Назад
+            </button>
+            <button
+              onClick={handleNext}
+              className="px-4 py-2 backdrop-blur-sm bg-black/50 text-white rounded-xl duration-300 active:scale-95"
+            >
+              Далі
+            </button>
+          </div>
         </div>
-        </AnimatedElement>
-        {/* Полноэкранный режим */}
-        {isFullscreen && (
+
+        {/* Описание */}
+        <div className="w-full md:w-1/2 text-wrap sm:text-center md:text-left flex flex-col  content-start">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl  font-light text-sage-green   mb-2 lg:mb-6 ">Процедура: {procedure}</h3>
+          <p className="text-sm md:text-sm lg:text-md xl:text-xl xxl:text-3xl font-sans text-olive-drab my-4 xl:my-6 text-balance break-words ">
+            {issues && issues.length ? (
+              <>
+                <strong>Проблеми:</strong>
+                <ul className=" ">
+                  {issues.map((issue, index) => (
+                    <li key={index}>{issue}</li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              "Проблем не було під час процедури."
+            )}
+          </p>
+        </div>
+      </div>
+
+      {/* Полноэкранное изображение */}
+      {isFullscreen && (
         <div
-          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 z-50 flex justify-center items-center"
-          onClick={() => setIsFullscreen(false)} // Закрытие полноэкранного изображения при клике за пределы
+          className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
+          onClick={() => setIsFullscreen(false)}
         >
           <img
-            src={fullscreenImage || ""}
-            alt={`Фото: ${alt}`}
-            className="w-full h-auto max-w-4xl max-h-full object-contain"
+            src={fullscreenImage}
+            alt={`Полноэкранное изображение: ${alt}`}
+            className="max-w-full max-h-full"
           />
         </div>
       )}
-      </div>
     </section>
   );
 };

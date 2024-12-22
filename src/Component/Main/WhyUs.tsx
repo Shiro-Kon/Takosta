@@ -1,5 +1,6 @@
 import React from "react";
 import AnimatedElement from "../AnimatedElement/AnimatedElement";
+import { motion } from "framer-motion";
 
 interface FeatureProps {
   icon: React.ReactNode;
@@ -9,7 +10,16 @@ interface FeatureProps {
 
 const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => (
   <div className="flex flex-col items-center text-olive-drab text-center break-words leading-relaxed font-sans">
-    <div className="mb-4">{icon}</div>
+    <div className="mb-4">
+      {/* Анимация иконки с уменьшением */}
+      <motion.div
+        initial={{ scale: 1 }}
+        animate={{ scale: 0.95 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
+        {icon}
+      </motion.div>
+    </div>
     <h3 className="mb-4 text-3xl lg:text-4xl">{title}</h3>
     <p className="text-sm lg:text-lg">{description}</p>
   </div>
@@ -27,7 +37,7 @@ const WhyUs: React.FC = () => {
         </AnimatedElement>
 
         {/* Сетка Features с анимацией */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-12">
           <AnimatedElement direction="up" delay={0.3}>
             <Feature
               icon={
