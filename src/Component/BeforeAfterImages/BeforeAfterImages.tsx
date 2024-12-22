@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaExpand } from "react-icons/fa";
-import { FiMaximize } from "react-icons/fi";
+
 import { BiExpandAlt } from "react-icons/bi";
 
 
