@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AnimatedElement from "../AnimatedElement/AnimatedElement";
 import { FaSearchPlus } from "react-icons/fa"; // Иконка увеличения
 import { beforeAfterData } from "../../Utils/beforeAndAfterData";
@@ -8,7 +8,17 @@ const BeforeAfterImages = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [fullscreenImage, setFullscreenImage] = useState<string>(""); // Изначально строка, а не null
   const [showAfter, setShowAfter] = useState(false); // Для переключения между "до" и "после"
-  const [hover, setHover] = useState(false); // Для отслеживания наведения
+
+  useEffect(() => {
+    if (isFullscreen) {
+      document.body.style.overflow = "hidden"; // Блокируем прокрутку
+    } else {
+      document.body.style.overflow = ""; // Восстанавливаем прокрутку
+    }
+    return () => {
+        document.body.style.overflow = "";
+      };
+    }, [isFullscreen]);
 
   const toggleFullscreen = (image: string, isAfter: boolean) => {
     setIsFullscreen(!isFullscreen);
@@ -31,6 +41,8 @@ const BeforeAfterImages = () => {
 
   const { before, after, alt, procedure, issues } = beforeAfterData[currentIndex];
 
+  
+
   return (
     <section className="mx-auto w-[90%]">
       <h2 className="font-forum text-center mb-8 xl:mb-10 px-4">
@@ -44,16 +56,14 @@ const BeforeAfterImages = () => {
       <div className="relative flex flex-wrap justify-between">
         {/* Сетка карточек с описанием */}
         <AnimatedElement
-          direction="up"
+          direction="visibility"
           delay={0.3}
           className="flex flex-col md:flex-row mb-4 text-wrap sm:text-center md:text-left sm:px-6 px-4 duration-300"
         >
           <div className="relative overflow-hidden rounded-3xl group cursor-pointer w-full sm:w-full md:w-[calc(50%-20px)] lg:w-[calc(50%-20px)] xl:w-[calc(50%-20px)]">
             <div
               className="w-full h-[500px] object-cover rounded-3xl overflow-hidden group-hover:scale-105 duration-500 transition-transform"
-              onClick={() => setShowAfter(!showAfter)} // Клик для переключения на "после"
-              onMouseEnter={() => setHover(true)} // Наведение для затемнения
-              onMouseLeave={() => setHover(false)} // Убираем затемнение
+              onClick={() => setShowAfter(!showAfter)} // Убираем затемнение
             >
               <img
                 src={before}
@@ -107,6 +117,9 @@ const BeforeAfterImages = () => {
         </AnimatedElement>
 
         {/* Кнопки "вперед" и "назад" */}
+        <AnimatedElement
+          direction="visibility"
+          delay={0.4}>
         <div className="flex justify-start gap-2 mt-4 ml-4 w-full">
           <button
             onClick={handlePrev}
@@ -121,20 +134,20 @@ const BeforeAfterImages = () => {
             Наступне
           </button>
         </div>
-
+        </AnimatedElement>
         {/* Полноэкранный режим */}
         {isFullscreen && (
-          <div
-            className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 z-50 flex justify-center items-center"
-            onClick={() => setIsFullscreen(false)} // Закрытие полноэкранного изображения при клике за пределы
-          >
-            <img
-              src={fullscreenImage || ""}
-              alt={`Фото: ${alt}`}
-              className="w-full h-auto max-w-4xl max-h-full object-contain"
-            />
-          </div>
-        )}
+        <div
+          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 z-50 flex justify-center items-center"
+          onClick={() => setIsFullscreen(false)} // Закрытие полноэкранного изображения при клике за пределы
+        >
+          <img
+            src={fullscreenImage || ""}
+            alt={`Фото: ${alt}`}
+            className="w-full h-auto max-w-4xl max-h-full object-contain"
+          />
+        </div>
+      )}
       </div>
     </section>
   );
