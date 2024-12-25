@@ -6,6 +6,7 @@ export interface Service {
     priceRange: string;
     image: string;
     additionalInfo?: string[];
+    textHeight: string;
   }
   
   export const services: Service[] = [
@@ -14,21 +15,24 @@ export interface Service {
       title: "Фарбування в техніці",
       description: "ціна варіюється в залежності від довжини",
       priceRange: "від 2000 ₴ до 3000 ₴",
-      image: "./Images/ServicesImg/services-1.png"
+      image: "./Images/ServicesImg/services-1.png",
+      textHeight: "40"
     },
     {
       id: 2,
       title: "Біколористія",
       description: "ціна варіюється в залежності від довжини",
       priceRange: "від 1800 ₴ до 3000 ₴",
-      image: "./Images/ServicesImg/services-2.png"
+      image: "./Images/ServicesImg/services-2.png",
+      textHeight: "40"
     },
     {
       id: 3,
       title: "Airtouch",
       description: "ціна варіюється в залежності від довжини",
       priceRange: "від 3000 ₴ до 7000 ₴",
-      image: "./Images/ServicesImg/services-3.png"
+      image: "./Images/ServicesImg/services-3.png",
+      textHeight: "40"
     },
     {
       id: 4,
@@ -39,27 +43,32 @@ export interface Service {
         "Корекція довжини 400 ₴",
         "Чубчик 100 ₴",
       ],
-      image: "./Images/ServicesImg/services-4.png"
+      image: "./Images/ServicesImg/services-4.png",
+      textHeight: "40"
     },
     {
       id: 5,
       title: "Фарбування в один тон",
       description: "ціна варіюється в залежності від довжини",
       priceRange: "від 1500 ₴-до 2000 ₴",
-      image: "./Images/ServicesImg/services-5.png"
+      image: "./Images/ServicesImg/services-5.png",
+      textHeight: "40"
     },
     {
       id: 6,
-      title: "Процедура “Гарячі ножиці”",
-      description: "Термо-стрижка за допомогою гарячих ножиць, лікувальна процедура, яка орієнтована на оздоровлення волосся. Результат досягається шляхом позбавлення від січених кінців всій по довжині.",
-      priceRange: "1000 ₴",
-      image: "./Images/ServicesImg/services-6.png"
-    },
-    {
-      id: 7,
       title: "Вихід із темних відтінків",
       description: "ціна варіюється в залежності від довжини",
       priceRange: "від 4000 ₴-до 7000 ₴",
-      image: "./Images/ServicesImg/services-5.png"
+      image: "./Images/ServicesImg/services-5.png",
+      textHeight: "40"
     },
+    {
+      id: 7,
+      title: "Процедура “Гарячі ножиці”",
+      description: "Термо-стрижка за допомогою гарячих ножиць, лікувальна процедура, яка орієнтована на оздоровлення волосся. Результат досягається шляхом позбавлення від січених кінців всій по довжині.",
+      priceRange: "1000 ₴",
+      image: "./Images/ServicesImg/services-6.png",
+      textHeight: "40"
+    },
+    
   ];

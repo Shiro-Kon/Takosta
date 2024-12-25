@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import AnimatedElement from "../AnimatedElement/AnimatedElement";
 
 const BlogCTA = () => {
   return (
+    <AnimatedElement direction="up" delay={0.1}>
     <div className="max-w-[90%] mx-auto px-4 lg:px-8 py-12 bg-olive-green/70 text-white text-center rounded-lg ">
       <h2 className="text-2xl md:text-5xl lg:text-6xl font-forum mb-4">
         Хочете більше порад по догляду за волоссям?
@@ -18,6 +20,7 @@ const BlogCTA = () => {
 </Link>
 
     </div>
+    </AnimatedElement>
   );
 };
 

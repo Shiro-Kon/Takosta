@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -11,20 +11,23 @@ import { Product, products } from "../../../Utils/Products";
 import AnimatedElement from "../../AnimatedElement/AnimatedElement";
 
 const Carousel: React.FC = () => {
-  // Убедимся, что тип для activeSlide правильный
   const [activeSlide, setActiveSlide] = useState<number | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
 
-  // Для индексации используем Record с числовыми ключами
   const handleSlideClick = useCallback(
-    (index: number) => {
-      setActiveSlide((prevIndex) => (prevIndex === index ? null : index));
-    },
+    (index: number) => setActiveSlide((prevIndex) => (prevIndex === index ? null : index)),
     []
   );
 
+  useEffect(() => {
+    return () => {
+      // Очищаем ссылку при размонтировании
+      swiperRef.current = null;
+    };
+  }, []);
+
   return (
-    <AnimatedElement direction="visibility" delay={0.2} className="container mx-auto relative duration-300">
+    <AnimatedElement direction="up" delay={0.1} className="container mx-auto relative duration-300">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
@@ -66,29 +69,24 @@ const Carousel: React.FC = () => {
                 <AnimatePresence>
                   {activeSlide === index && (
                     <motion.div
-                      initial={{ maxHeight: "20%", opacity: 0 }}
+                      initial={{ maxHeight: 0, opacity: 0 }}
                       animate={{ maxHeight: "80%", opacity: 1 }}
-                      exit={{ maxHeight: "20%", opacity: 0 }}
+                      exit={{ maxHeight: 0, opacity: 0 }}
                       transition={{ duration: 0.6 }}
                       className="absolute bottom-0 left-0 right-0 text-white bg-sage-green/60 backdrop-blur-lg p-6 text-center rounded-3xl overflow-hidden"
                     >
                       <h3 className="text-xl md:text-2xl lg:text-3xl font-light mb-2">
                         {product.name} {product.subname}
                       </h3>
-                      <p className="text-sm md:text-md lg:text-lg xxl:text-xl mb-2">
-                        {product.shirtDescription}
-                      </p>
-                      <p className="text-sm md:text-md lg:text-lg font-semibold mb-2">
-                        {product.price} грн.
-                      </p>
+                      <p className="text-sm md:text-md lg:text-lg mb-2">{product.shirtDescription}</p>
+                      <p className="text-sm md:text-md lg:text-lg font-semibold mb-2">{product.price} грн.</p>
                       <Link to={`/product/${product.id}`}>
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="rounded-lg border-2 border-white/50 bg-sage-green/40 backdrop-blur-md px-4 py-2 text-white shadow-sm transition-transform duration-200 hover:bg-black/30 hover:text-white"
+                        <button
+                         
+                          className="rounded-lg border-2 border-white/50 bg-sage-green/40 backdrop-blur-md px-4 py-2 text-white shadow-sm transition-transform duration-200 hover:bg-black/30 hover:text-white hover:scale-[105%] active:scale-[95%]"
                         >
                           Детальніше
-                        </motion.button>
+                        </button>
                       </Link>
                     </motion.div>
                   )}
@@ -98,8 +96,6 @@ const Carousel: React.FC = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-     
     </AnimatedElement>
   );
 };
