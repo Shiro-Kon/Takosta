@@ -9,7 +9,7 @@ interface ServiceProps {
 const ServiceMainCard: React.FC<ServiceProps> = ({ image, buttonText, onClick }) => {
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const target = e.target as HTMLImageElement;
-    target.src = "/fallback-image.jpg"; // Установка резервного изображения
+    target.src = "/fallback-image.jpg"; 
   };
 
   return (

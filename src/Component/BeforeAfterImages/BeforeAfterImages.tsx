@@ -9,9 +9,8 @@ const BeforeAfterImages = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [fullscreenImage, setFullscreenImage] = useState<string>("");
   const [showAfter, setShowAfter] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false); // Для блокировки переходов во время анимации
+  const [isTransitioning, setIsTransitioning] = useState(false); 
 
-  // Эффект для скрытия скроллинга при открытом полноэкранном режиме
   useEffect(() => {
     if (isFullscreen) {
       document.body.style.overflow = "hidden";
@@ -21,35 +20,31 @@ const BeforeAfterImages = () => {
     };
   }, [isFullscreen]);
 
-  // Функция для переключения полноэкранного режима
   const toggleFullscreen = useCallback((image: string) => {
     setFullscreenImage(image);
     setIsFullscreen((prev) => !prev);
   }, []);
 
-  // Функции для переключения слайдов с таймаутами
   const handleNext = useCallback(() => {
-    if (isTransitioning) return; // Блокируем переход, пока идет анимация
+    if (isTransitioning) return; 
     setIsTransitioning(true);
     setShowAfter(false);
 
-    // Задержка перед переходом к следующему изображению
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % beforeAfterData.length);
       setIsTransitioning(false);
-    }, 100); // Время анимации перехода
+    }, 100); 
   }, [isTransitioning]);
 
   const handlePrev = useCallback(() => {
-    if (isTransitioning) return; // Блокируем переход, пока идет анимация
+    if (isTransitioning) return; 
     setIsTransitioning(true);
     setShowAfter(false);
 
-    // Задержка перед переходом к предыдущему изображению
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex - 1 + beforeAfterData.length) % beforeAfterData.length);
       setIsTransitioning(false);
-    }, 100); // Время анимации перехода
+    }, 100);
   }, [isTransitioning]);
 
   const { before, after, alt, procedure, issues } = beforeAfterData[currentIndex];
@@ -70,7 +65,7 @@ const BeforeAfterImages = () => {
       <div className="flex flex-col gap-6 items-start md:flex-row">
         <div className="relative w-full md:w-1/2 h-[500px]  rounded-3xl shadow-lg overflow-hidden flex flex-col group">
           <motion.div
-            key={currentIndex} // Используем ключ для анимации изменения контента
+            key={currentIndex} 
             className="relative flex-1 cursor-pointer  bg-black"
             onClick={() => setShowAfter((prev) => !prev)}
             initial={{ opacity: 0 }}
@@ -103,7 +98,6 @@ const BeforeAfterImages = () => {
             />
           </motion.div>
 
-          {/* Иконка для увеличения изображения */}
           <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <button
               className="text-white bg-black bg-opacity-50 rounded-xl p-2 duration-300 "
@@ -133,7 +127,6 @@ const BeforeAfterImages = () => {
           </div>
         </div>
 
-        {/* Описание */}
         <div className="w-full md:w-1/2 text-wrap sm:text-center md:text-left flex flex-col content-start">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-sage-green mb-2 lg:mb-6 ">
             Процедура: {procedure}
@@ -156,7 +149,6 @@ const BeforeAfterImages = () => {
       </div>
       </AnimatedElement>
 
-      {/* Полноэкранное изображение */}
       {isFullscreen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 duration-300"

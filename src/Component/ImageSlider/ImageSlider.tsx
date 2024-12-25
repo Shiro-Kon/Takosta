@@ -7,14 +7,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import AnimatedElement from "../AnimatedElement/AnimatedElement";
 import { sliderData } from "../../Utils/ImageSlider/sliderData";
-import { motion } from "framer-motion";
 
 const CarouselImg: React.FC = () => {
   const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
     return () => {
-      // Очищаем ссылку на Swiper при размонтировании
       swiperRef.current = null;
     };
   }, []);

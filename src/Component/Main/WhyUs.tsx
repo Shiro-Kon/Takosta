@@ -11,7 +11,6 @@ interface FeatureProps {
 const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => (
   <div className="flex flex-col items-center text-olive-drab text-center break-words leading-relaxed font-sans">
     <div className="mb-4">
-      {/* Анимация иконки с уменьшением */}
       <motion.div
         initial={{ scale: 1 }}
         animate={{ scale: 0.95 }}
@@ -29,16 +28,14 @@ const WhyUs: React.FC = () => {
   return (
     <div className="mx-auto w-[90%] py-8">
       <div className="container mx-auto px-4">
-        {/* Заголовок с анимацией */}
-        <AnimatedElement direction="up" delay={0.2} className="text-center mb-12">
+        <AnimatedElement direction="left" delay={0.1} className="text-center mb-12">
           <span className="font-pushkin text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-sage-green">
             Чому саме <span className="text-olive-green">ми?</span>
           </span>
         </AnimatedElement>
 
-        {/* Сетка Features с анимацией */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-12">
-          <AnimatedElement direction="up" delay={0.3}>
+          <AnimatedElement direction="left" delay={0.2}>
             <Feature
               icon={
                 <svg
@@ -56,7 +53,7 @@ const WhyUs: React.FC = () => {
             />
           </AnimatedElement>
 
-          <AnimatedElement direction="up" delay={0.4}>
+          <AnimatedElement direction="left" delay={0.3}>
             <Feature
               icon={
                 <svg
@@ -74,7 +71,7 @@ const WhyUs: React.FC = () => {
             />
           </AnimatedElement>
 
-          <AnimatedElement direction="up" delay={0.5}>
+          <AnimatedElement direction="left" delay={0.4}>
             <Feature
               icon={
                 <svg
