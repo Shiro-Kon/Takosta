@@ -32,9 +32,6 @@ body {
 h1, h2, h3 {
   font-family: 'Cocomat Pro', sans-serif; 
 }
-.m-\[56px\]{
-  margin: 0;
-}
 
 
 
@@ -50,8 +47,7 @@ h1, h2, h3 {
 html, body {
   margin: 0;
   padding: 0;
-  /* scrollbar-width: none;
-  overflow-x: hidden; */
+ 
   width: 100%;
   position: relative;
 }
@@ -62,7 +58,6 @@ html, body {
   border-bottom-color: rgba(0, 0, 0, 0.1);
   border-left-color: #000;
 }
-/* В файле global.css или tailwind.config */
 @keyframes scaleUp {
   0% {
     transform: scale(1);
@@ -78,18 +73,22 @@ html, body {
 
 
 body {
-  user-select: none; /* Запрет выделения текста */
+  user-select: none; 
 }
 
 img {
-  user-drag: none; /* Запрет перетаскивания изображений */
+  user-drag: none;
   -webkit-user-drag: none;
 }
 
 
+.m-\[56px\]{
+  margin: 0;
+}
 
 
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+

@@ -2,11 +2,11 @@ import React, { useRef, useEffect } from "react";
 import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, Virtual } from "swiper/modules";
+import { FadeInText, SlideInComponent } from "../../animation/FadeInText"; 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import AnimatedElement from "../AnimatedElement/AnimatedElement";
-import { sliderData } from "../../Utils/ImageSlider/sliderData";
+import { sliderData } from "../../../Utils/ImageSlider/sliderData";
 
 const CarouselImg: React.FC = () => {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -22,11 +22,7 @@ const CarouselImg: React.FC = () => {
   }
 
   return (
-    <AnimatedElement
-      direction="left"
-      delay={0.2}
-      className="container mx-auto w-[90%] relative duration-300"
-    >
+    <div className="container mx-auto w-[90%] relative duration-300">
       <Swiper
         modules={[Navigation, Pagination, Autoplay, Virtual]}
         spaceBetween={20}
@@ -53,25 +49,29 @@ const CarouselImg: React.FC = () => {
       >
         {sliderData.map((slide, index) => (
           <SwiperSlide key={slide.id} virtualIndex={index} className="mb-8">
-            <div
-              className="relative"
-            >
-              <img
-                src={slide.image}
-                alt={slide.alt || "Зображення"}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "/fallback-image.jpg";
-                }}
-                className="w-[500px] h-[500px] lg:w-[500px]  object-cover rounded-3xl"
-                loading="lazy"
-              />
-            </div>
+            <SlideInComponent direction="top" duration={700}>
+              <div className="relative">
+                <FadeInText delay={200} duration={500}>
+                  <img
+                    src={slide.image}
+                    alt={slide.alt || "Зображення"}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = "/fallback-image.jpg";
+                    }}
+                    className="w-[500px] h-[500px] lg:w-[500px] object-cover rounded-3xl"
+                    loading="lazy"
+                  />
+                </FadeInText>
+              </div>
+            </SlideInComponent>
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="swiper-pagination"></div>
-    </AnimatedElement>
+      <div className="swiper-pagination">
+       
+      </div>
+    </div>
   );
 };
 

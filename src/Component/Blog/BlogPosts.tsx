@@ -41,18 +41,18 @@ interface BlogPostItemProps {
 const BlogPostItem: React.FC<BlogPostItemProps> = ({ post, delay }) => {
   return (
     <AnimatedElement direction="right" delay={delay}>
-      <main className="flex flex-col md:flex-row mb-20 text-wrap sm:text-center md:text-left sm:px-6 px-4">
+      <main className="flex flex-col md:flex-row mb-20 sm:text-center md:text-left sm:px-6 px-4">
         <img
           src={post.image}
           alt={post.title}
           loading="lazy"
-          className="w-full md:w-[300px] lg:w-[400px] xl:w-[350px] xxl:w-[550px] h-[350px] md:h-[350px] lg:h-[450px] xl:h-[400px] xxl:h-[600px] object-cover mb-4 md:mb-0 md:mr-6 lg:mr-12 rounded-3xl"
+          className="w-full md:w-[300px] lg:w-[500px] h-[350px]  lg:h-[500px]  object-cover mb-4 md:mb-0 md:mr-6 lg:mr-12 rounded-3xl"
         />
         <div className="flex-grow sm:mt-4">
           <h3 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl  font-light text-olive-green font-sans mb-2 lg:mb-6">
             {post.title}
           </h3>
-          <p className="text-sm md:text-sm lg:text-md xl:text-xl  font-sans text-olive-drab my-4 xl:my-6 text-balance break-words">
+          <p className="text-sm  lg:text-md xl:text-xl leading-relaxed whitespace-pre-line  font-sans text-olive-drab my-4 xl:my-6 ">
             {post.summary}
           </p>
           

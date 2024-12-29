@@ -5,7 +5,6 @@ import { ErrorBoundary } from "react-error-boundary";
 import ScrollToTop from "../../Component/ScrollToTop/ScrollToTop";
 import LoadingScreen from "../../Component/LoadingProgress/LoadingProgress";
 
-// Ленивая загрузка страниц
 const Main = lazy(() => import("../../Page/Main"));
 const ProductPage = lazy(() => import("../../Page/ProductPage"));
 const ProductDetailsPage = lazy(() => import("../../Component/ProductPage/ProductDetails/ProductDetailsPage"));
@@ -20,7 +19,6 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
-  // Управление загрузочным экраном
   useEffect(() => {
     const timer = setTimeout(() => {
       setFadeOut(true); 
@@ -36,7 +34,7 @@ const App: React.FC = () => {
       {!loading && (
         <>
           <Header />
-          <ScrollToTop /> {/* Добавляем компонент для прокрутки страницы наверх */}
+          <ScrollToTop /> 
           <main className="min-h-screen flex-grow duration-300">
             <Suspense  fallback={<LoadingScreen fadeOut={false} />}>
               <ErrorBoundary FallbackComponent={ErrorFallback}>

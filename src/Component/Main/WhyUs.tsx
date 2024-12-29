@@ -1,6 +1,5 @@
 import React from "react";
-import AnimatedElement from "../AnimatedElement/AnimatedElement";
-import { motion } from "framer-motion";
+import { BounceComponent, FadeInText, ScrollAnimation } from "../animation/FadeInText";
 
 interface FeatureProps {
   icon: React.ReactNode;
@@ -11,16 +10,16 @@ interface FeatureProps {
 const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => (
   <div className="flex flex-col items-center text-olive-drab text-center break-words leading-relaxed font-sans">
     <div className="mb-4">
-      <motion.div
-        initial={{ scale: 1 }}
-        animate={{ scale: 0.95 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
+      <BounceComponent delay={200}>
         {icon}
-      </motion.div>
+      </BounceComponent>
     </div>
-    <h3 className="mb-4 text-3xl lg:text-4xl">{title}</h3>
-    <p className="text-sm lg:text-lg">{description}</p>
+    <h3 className="mb-4 text-3xl lg:text-4xl">
+      <FadeInText>{title}</FadeInText>
+    </h3>
+    <p className="text-sm lg:text-lg">
+      <FadeInText delay={400}>{description}</FadeInText>
+    </p>
   </div>
 );
 
@@ -28,14 +27,16 @@ const WhyUs: React.FC = () => {
   return (
     <div className="mx-auto w-[90%] py-8">
       <div className="container mx-auto px-4">
-        <AnimatedElement direction="left" delay={0.1} className="text-center mb-12">
-          <span className="font-pushkin text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-sage-green">
-            Чому саме <span className="text-olive-green">ми?</span>
-          </span>
-        </AnimatedElement>
+        <div className="text-center mb-12">
+          <FadeInText duration={1000}>
+            <span className="font-pushkin text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-sage-green">
+              Чому саме <span className="text-olive-green">ми?</span>
+            </span>
+          </FadeInText>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-12">
-          <AnimatedElement direction="left" delay={0.2}>
+          <ScrollAnimation threshold={0.1} offset={20}>
             <Feature
               icon={
                 <svg
@@ -51,9 +52,9 @@ const WhyUs: React.FC = () => {
               title="Професіоналізм"
               description="Бренд був заснован дійсним майстром"
             />
-          </AnimatedElement>
+          </ScrollAnimation>
 
-          <AnimatedElement direction="left" delay={0.3}>
+          <ScrollAnimation threshold={0.1} offset={20}>
             <Feature
               icon={
                 <svg
@@ -69,9 +70,9 @@ const WhyUs: React.FC = () => {
               title="Якість"
               description="Ми обираємо тільки найкращі інгредієнти, щоб забезпечити найкращі результати для вашого волосся та шкіри голови."
             />
-          </AnimatedElement>
+          </ScrollAnimation>
 
-          <AnimatedElement direction="left" delay={0.4}>
+          <ScrollAnimation threshold={0.1} offset={20}>
             <Feature
               icon={
                 <svg
@@ -87,7 +88,7 @@ const WhyUs: React.FC = () => {
               title="Зоофрендлі"
               description="Не тестується на тваринах"
             />
-          </AnimatedElement>
+          </ScrollAnimation>
         </div>
       </div>
     </div>
